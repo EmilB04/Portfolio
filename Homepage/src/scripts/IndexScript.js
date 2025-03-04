@@ -14,7 +14,13 @@ export default {
       CourseList,
       WorkComments,
       // ----------------- Variables -------------------
-      sections: ['about', 'timeline', 'skills', 'gitHub', 'comments'],
+      sections: [
+        'about-section',
+        'timeline-section',
+        'skills-section',
+        'gitHub-section',
+        'comments-section',
+      ],
       semesters: ['semester-1', 'semester-2', 'semester-3', 'semester-4'],
       currentSemester: 0,
       // ----------------- Methods ---------------------
@@ -28,7 +34,7 @@ export default {
   },
   methods: {
     scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
+      const section = document.getElementsByClassName(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
@@ -40,14 +46,16 @@ export default {
         const currentScrollPos = window.scrollY;
         const viewportHeight = window.innerHeight;
         for (let i = 0; i < this.sections.length; i++) {
-          const section = document.getElementById(this.sections[i]);
+          const section = document.getElementsByClassName(this.sections[i]);
           if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
             section.scrollIntoView({ behavior: 'smooth' });
             this.ChangeButtonLabel();
             return;
           }
         }
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        document
+          .getElementsByClassName('about-section')
+          .scrollIntoView({ behavior: 'smooth' });
         this.ChangeButtonLabel();
       }
     },

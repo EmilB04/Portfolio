@@ -4,12 +4,11 @@
       <header id="top">
         <nav class="q-my-md flex justify-between">
           <div class="justify-start">
-            <q-btn flat label="Om" @click="scrollToSection('about')" />
-            <q-btn flat label="Studie" @click="scrollToSection('timeline')" />
-            <q-btn flat label="Kunnskap" @click="scrollToSection('skills')" />
-            <q-btn flat label="GitHub" @click="scrollToSection('gitHub')" />
-            <!--<q-btn flat label="Sosiale profiler" @click="scrollToSection('social')" /> -->
-            <q-btn flat label="Tilbakemeldinger" @click="scrollToSection('comments')" />
+            <q-btn flat label="Om" @click="scrollToSection('about-section')" />
+            <q-btn flat label="Studie" @click="scrollToSection('timeline-section')" />
+            <q-btn flat label="Kunnskap" @click="scrollToSection('skills-section')" />
+            <q-btn flat label="GitHub" @click="scrollToSection('gitHub-section')" />
+            <q-btn flat label="Tilbakemeldinger" @click="scrollToSection('comments-section')" />
           </div>
           <div class="justify-end" id="name-tag">
             <q-btn flat label="Emil Berglund" />
@@ -19,7 +18,7 @@
       <hr id="nav-seperator" />
       <main class="flex column">
 
-        <section id="about" class="full-screen about-section">
+        <section class="full-screen about-section">
           <div class="content">
             <h1 class="q-mx-none text-left">
               Hei, jeg er Emil Berglund. <br />
@@ -51,7 +50,7 @@
           </div>
         </section>
 
-        <section id="timeline" class="timeline-section">
+        <section class="timeline-section">
           <div class="timeline-container">
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
               <h3>{{ semester.semester }}</h3>
@@ -74,7 +73,7 @@
           </div>
         </section>
 
-        <section id="skills" class="full-screen skills-section">
+        <section class="full-screen skills-section">
           <div class="content">
             <h2>Kunnskap</h2>
             <p>
@@ -162,7 +161,7 @@
           </div>
         </section>
 
-        <section id="gitHub" class="full-screen github-section">
+        <section class="full-screen gitHub-section">
           <div class="content">
             <h2>Mine GitHub Repositories</h2>
             <div v-if="repositories.length">
@@ -179,7 +178,7 @@
           </div>
         </section>
 
-        <section id="comments" class="full-screen comments-section">
+        <section class="full-screen comments-section">
           <div class="content">
             <h2>Tilbakemeldinger</h2>
             <p>
