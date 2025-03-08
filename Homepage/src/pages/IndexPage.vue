@@ -17,7 +17,6 @@
       </header>
       <hr id="nav-seperator" />
       <main class="flex column">
-
         <section class="full-screen about-section">
           <div class="content">
             <h1 class="q-mx-none text-left">
@@ -182,9 +181,9 @@
           <div class="content">
             <h2>Tilbakemeldinger</h2>
             <p>
-              Vil du få et inntrykk av meg som person?
-              Under vil du kunne se tilbakemeldinger på mitt arbeid fra
-              tidligere arbeidsgivere og samarbeidspartnere jeg har hatt.
+              Vil du få et inntrykk av meg som person? Under vil du kunne se
+              tilbakemeldinger på mitt arbeid fra tidligere arbeidsgivere og
+              samarbeidspartnere jeg har hatt.
             </p>
             <section id="work-comments">
               <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
@@ -198,9 +197,7 @@
         <q-btn flat :icon="isAtBottom ? 'arrow_upward' : 'arrow_downward'" @click="scrollToNextSection"
           class="scroll-btn" />
       </main>
-      <footer class="text-center q-ma-sm">
-        <p>&copy; 2025 Emil Berglund. Alle rettigheter reservert.</p>
-      </footer>
+      <FooterSection />
     </div>
   </q-page>
 </template>
@@ -208,9 +205,14 @@
 <script scoped>
 import IndexScript from 'src/scripts/IndexScript.js';
 import axios from 'axios';
+import FooterSection from 'src/components/FooterSection.vue';
+
 
 export default {
   name: 'IndexPage',
+  components: {
+    FooterSection,
+  },
   mixins: [IndexScript],
   data() {
     return {
@@ -232,9 +234,12 @@ export default {
   methods: {
     async fetchRepositories() {
       try {
-        const response = await axios.get('https://api.github.com/users/EmilB04/repos');
-        this.repositories = response.data
-          .filter(repo => repo.stargazers_count > 0)
+        const response = await axios.get(
+          'https://api.github.com/users/EmilB04/repos'
+        );
+        this.repositories = response.data.filter(
+          (repo) => repo.stargazers_count > 0
+        );
       } catch (error) {
         console.error('Error fetching repositories:', error);
       }
