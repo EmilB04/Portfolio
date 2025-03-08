@@ -40,37 +40,20 @@ export default {
       }
     },
     scrollToNextSection() {
-      console.log('scrollToNextSection called');
       if (this.isAtBottom) {
-        console.log('Scrolling to top');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         const currentScrollPos = window.scrollY;
         const viewportHeight = window.innerHeight;
-        console.log('Current scroll position:', currentScrollPos);
-        console.log('Viewport height:', viewportHeight);
 
         for (let i = 0; i < this.sections.length; i++) {
           const section = document.querySelector(this.sections[i]);
-          if (section) {
-            console.log(
-              'Checking section:',
-              this.sections[i],
-              'Offset top:',
-              section.offsetTop
-            );
-            if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
-              console.log('Scrolling to section:', this.sections[i]);
-              section.scrollIntoView({ behavior: 'smooth' });
-              this.ChangeButtonLabel();
-              return;
-            }
-          } else {
-            console.warn('Section not found:', this.sections[i]);
+          if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            this.ChangeButtonLabel();
+            return;
           }
         }
-
-        console.log('Scrolling to about section');
         document
           .querySelector('.about-section')
           .scrollIntoView({ behavior: 'smooth' });
