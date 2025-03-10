@@ -51,22 +51,17 @@
           <div class="timeline-container">
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
               <h3>{{ semester.semester }}</h3>
-              <div class="timeline-line"></div>
+              <q-seperator class="timeline-line" />
               <ul class="row full-height">
-                <li class="col column" v-for="(course, index) in semester.courses" :key="index" :class="{
-                  'reverse': index % 2 !== 0,
-                }">
-                  <div class="col-6 column items-center justify-end" :class="{
-                    'reverse': index % 2 !== 0
-                  }">
-                    <a :href="course.link" class="course-link" style="height: fit-content;" target="_blank">
+                <li class="col column" v-for="(course, index) in semester.courses" :key="index"
+                  :class="{ reverse: index % 2 !== 0 }">
+                  <div class="col-6 column items-center justify-end" :class="{ reverse: index % 2 !== 0 }">
+                    <a :href="course.link" style="height: fit-content" target="_blank">
                       {{ course.name }}
                     </a>
-                    <div style="height: 40px; width: 2px; background-color: white;">
-
-                    </div>
+                    <span style="height: 40px; width: 2px; background-color: white" />
+                    <!-- Connecting line-->
                   </div>
-                  <div class="col-6"></div>
                 </li>
               </ul>
             </article>
@@ -128,10 +123,6 @@
                   <i class="fab fa-sass"></i>
                   <p>SASS</p>
                 </div>
-                <div class="skill">
-                  <i class="fab fa-figma"></i>
-                  <p>Figma</p>
-                </div>
               </section>
 
               <h3>Back-End:</h3>
@@ -156,9 +147,17 @@
                   <i class="fab fa-git-alt"></i>
                   <p>Git</p>
                 </div>
+              </section>
+
+              <h3>Verktøy:</h3>
+              <section class="skills">
                 <div class="skill">
                   <i class="fab fa-github"></i>
                   <p>GitHub</p>
+                </div>
+                <div class="skill">
+                  <i class="fab fa-figma"></i>
+                  <p>Figma</p>
                 </div>
               </section>
             </section>
@@ -183,6 +182,8 @@
                 <i class="author">-{{ WorkComments[currentIndex].author }}</i>
               </div>
             </section>
+            <section>
+            </section>
           </div>
         </section>
 
@@ -198,7 +199,6 @@
 import IndexScript from 'src/scripts/IndexScript.js';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
-
 
 export default {
   name: 'IndexPage',
@@ -232,7 +232,7 @@ export default {
     const slideWidth = carousel.clientWidth;
     carousel.scrollLeft = this.currentSlide * slideWidth;
   },
-}
+};
 </script>
 
 <style lang="scss">
