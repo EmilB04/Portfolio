@@ -14,18 +14,10 @@ export default {
       CourseList,
       WorkComments,
       // ----------------- Variables -------------------
-      sections: [
-        '.about-section',
-        '.timeline-section',
-        '.skills-section',
-        '.gitHub-section',
-        '.comments-section',
-      ],
       semesters: ['semester-1', 'semester-2', 'semester-3', 'semester-4'],
       currentSemester: 0,
       // ----------------- Methods ---------------------
       currentIndex: randomIndex(),
-      isAtBottom: false,
       // ----------------- Icons -----------------------
       LinkedInIcon,
       GitHubIcon,
@@ -33,48 +25,6 @@ export default {
     };
   },
   methods: {
-    scrollToSection(sectionId) {
-      const section = document.querySelector(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    },
-    scrollToNextSection() {
-      if (this.isAtBottom) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const currentScrollPos = window.scrollY;
-        const viewportHeight = window.innerHeight;
-
-        for (let i = 0; i < this.sections.length; i++) {
-          const section = document.querySelector(this.sections[i]);
-          if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
-            section.scrollIntoView({ behavior: 'smooth' });
-            this.ChangeButtonLabel();
-            return;
-          }
-        }
-        document
-          .querySelector('.about-section')
-          .scrollIntoView({ behavior: 'smooth' });
-        this.ChangeButtonLabel();
-      }
-    },
-    ChangeButtonLabel() {
-      const currentScrollPos = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const isAtBottom = currentScrollPos + viewportHeight >= documentHeight;
-
-      if (
-        isAtBottom ||
-        currentScrollPos + viewportHeight >= documentHeight * 0.9
-      ) {
-        this.isAtBottom = true;
-      } else {
-        this.isAtBottom = false;
-      }
-    },
     nextSemester() {
       if (this.currentSemester < this.semesters.length - 1) {
         this.currentSemester++;
