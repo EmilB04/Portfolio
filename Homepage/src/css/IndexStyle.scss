@@ -11,7 +11,7 @@ $background-color: #010626;
   margin: 0%;
   box-sizing: border-box;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -132,7 +132,11 @@ body {
   height: 100vh;
   width: 100%;
   position: relative;
-  background: linear-gradient(245deg, $background-color 40%, $accent-color 120%);
+  background: linear-gradient(
+    245deg,
+    $background-color 40%,
+    $accent-color 120%
+  );
   overflow: hidden;
 
   .timeline-container {
@@ -191,7 +195,7 @@ body {
         text-decoration: none;
       }
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: -100%;
@@ -242,7 +246,11 @@ body {
 }
 
 .skills-section {
-  background: linear-gradient(180deg, $background-color 30%, $accent-color 120%);
+  background: linear-gradient(
+    180deg,
+    $background-color 30%,
+    $accent-color 120%
+  );
   color: white;
   h3 {
     text-align: center;
