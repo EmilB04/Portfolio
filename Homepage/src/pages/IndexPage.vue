@@ -1,8 +1,8 @@
 <template>
   <q-page class="columm">
     <div id="bg-app">
-      <header id="top">
-        <nav class="q-my-md flex justify-between">
+      <header id="top" class="text-white q-py-md">
+        <nav class="flex justify-between">
           <div class="justify-start">
             <q-btn flat label="Om" @click="scrollToSection('.about-section')" />
             <q-btn flat label="Studie" @click="scrollToSection('.timeline-section')" />
@@ -10,12 +10,10 @@
             <q-btn flat label="GitHub" @click="scrollToSection('.gitHub-section')" />
             <q-btn flat label="Tilbakemeldinger" @click="scrollToSection('.comments-section')" />
           </div>
-          <div class="justify-end" id="name-tag">
-            <q-btn flat label="Emil Berglund" />
-          </div>
+          <q-btn class="justify-end bg-accent" flat rounded label="Emil Berglund" />
         </nav>
       </header>
-      <hr id="nav-seperator" />
+      <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
         <section class="full-screen about-section">
           <div class="content">
@@ -161,20 +159,7 @@
         </section>
 
         <section class="full-screen gitHub-section">
-          <div class="content">
-            <h2>Mine GitHub Repositories</h2>
-            <div v-if="repositories.length">
-              <div v-for="repo in repositories" :key="repo.id" class="repo-card">
-                <h3>{{ repo.name }}</h3>
-                <p>{{ repo.description }}</p>
-                <a :href="repo.html_url" target="_blank">Se Repository</a>
-              </div>
-            </div>
-            <div v-else>
-              <p>Laster repositories...</p>
-            </div>
-            <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub profil" no-caps />
-          </div>
+          <GitHubSection />
         </section>
 
         <section class="full-screen comments-section">
@@ -204,65 +189,45 @@
 
 <script scoped>
 import IndexScript from 'src/scripts/IndexScript.js';
-import axios from 'axios';
 import FooterSection from 'src/components/FooterSection.vue';
+import GitHubSection from 'src/components/GitHubSection.vue';
 
 
 export default {
   name: 'IndexPage',
   components: {
     FooterSection,
+    GitHubSection,
   },
   mixins: [IndexScript],
-  data() {
-    return {
-      repositories: [],
-      githubProfileUrl: 'https://github.com/EmilB04',
-    };
-  },
   mounted() {
     window.addEventListener('scroll', this.ChangeButtonLabel);
     this.scrollToSemester();
     this.startCommentRotation();
     this.ChangeButtonLabel();
-    this.fetchRepositories();
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.ChangeButtonLabel);
     clearInterval(this.commentInterval);
   },
-  methods: {
-    async fetchRepositories() {
-      try {
-        const response = await axios.get(
-          'https://api.github.com/users/EmilB04/repos'
-        );
-        this.repositories = response.data.filter(
-          (repo) => repo.stargazers_count > 0
-        );
-      } catch (error) {
-        console.error('Error fetching repositories:', error);
-      }
-    },
-    nextSlide() {
-      const totalSlides = this.repositories.length;
-      this.currentSlide = (this.currentSlide + 1) % totalSlides;
-      this.updateCarousel();
-    },
-    prevSlide() {
-      const totalSlides = this.repositories.length;
-      this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
-      this.updateCarousel();
-    },
-    updateCarousel() {
-      const carousel = this.$refs.carousel;
-      const slideWidth = carousel.clientWidth;
-      carousel.scrollLeft = this.currentSlide * slideWidth;
-    },
+  nextSlide() {
+    const totalSlides = this.repositories.length;
+    this.currentSlide = (this.currentSlide + 1) % totalSlides;
+    this.updateCarousel();
   },
-};
+  prevSlide() {
+    const totalSlides = this.repositories.length;
+    this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
+    this.updateCarousel();
+  },
+  updateCarousel() {
+    const carousel = this.$refs.carousel;
+    const slideWidth = carousel.clientWidth;
+    carousel.scrollLeft = this.currentSlide * slideWidth;
+  },
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import 'src/css/IndexStyle.scss';
 </style>
