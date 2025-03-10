@@ -2,16 +2,7 @@
   <q-page class="columm">
     <div id="bg-app">
       <header id="top" class="text-white q-py-md">
-        <nav class="flex justify-between">
-          <div class="justify-start">
-            <q-btn flat label="Om" @click="scrollToSection('.about-section')" />
-            <q-btn flat label="Studie" @click="scrollToSection('.timeline-section')" />
-            <q-btn flat label="Kunnskap" @click="scrollToSection('.skills-section')" />
-            <q-btn flat label="GitHub" @click="scrollToSection('.gitHub-section')" />
-            <q-btn flat label="Tilbakemeldinger" @click="scrollToSection('.comments-section')" />
-          </div>
-          <q-btn class="justify-end bg-accent" flat rounded label="Emil Berglund" />
-        </nav>
+        <NavSection />
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
@@ -195,17 +186,20 @@
 </template>
 
 <script scoped>
+import ScrollScript from 'src/scripts/ScrollScript';
 import IndexScript from 'src/scripts/IndexScript.js';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
+import NavSection from 'src/components/NavSection.vue';
 
 export default {
   name: 'IndexPage',
   components: {
-    FooterSection,
+    NavSection,
     GitHubSection,
+    FooterSection,
   },
-  mixins: [IndexScript],
+  mixins: [IndexScript, ScrollScript],
   mounted() {
     window.addEventListener('scroll', this.ChangeButtonLabel);
     this.scrollToSemester();
