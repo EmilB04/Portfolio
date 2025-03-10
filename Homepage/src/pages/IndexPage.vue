@@ -53,21 +53,21 @@
               <h3>{{ semester.semester }}</h3>
               <div class="timeline-line"></div>
               <ul class="row full-height">
-                <li class="col bg-red" v-for="(course, index) in semester.courses" :key="index" :class="{
-                  'column reverse': index % 2 !== 0,
+                <li class="col column" v-for="(course, index) in semester.courses" :key="index" :class="{
+                  'reverse': index % 2 !== 0,
                 }">
-                  <div class="col-6" :class="{
-                    'flex justify-end': index % 2 == 0
+                  <div class="col-6 column items-center justify-end" :class="{
+                    'reverse': index % 2 !== 0
                   }">
-                    <a :href="course.link" class="course-link" target="_blank">
+                    <a :href="course.link" class="course-link" style="height: fit-content;" target="_blank">
                       {{ course.name }}
                     </a>
+                    <div style="height: 40px; width: 2px; background-color: white;">
+
+                    </div>
                   </div>
                   <div class="col-6"></div>
                 </li>
-                <div style="height: 40px; width: 2px; border: 1px solid white;">
-
-                </div>
               </ul>
             </article>
           </div>
