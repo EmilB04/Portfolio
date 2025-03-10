@@ -1,8 +1,9 @@
 $max-width: 1280px;
 $accent-color: #f1376e;
+$background-color: #010626;
 
 #bg-app {
-  background-color: #010626;
+  background-color: $background-color;
 }
 
 :root {
@@ -15,9 +16,6 @@ $accent-color: #f1376e;
 
 body {
   header {
-    color: white;
-    padding-block: 1rem;
-
     nav {
       gap: 10px;
       margin: 0 auto;
@@ -28,13 +26,6 @@ body {
       border-radius: 20px;
       align-self: baseline;
     }
-  }
-  #nav-seperator {
-    max-width: $max-width;
-    margin: 0 auto;
-    border: 0;
-    height: 1px;
-    background: #ffff;
   }
   h1 {
     font-size: 3rem;
@@ -85,20 +76,12 @@ body {
   align-self: auto;
   color: black;
 }
-.about-section {
-  background-color: #010626;
-  color: white;
-  position: relative;
-  overflow: hidden;
-
-  .shooting-star {
-    position: absolute;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(45deg, white, rgba(255, 255, 255, 0));
-    animation: shooting-star 2s infinite;
-  }
-
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(45deg, white, rgba(255, 255, 255, 0));
+  animation: shooting-star 2s infinite;
   .shooting-star:nth-child(1) {
     top: 20%;
     left: 10%;
@@ -134,6 +117,12 @@ body {
     animation-duration: 1.2s;
   }
 }
+.about-section {
+  background-color: $background-color;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
 
 .timeline-section {
   display: flex;
@@ -143,7 +132,11 @@ body {
   height: 100vh;
   width: 100%;
   position: relative;
-  background: linear-gradient(135deg, #f1376e 0%, #010a4e 70%);
+  background: linear-gradient(
+    245deg,
+    $background-color 40%,
+    $accent-color 120%
+  );
   overflow: hidden;
 
   .timeline-container {
@@ -253,7 +246,11 @@ body {
 }
 
 .skills-section {
-  background: linear-gradient(225deg, #6a0101 0%, #635400 100%);
+  background: linear-gradient(
+    180deg,
+    $background-color 30%,
+    $accent-color 120%
+  );
   color: white;
   h3 {
     text-align: center;
@@ -272,103 +269,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-}
-
-// Not in use
-.social-section {
-  background: linear-gradient(325deg, #014a2b 0%, #014a2b 100%);
-  color: white;
-
-  .social-profiles {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-
-    a {
-      font-size: 3rem;
-      color: white;
-    }
-  }
-}
-
-.gitHub-section {
-  background-color: #010626;
-
-  h2 {
-    color: white;
-    text-align: center;
-  }
-
-  .content {
-    text-align: center;
-  }
-
-  .carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-
-  .repo-card {
-    min-width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    background-color: #fff;
-
-    h3 {
-      margin: 0;
-    }
-
-    p {
-      margin: 0.5rem 0;
-    }
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  #goToGithub {
-    background-color: #ffffff;
-    color: black;
-    padding: 0.5rem 1rem;
-    margin-block: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-
-    &.prev {
-      left: 0;
-    }
-
-    &.next {
-      right: 0;
-    }
   }
 }
 
@@ -423,8 +323,8 @@ body {
       display: none;
     }
   }
-  #nav-seperator {
-    display: none;
+  hr {
+    display: none !important;
   }
   .skills {
     .skill {
