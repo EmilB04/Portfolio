@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-center q-ma-sm">
+  <footer class="text-center q-ma-sm text-white q-pa-md">
     <p>&copy; 2025 Emil Berglund. Alle rettigheter reservert.</p>
   </footer>
 </template>
@@ -12,9 +12,8 @@ export default {
 
 <style scoped lang="scss">
 footer {
-  color: white;
-  padding: 1rem;
   margin: 0;
+
   p {
     margin: 0;
   }
