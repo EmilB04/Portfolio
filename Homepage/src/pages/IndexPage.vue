@@ -52,15 +52,22 @@
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
               <h3>{{ semester.semester }}</h3>
               <div class="timeline-line"></div>
-              <ul>
-                <li v-for="(course, index) in semester.courses" :key="index" :class="{
-                  'course top': index % 2 === 0,
-                  'course bottom': index % 2 !== 0,
+              <ul class="row full-height">
+                <li class="col bg-red" v-for="(course, index) in semester.courses" :key="index" :class="{
+                  'column reverse': index % 2 !== 0,
                 }">
-                  <a :href="course.link" class="course-link" target="_blank">
-                    {{ course.name }}
-                  </a>
+                  <div class="col-6" :class="{
+                    'flex justify-end': index % 2 == 0
+                  }">
+                    <a :href="course.link" class="course-link" target="_blank">
+                      {{ course.name }}
+                    </a>
+                  </div>
+                  <div class="col-6"></div>
                 </li>
+                <div style="height: 40px; width: 2px; border: 1px solid white;">
+
+                </div>
               </ul>
             </article>
           </div>
