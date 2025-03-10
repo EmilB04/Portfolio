@@ -46,7 +46,6 @@
             </article>
           </div>
         </section>
-
         <section class="timeline-section">
           <div class="timeline-container">
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">

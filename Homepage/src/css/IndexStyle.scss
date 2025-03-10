@@ -1,9 +1,7 @@
-$max-width: 1280px;
-$accent-color: #f1376e;
-$background-color: #010626;
+@import 'src/css/quasar.variables.scss';
 
 #bg-app {
-  background-color: $background-color;
+  background-color: $background;
 }
 
 :root {
@@ -22,7 +20,7 @@ body {
       max-width: $max-width;
     }
     #name-tag {
-      background-color: $accent-color;
+      background-color: $accent;
       border-radius: 20px;
       align-self: baseline;
     }
@@ -31,7 +29,7 @@ body {
     font-size: 3rem;
     font-weight: 500;
     line-height: 1.4;
-    background: linear-gradient(135deg, $accent-color 0%, #010626 70%);
+    background: linear-gradient(135deg, $accent 0%, #010626 70%);
   }
 
   h2 {
@@ -68,7 +66,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: $accent-color;
+  background-color: $accent;
   border-radius: 100%;
   padding: 0;
   width: 50px;
@@ -118,7 +116,7 @@ body {
   }
 }
 .about-section {
-  background-color: $background-color;
+  background-color: $background;
   color: white;
   position: relative;
   overflow: hidden;
@@ -132,11 +130,7 @@ body {
   height: 100vh;
   width: 100%;
   position: relative;
-  background: linear-gradient(
-    245deg,
-    $background-color 40%,
-    $accent-color 120%
-  );
+  background: linear-gradient(245deg, $background 40%, $accent 120%);
   overflow: hidden;
 
   .timeline-container {
@@ -246,11 +240,7 @@ body {
 }
 
 .skills-section {
-  background: linear-gradient(
-    180deg,
-    $background-color 30%,
-    $accent-color 120%
-  );
+  background: linear-gradient(180deg, $background 30%, $accent 120%);
   color: white;
   h3 {
     text-align: center;
