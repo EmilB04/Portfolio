@@ -18,8 +18,8 @@
         <section class="full-screen about-section">
           <div class="content">
             <h1 class="q-mx-none text-left">
-              Hei, jeg er Emil Berglund. <br />
-              En Informatikk student.
+              Hei, jeg er Emil Berglund <br />
+              En Informatikk student
             </h1>
             <article>
               <p>

@@ -5,13 +5,13 @@
       <div v-for="repo in repositories" :key="repo.id" class="repo-card">
         <h3>{{ repo.name }}</h3>
         <p>{{ repo.description }}</p>
-        <a :href="repo.html_url" target="_blank">Se Repository</a>
+        <a :href="repo.html_url" target="_blank">Se repository</a>
       </div>
     </div>
     <div v-else>
       <p>Laster repositories...</p>
     </div>
-    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub profil" no-caps />
+    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub profil" no-caps target="_blank" />
   </div>
 </template>
 
