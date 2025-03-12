@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <h2>Mine GitHub Repositories</h2>
-    <div v-if="repositories.length">
+    <div class="repo-container" v-if="repositories.length">
       <div v-for="repo in repositories" :key="repo.id" class="repo-card">
         <h3>{{ repo.name }}</h3>
         <p>{{ repo.description }}</p>

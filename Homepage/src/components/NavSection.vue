@@ -19,3 +19,6 @@ export default {
   mixins: [ScrollScript],
 };
 </script>
+<style lang="scss" scoped>
+@import 'src/css/IndexStyle.scss';
+</style>
