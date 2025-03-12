@@ -108,7 +108,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
 
     h3 {
       font-size: 3rem;
@@ -289,40 +288,26 @@ body {
 
     .timeline-container {
       display: flex;
-    }
-    article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
 
-      h3 {
-        font-size: 2.5rem;
-        top: 5vh;
-      }
+      article {
+        h3 {
+          font-size: 2.5rem;
+        }
+        .timeline-line {
+          background: transparent;
+        }
 
-      .timeline-line {
-        background: transparent;
-      }
+        ul {
+          list-style: none;
+          padding: 0;
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
 
-      ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        width: 80%;
-      }
-
-      .course {
-        position: relative;
-        font-size: 1.2rem;
-
-        &.top,
-        &.bottom {
-          top: 0;
+          span {
+            display: none;
+          }
         }
       }
     }
