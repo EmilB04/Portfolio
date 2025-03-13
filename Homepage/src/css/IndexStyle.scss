@@ -108,11 +108,13 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
 
     h3 {
       font-size: 3rem;
       position: absolute;
-      top: 20vh;
+      white-space: nowrap;
+      top: 10vh;
       color: white;
     }
 
@@ -124,13 +126,13 @@ body {
       top: 50vh;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     ul {
       list-style: none;
       padding: 0;
       display: flex;
-      flex-wrap: nowrap;
       justify-content: space-evenly;
       width: 98%;
       gap: 2%;

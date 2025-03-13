@@ -41,7 +41,7 @@
           <div class="timeline-container">
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
               <h3>{{ semester.semester }}</h3>
-              <q-seperator class="timeline-line" />
+              <div class="timeline-line"></div>
               <ul class="row full-height">
                 <li class="col column" v-for="(course, index) in semester.courses" :key="index"
                   :class="{ reverse: index % 2 !== 0 }">
