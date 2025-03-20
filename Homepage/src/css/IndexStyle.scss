@@ -134,7 +134,7 @@ body {
       padding: 0;
       display: flex;
       justify-content: space-evenly;
-      width: 98%;
+      width: 94%; // Page margin
       gap: 2%;
     }
     a {
@@ -163,17 +163,8 @@ body {
         left: 100%;
       }
     }
-
     .course {
       position: relative;
-
-      &.top {
-        top: -5vh;
-      }
-
-      &.bottom {
-        top: 15vh;
-      }
     }
   }
 
