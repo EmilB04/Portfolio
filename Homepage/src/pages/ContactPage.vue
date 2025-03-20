@@ -4,28 +4,87 @@
       <nav class="flex justify-center">
         <q-btn class="bg-accent q-ma-lg text-white" flat rounded label="Gå tilbake" @click="$router.push('/')" />
       </nav>
+      <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
+      <section>
+        <h1 class="text-white text-center">Emil Berglund</h1>
+      </section>
     </header>
-    <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
-    <section>
-      <h1 class="text-white text-center">Emil Berglund</h1>
-    </section>
-
-
-
+    <main class="q-pa-md">
+      <div class="contact-container">
+        <q-card class="contact-card q-ma-md">
+          <q-card-section class="text-center">
+            <q-icon name="fab fa-linkedin" size="3rem" class="text-accent" />
+            <h2>LinkedIn</h2>
+            <q-btn flat label="Connect" color="accent"
+              @click="openLink('https://www.linkedin.com/in/emil-berglund-336135251/')" />
+          </q-card-section>
+        </q-card>
+        <q-card class="contact-card q-ma-md">
+          <q-card-section class="text-center">
+            <q-icon name="fab fa-github" size="3rem" class="text-accent" />
+            <h2>GitHub</h2>
+            <q-btn flat label="View Profile" color="accent" @click="openLink('https://github.com/EmilB04')" />
+          </q-card-section>
+        </q-card>
+        <q-card class="contact-card q-ma-md">
+          <q-card-section class="text-center">
+            <q-icon name="fas fa-envelope" size="3rem" class="text-accent" />
+            <h2>Email</h2>
+            <q-btn flat label="Send Email" color="accent" @click="openLink('mailto:emil.berglund@live.no')" />
+          </q-card-section>
+        </q-card>
+      </div>
+    </main>
     <ShootingStars />
+    <footer>
+      <FooterSection />
+    </footer>
   </q-page>
 </template>
 
 <script>
+import FooterSection from 'src/components/FooterSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 export default {
   name: 'ContactPage',
   components: {
     ShootingStars,
+    FooterSection,
+  },
+  methods: {
+    openLink(url) {
+      window.open(url, '_blank');
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 @import 'src/css/ContactStyle.scss';
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-card {
+  width: 300px;
+  max-width: 90%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card h2 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.contact-card .q-icon {
+  margin-bottom: 10px;
+}
 </style>
