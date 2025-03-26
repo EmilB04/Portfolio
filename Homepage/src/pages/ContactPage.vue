@@ -15,7 +15,7 @@
           <q-card-section class="text-center">
             <q-icon name="fab fa-linkedin" size="3rem" class="text-accent" />
             <h2>LinkedIn</h2>
-            <q-btn flat label="Connect" color="accent"
+            <q-btn flat label="Kontakt" color="accent"
               @click="openLink('https://www.linkedin.com/in/emil-berglund-336135251/')" />
           </q-card-section>
         </q-card>
@@ -23,14 +23,14 @@
           <q-card-section class="text-center">
             <q-icon name="fab fa-github" size="3rem" class="text-accent" />
             <h2>GitHub</h2>
-            <q-btn flat label="View Profile" color="accent" @click="openLink('https://github.com/EmilB04')" />
+            <q-btn flat label="Se profil" color="accent" @click="openLink('https://github.com/EmilB04')" />
           </q-card-section>
         </q-card>
         <q-card class="contact-card q-ma-md">
           <q-card-section class="text-center">
             <q-icon name="fas fa-envelope" size="3rem" class="text-accent" />
             <h2>Email</h2>
-            <q-btn flat label="Send Email" color="accent" @click="openLink('mailto:emil.berglund@live.no')" />
+            <q-btn flat label="Send E-post" color="accent" @click="openLink('mailto:emil.berglund@live.no')" />
           </q-card-section>
         </q-card>
       </div>
