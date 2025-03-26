@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     async fetchRepositories() {
-      const token = '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';
+      const token = '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';
       try {
         const response = await axios.get(
           'https://api.github.com/users/EmilB04/repos',
