@@ -1,8 +1,8 @@
 {
   "name": "homepage",
   "version": "0.0.1",
-  "description": "Homepage for Emil Berglund",
-  "productName": "Emil Berglund",
+  "description": "Emil Berglund's portfolio website",
+  "productName": "Emil Berglund - Portfolio",
   "author": "Emil Berglund <emil.berglund@live.no>",
   "private": true,
   "scripts": {
