@@ -6,10 +6,10 @@
       </div>
 
       <div class="error-message text-h2">
-        Oops. Nothing here...
+        Whoops. Ingenting her...
       </div>
 
-      <q-btn class="q-mt-xl" color="white" text-color="black" unelevated to="/" label="Go Home" no-caps />
+      <q-btn class="q-mt-xl" color="white" text-color="black" unelevated to="/" label="Gå tilbake" no-caps />
       <ShootingStars />
     </div>
   </div>
