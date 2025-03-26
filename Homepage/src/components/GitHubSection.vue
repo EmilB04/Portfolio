@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-else>
-      <p>Laster repositories...</p>
+      <p class="text-white">Laster repositories...</p>
     </div>
     <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub profil" no-caps target="_blank" />
   </div>
@@ -30,9 +30,15 @@ export default {
   },
   methods: {
     async fetchRepositories() {
+      const token = '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';
       try {
         const response = await axios.get(
-          'https://api.github.com/users/EmilB04/repos'
+          'https://api.github.com/users/EmilB04/repos',
+          {
+            headers: {
+              Authorization: `token ${token}`,
+            },
+          }
         );
         this.repositories = response.data.filter(
           (repo) => repo.stargazers_count > 0
