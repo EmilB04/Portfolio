@@ -30,15 +30,9 @@ export default {
   },
   methods: {
     async fetchRepositories() {
-      const token = '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';
       try {
         const response = await axios.get(
-          'https://api.github.com/users/EmilB04/repos',
-          {
-            headers: {
-              Authorization: `token ${token}`,
-            },
-          }
+          'https://api.github.com/users/EmilB04/repos'
         );
         this.repositories = response.data.filter(
           (repo) => repo.stargazers_count > 0
