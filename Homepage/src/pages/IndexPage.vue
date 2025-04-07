@@ -6,7 +6,7 @@
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
-        <section class="full-screen about-section" data-aos="fade-up">
+        <section class="full-screen about-section">
           <div class="content">
             <h1 class="q-mx-none text-left">
               Hei, jeg er Emil Berglund <br />

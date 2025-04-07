@@ -5,11 +5,12 @@
         <q-btn class="bg-accent q-ma-lg text-white" flat rounded label="Gå tilbake" @click="$router.push('/')" />
       </nav>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
-      <section>
+      <section data-aos="fade-left">
         <h1 class="text-white text-center">Emil Berglund</h1>
       </section>
     </header>
-    <main class="q-pa-md">
+
+    <main class="q-pa-md" data-aos="fade-left">
       <div class="contact-container">
         <q-card class="contact-card q-ma-md">
           <q-card-section class="text-center">
@@ -35,7 +36,9 @@
         </q-card>
       </div>
     </main>
+
     <ShootingStars />
+
     <footer>
       <FooterSection />
     </footer>
