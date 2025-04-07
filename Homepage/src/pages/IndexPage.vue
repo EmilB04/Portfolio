@@ -16,7 +16,7 @@
               <p>
                 Jeg går studiet, "informatikk - design og utvikling av
                 IT-systemer" ved HiØ i Halden. Mitt studieløp startet høsten
-                2023 og jeg ferdigekamniert våren 2026. Jeg har spesielisert meg
+                2023 og jeg ferdigeksaminert våren 2026. Jeg har spesielisert meg
                 innen Programmering, og driver på smått med selvlæring av Vue og
                 Quasar på fritiden.
               </p>
@@ -191,6 +191,7 @@ import IndexScript from 'src/scripts/IndexScript.js';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
+import 'src/scripts/scrollEffect.js';
 
 export default {
   name: 'IndexPage',
@@ -226,6 +227,7 @@ export default {
     carousel.scrollLeft = this.currentSlide * slideWidth;
   },
 };
+
 </script>
 
 <style scoped lang="scss">
