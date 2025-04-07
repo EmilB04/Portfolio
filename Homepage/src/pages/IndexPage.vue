@@ -6,7 +6,7 @@
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
-        <section class="full-screen about-section">
+        <section class="full-screen about-section" data-aos="fade-up">
           <div class="content">
             <h1 class="q-mx-none text-left">
               Hei, jeg er Emil Berglund <br />
@@ -37,7 +37,7 @@
             </article>
           </div>
         </section>
-        <section class="timeline-section">
+        <section class="timeline-section" data-aos="fade-up">
           <div class="timeline-container">
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
               <h3>{{ semester.semester }}</h3>
@@ -62,7 +62,7 @@
           </div>
         </section>
 
-        <section class="full-screen skills-section">
+        <section class="full-screen skills-section" data-aos="fade-up">
           <div class="content">
             <h2>Kunnskap</h2>
             <p>
@@ -154,11 +154,11 @@
           </div>
         </section>
 
-        <section class="full-screen gitHub-section">
+        <section class="full-screen gitHub-section" data-aos="fade-up">
           <GitHubSection />
         </section>
 
-        <section class="full-screen comments-section">
+        <section class="full-screen comments-section" data-aos="fade-up">
           <div class="content">
             <h2>Tilbakemeldinger</h2>
             <p>

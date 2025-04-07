@@ -3,7 +3,11 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  name: 'App'
+import { onMounted } from 'vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+onMounted(() => {
+  AOS.init();
 });
 </script>
