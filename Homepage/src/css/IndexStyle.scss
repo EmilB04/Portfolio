@@ -15,6 +15,7 @@
 
 body {
   header {
+    backdrop-filter: blur(5px);
     nav {
       gap: 5px;
       margin: 0 auto;
@@ -129,16 +130,6 @@ body {
       margin: 0;
       text-align: center;
       text-decoration: none;
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        width: 90%;
-        height: 3px;
-        background: $accent;
-        transform: translateX(-50%) skewX(-20deg);
-      }
     }
 
     .timeline-line {
@@ -217,6 +208,9 @@ body {
 .skills-section {
   // background: linear-gradient(180deg, $background 30%, $accent 120%);
   color: white;
+  h2 {
+    color: $accent;
+  }
   h3 {
     text-align: center;
   }
@@ -237,9 +231,19 @@ body {
   }
 }
 
+.gitHub-section {
+  h2 {
+    color: $accent;
+  }
+}
+
 .comments-section {
   // background: linear-gradient(185deg, #37d5f1 0%, #010626 70%);
   color: white;
+
+  h2 {
+    color: $accent;
+  }
 
   p {
     font-size: 1.5rem;
