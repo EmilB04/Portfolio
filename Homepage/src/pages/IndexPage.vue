@@ -72,7 +72,7 @@
             </p>
             <section class="skills-container">
               <h3>Rammeverk:</h3>
-              <section class="skills">
+              <section class="skills" data-aos="fade-right">
                 <div class="skill">
                   <i class="fab fa-vuejs"></i>
                   <p>Vue</p>
@@ -96,7 +96,7 @@
               </section>
 
               <h3>Front-End:</h3>
-              <section class="skills">
+              <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-html5"></i>
                   <p>HTML</p>
@@ -116,7 +116,7 @@
               </section>
 
               <h3>Back-End:</h3>
-              <section class="skills">
+              <section class="skills" data-aos="fade-right">
                 <div class="skill">
                   <i class="fab fa-python"></i>
                   <p>Python</p>
@@ -140,14 +140,24 @@
               </section>
 
               <h3>Verktøy:</h3>
-              <section class="skills">
+              <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-github"></i>
                   <p>GitHub</p>
                 </div>
                 <div class="skill">
+                  <div class="skill">
+                    <i class="fab fa-microsoft"></i>
+                    <p>Azure</p>
+                  </div>
+                </div>
+                <div class="skill">
                   <i class="fab fa-figma"></i>
                   <p>Figma</p>
+                </div>
+                <div class="skill">
+                  <i class="fab fa-trello"></i>
+                  <p>Trello</p>
                 </div>
               </section>
             </section>
@@ -180,7 +190,9 @@
         <q-btn flat :icon="isAtBottom ? 'arrow_upward' : 'arrow_downward'" @click="scrollToNextSection"
           class="scroll-btn" />
       </main>
-      <FooterSection />
+      <footer>
+        <FooterSection />
+      </footer>
     </div>
     <ShootingStars style="z-index: -99 !important;" />
   </q-page>

@@ -1,7 +1,5 @@
 <template>
-  <footer class="text-center q-ma-sm text-white q-pa-md">
-    <p>&copy; 2025 Emil Berglund. Alle rettigheter reservert.</p>
-  </footer>
+  <p class="text-center q-ma-sm text-white q-pa-md">&copy; 2025 Emil Berglund. Alle rettigheter reservert.</p>
 </template>
 
 <script>

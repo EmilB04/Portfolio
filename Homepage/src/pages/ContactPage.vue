@@ -37,11 +37,10 @@
       </div>
     </main>
 
-    <ShootingStars />
-
     <footer>
       <FooterSection />
     </footer>
+    <ShootingStars />
   </q-page>
 </template>
 
@@ -64,30 +63,4 @@ export default {
 
 <style scoped lang="scss">
 @import 'src/css/ContactStyle.scss';
-
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-card {
-  width: 300px;
-  max-width: 90%;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-card h2 {
-  margin-top: 10px;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.contact-card .q-icon {
-  margin-bottom: 10px;
-}
 </style>
