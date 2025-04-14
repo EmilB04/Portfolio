@@ -1,7 +1,8 @@
 @import 'src/css/quasar.variables.scss';
 
 #bg-app {
-  background-color: $background;
+  // background-color: $background;
+  background-color: transparent;
 }
 
 :root {
@@ -13,8 +14,10 @@
 
 body {
   header {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     nav {
-      gap: 10px;
+      gap: 5px;
       margin: 0 auto;
       max-width: $max-width;
     }
@@ -28,7 +31,8 @@ body {
     font-size: 3rem;
     font-weight: 500;
     line-height: 1.4;
-    background: linear-gradient(135deg, $accent 0%, #010626 70%);
+    // background: linear-gradient(135deg, $accent 0%, #010626 70%);
+    background: linear-gradient(135deg, $accent 0%, #00000000 70%);
   }
 
   h2 {
@@ -75,7 +79,9 @@ body {
 }
 
 .about-section {
-  background-color: $background;
+  // background-color: $background;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   color: white;
   position: relative;
   overflow: hidden;
@@ -83,13 +89,13 @@ body {
 
 .timeline-section {
   display: flex;
+  background: linear-gradient(180deg, $background 30%, $accent 120%);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100%;
   position: relative;
-  background: linear-gradient(245deg, $background 40%, $accent 120%);
   overflow: hidden;
 
   .timeline-container {
@@ -191,7 +197,7 @@ body {
 }
 
 .skills-section {
-  background: linear-gradient(180deg, $background 30%, $accent 120%);
+  // background: linear-gradient(180deg, $background 30%, $accent 120%);
   color: white;
   h3 {
     text-align: center;
@@ -214,7 +220,7 @@ body {
 }
 
 .comments-section {
-  background: linear-gradient(185deg, #37d5f1 0%, #010626 70%);
+  // background: linear-gradient(185deg, #37d5f1 0%, #010626 70%);
   color: white;
 
   p {
@@ -231,7 +237,6 @@ body {
     }
   }
 }
-
 
 @media screen and (max-width: 710px) {
   body {

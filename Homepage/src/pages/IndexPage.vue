@@ -182,6 +182,7 @@
       </main>
       <FooterSection />
     </div>
+    <ShootingStars style="z-index: -99 !important;" />
   </q-page>
 </template>
 
@@ -191,7 +192,7 @@ import IndexScript from 'src/scripts/IndexScript.js';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
-import 'src/scripts/scrollEffect.js';
+import ShootingStars from 'src/components/ShootingStars.vue';
 
 export default {
   name: 'IndexPage',
@@ -199,6 +200,7 @@ export default {
     NavSection,
     GitHubSection,
     FooterSection,
+    ShootingStars,
   },
   mixins: [IndexScript, ScrollScript],
   mounted() {

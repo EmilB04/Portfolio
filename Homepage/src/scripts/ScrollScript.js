@@ -19,13 +19,15 @@ export default {
       ],
       // ----------------- Methods ---------------------
       isAtBottom: false,
+      scrollOffset: 1, // Adjusted to acommodate for AOS animation
     };
   },
   methods: {
     scrollToSection(sectionId) {
       const section = document.querySelector(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        const offsetPosition = section.offsetTop - this.scrollOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     },
     scrollToNextSection() {
@@ -38,14 +40,17 @@ export default {
         for (let i = 0; i < this.sections.length; i++) {
           const section = document.querySelector(this.sections[i]);
           if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            const offsetPosition = section.offsetTop - this.scrollOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             this.ChangeButtonLabel();
             return;
           }
         }
-        document
-          .querySelector('.about-section')
-          .scrollIntoView({ behavior: 'smooth' });
+        const firstSection = document.querySelector('.about-section');
+        if (firstSection) {
+          const offsetPosition = firstSection.offsetTop - this.scrollOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
         this.ChangeButtonLabel();
       }
     },
