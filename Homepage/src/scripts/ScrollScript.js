@@ -19,7 +19,7 @@ export default {
       ],
       // ----------------- Methods ---------------------
       isAtBottom: false,
-      scrollOffset: 1, // Adjusted to acommodate for AOS animation
+      scrollOffset: -5, // Adjusted to acommodate for AOS animation
     };
   },
   methods: {
