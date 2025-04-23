@@ -86,7 +86,8 @@
                   <p>Node.js</p>
                 </div>
                 <div class="skill">
-                  <img src="src/assets/icons/logo-quasar.svg" alt="" class="q-ma-none q-pa-none self-center" style="width: 21px; height: 24px;" />
+                  <img :src="QuasarLogo" alt="" class="q-ma-none q-pa-none self-center"
+                    style="width: 21px; height: 24px;" />
                   <p>Quasar</p>
                 </div>
                 <div class="skill">
@@ -205,7 +206,7 @@ import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
-import QuasarLogo from 'src/assets/logo-quasar.svg';
+import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
 
 export default {
   name: 'IndexPage',
