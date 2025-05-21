@@ -8,6 +8,9 @@
       <main class="flex column">
         <section class="full-screen about-section">
           <div class="content">
+            <picture>
+              <img id="profilePicture" :src="ProfilePicture" alt="Emil Berglund" class="q-mx-auto q-my-md" />
+            </picture>
             <h1 class="q-mx-none text-left">
               Hei, jeg er Emil Berglund <br />
               En Informatikk student
@@ -207,6 +210,7 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
+import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 
 export default {
   name: 'IndexPage',
@@ -220,6 +224,7 @@ export default {
   data() {
     return {
       QuasarLogo,
+      ProfilePicture,
     };
   },
   mounted() {
