@@ -1,0 +1,42 @@
+@import 'src/css/quasar.variables.scss';
+
+nav {
+  gap: 5px;
+  margin: 0 auto;
+  max-width: $max-width;
+
+  div:nth-child(2) {
+    .arrow-animate {
+      font-size: 1.5rem;
+      animation: arrowMove 2s infinite alternate;
+    }
+
+    @keyframes arrowMove {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(12px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+  nav {
+    gap: 0px;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .arrow-animate {
+      display: none;
+    }
+  }
+}

@@ -7,7 +7,10 @@
       <q-btn flat label="GitHub" @click="scrollToSection('.gitHub-section')" />
       <q-btn flat label="Tilbakemeldinger" @click="scrollToSection('.comments-section')" />
     </div>
-    <q-btn class="justify-end bg-accent" flat rounded label="Emil Berglund" @click="$router.push('/contact')" />
+    <div>
+      <q-icon name="east" class="q-mx-md arrow-animate" />
+      <q-btn class="justify-end bg-accent" flat rounded label="Emil Berglund" @click="$router.push('/contact')" />
+    </div>
   </nav>
 </template>
 
@@ -20,5 +23,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import 'src/css/IndexStyle.scss';
+@import 'src/css/navStyle.scss';
 </style>
