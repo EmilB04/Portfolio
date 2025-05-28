@@ -13,6 +13,7 @@ export default {
       sections: [
         '.about-section',
         '.timeline-section',
+        '.projects-section',
         '.skills-section',
         '.gitHub-section',
         '.comments-section',

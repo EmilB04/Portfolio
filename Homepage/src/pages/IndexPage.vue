@@ -65,6 +65,22 @@
           </div>
         </section>
 
+        <section class="full-screen projects-section" data-aos="fade-up">
+          <div class="content">
+            <h2>Prosjekter</h2>
+            <p>
+              Under vil du kunne se en oversikt over prosjekter jeg har jobbet
+              med i løpet av studietiden. Dette inkluderer både skoleprosjekter
+              og personlige prosjekter.
+            </p>
+            <section class="projects-container">
+              <ProjectCard :course="PageProbe" />
+
+              <q-btn class="q-mt-md" to="/projects" router>Gå til prosjekter</q-btn>
+            </section>
+          </div>
+        </section>
+
         <section class="full-screen skills-section" data-aos="fade-up">
           <div class="content">
             <h2>Kunnskap</h2>
@@ -205,12 +221,14 @@
 <script scoped>
 import ScrollScript from 'src/scripts/ScrollScript';
 import IndexScript from 'src/scripts/IndexScript.js';
+import ProjectsList from 'src/scripts/ProjectsList.js';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
 import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
+import ProjectCard from 'src/components/ProjectCard.vue';
 
 export default {
   name: 'IndexPage',
@@ -219,8 +237,14 @@ export default {
     GitHubSection,
     FooterSection,
     ShootingStars,
+    ProjectCard,
   },
-  mixins: [IndexScript, ScrollScript],
+  mixins: [IndexScript, ScrollScript, ProjectsList],
+  computed: {
+    PageProbe() {
+      return ProjectsList[0];
+    }
+  },
   data() {
     return {
       QuasarLogo,
