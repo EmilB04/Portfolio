@@ -2,7 +2,7 @@
   <q-page class="columm">
     <header>
       <nav class="flex justify-center">
-        <q-btn class="bg-accent q-ma-lg text-white" flat rounded label="Gå tilbake" @click="$router.push('/')" />
+        <q-btn class="bg-accent q-ma-md text-white" flat rounded label="Gå tilbake" @click="$router.push('/')" />
       </nav>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <section data-aos="fade-left">

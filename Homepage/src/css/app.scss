@@ -1,9 +1,21 @@
 // app global css in SCSS form
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-body{
+body {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+}
+
+#bg-app {
+  // background-color: $background;
+  background-color: transparent;
+  background: rgba(0, 0, 0, 0);
+}
+
+:root {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-size: 16px;
 }

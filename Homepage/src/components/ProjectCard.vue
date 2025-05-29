@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 @import 'src/css/quasar.variables.scss';
 .project-card {
-  width: 48%;
+  width: 37rem;
   border-radius: 16px;
   background-color: #f0f0f0;
 
