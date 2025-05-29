@@ -23,11 +23,12 @@ export default {
 <style lang="scss" scoped>
 @import 'src/css/quasar.variables.scss';
 .project-card {
-  width: 37rem;
+  width: 100%;
   border-radius: 16px;
   background-color: #f0f0f0;
 
   .project-card-header {
+    flex-basis: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
