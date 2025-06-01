@@ -76,7 +76,7 @@
             <section class="projects-container">
               <ProjectCard :course="PageProbe" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md" to="/projects" router>Gå til prosjekter</q-btn>
+                <q-btn class="q-mt-md" to="/projects" router style="font-size: 1rem;">Gå til prosjekter</q-btn>
             </section>
           </div>
         </section>

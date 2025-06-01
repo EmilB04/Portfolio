@@ -76,6 +76,7 @@ function copyToClipboard(tag) {
 @import 'src/css/app.scss';
 h1 {
   font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 1rem;
 }
 p {

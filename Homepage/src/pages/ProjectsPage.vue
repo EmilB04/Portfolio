@@ -45,7 +45,8 @@ import FooterSection from 'src/components/FooterSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 </script>
 <style setup scoped lang="scss">
-@import 'src/css//app.scss';
+@import 'src/css/app.scss';
+@import 'src/css/quasar.variables.scss';
 
 h1 {
   font-size: 2.5rem;

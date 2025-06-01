@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 @import 'src/css/quasar.variables.scss';
+@import 'src/css/app.scss';
 .project-card {
   width: 100%;
   border-radius: 16px;
@@ -37,12 +38,12 @@ export default {
 
     h3 {
       margin: 0 0 1rem 0;
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #333;
     }
     p {
       margin: 0.5rem 0;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .project-link-btn {
       margin-top: 1rem;
