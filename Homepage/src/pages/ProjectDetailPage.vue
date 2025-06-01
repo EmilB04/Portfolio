@@ -3,36 +3,22 @@
     <div v-if="project">
       <header>
         <nav class="flex justify-center">
-          <q-btn
-            class="bg-accent q-ma-md text-white"
-            flat
-            rounded
-            label="Gå tilbake"
-            @click="$router.replace('/projects')"
-          />
+          <q-btn class="bg-accent q-ma-md text-white" flat rounded label="Gå tilbake"
+            @click="$router.replace('/projects')" />
         </nav>
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex-col items-center text-center q-pa-md">
-        <h1 class="text-white">{{ project.title }}</h1>
-        <p class="text-white">{{ project.details }}</p>
-        <q-chip
-          v-for="tag in project.tags"
-          :key="tag"
-          clickable
-          @click="copyToClipboard(tag)"
-        >
-          {{ tag }}
-        </q-chip>
-        <br>
-        <q-btn
-          class="bg-accent text-white q-mt-xl"
-          flat
-          rounded
-          label="Gå til prosjekt"
-          :href="project.url"
-          target="_blank"
-        />
+        <div class="content">
+          <h1 class="text-white">{{ project.title }}</h1>
+          <p class="text-white">{{ project.details }}</p>
+          <q-chip v-for="tag in project.tags" :key="tag" clickable @click="copyToClipboard(tag)">
+            {{ tag }}
+          </q-chip>
+          <br>
+          <q-btn class="bg-accent text-white q-mt-xl" flat rounded label="Gå til prosjekt" :href="project.url"
+            target="_blank" />
+        </div>
       </main>
       <footer>
         <FooterSection />
@@ -74,11 +60,13 @@ function copyToClipboard(tag) {
 
 <style setup scoped lang="scss">
 @import 'src/css/app.scss';
+
 h1 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
 p {
   font-size: 1rem;
   margin-bottom: 2rem;

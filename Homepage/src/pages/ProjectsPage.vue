@@ -14,6 +14,7 @@
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main>
+        <div class="content">
         <section data-aos="fade-left">
           <h1 class="text-white text-center q-ma-none">Mine prosjekter</h1>
           <p class="text-white text-center q-mb-lg">Under utvikling!</p>
@@ -29,6 +30,7 @@
             />
           </div>
         </section>
+        </div>
       </main>
       <footer class="text-black">
         <FooterSection />
