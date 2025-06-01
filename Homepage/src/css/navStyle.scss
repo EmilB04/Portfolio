@@ -56,10 +56,13 @@ nav {
       position: absolute;
       left: 0;
       top: 56px;
+      > * {
+        padding: 0.8rem;
+      }
     }
     .nav-links.open {
       max-height: 500px;
-      padding-bottom: 1rem;
+      padding: 0.8rem;
     }
 
     div {
