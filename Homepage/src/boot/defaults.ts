@@ -28,4 +28,9 @@ const setMulti = (
 };
 */
 
+// BTN
 setDefault(QBtn, 'textColor', 'black');
+setDefault(QBtn, 'outline', false);
+setDefault(QBtn, 'flat', false);
+setDefault(QBtn, 'round', false);
+setDefault(QBtn, 'color', 'accent');
