@@ -1,17 +1,17 @@
 @import 'src/css/quasar.variables.scss';
+@import 'src/css/app.scss';
 
 nav {
   gap: 5px;
   margin: 0 auto;
   max-width: $max-width;
+  font-size: 0.8rem;
 
   .hamburger {
     display: none;
   }
 
   .nav-links {
-    display: flex;
-    flex-direction: row;
     transition: max-height 0.3s;
   }
 
