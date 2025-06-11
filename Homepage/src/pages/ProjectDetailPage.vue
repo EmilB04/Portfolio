@@ -2,10 +2,7 @@
   <q-page>
     <div v-if="project">
       <header>
-        <nav class="flex justify-center">
-          <q-btn class="bg-accent q-ma-md text-white" flat rounded label="Gå tilbake"
-            @click="$router.replace('/projects')" />
-        </nav>
+        <NavSection />
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex-col items-center text-center q-pa-md">
@@ -39,6 +36,7 @@ import ErrorNotFound from './ErrorNotFound.vue';
 import FooterSection from 'src/components/FooterSection.vue';
 import { useQuasar } from 'quasar';
 import ShootingStars from 'src/components/ShootingStars.vue';
+import NavSection from 'src/components/NavSection.vue';
 
 const $q = useQuasar();
 const route = useRoute();

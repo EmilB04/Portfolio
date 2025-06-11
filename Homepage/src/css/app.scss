@@ -1,4 +1,4 @@
-// app global css in SCSS form
+@import 'src/css/quasar.variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
@@ -23,4 +23,11 @@ body {
 .content {
   max-width: $max-width;
   margin: 0 auto;
+}
+
+button {
+  border-radius: $e-button-border-radius;
+  padding: $e-button-padding;
+  font-size: $e-button-font-size;
+  border: none;
 }

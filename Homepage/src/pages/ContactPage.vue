@@ -1,9 +1,7 @@
 <template>
   <q-page class="columm">
     <header>
-      <nav class="flex justify-center">
-        <q-btn class="bg-accent q-ma-md text-white" flat rounded label="Gå tilbake" @click="$router.push('/')" />
-      </nav>
+      <NavSection />
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <section data-aos="fade-left">
         <h1 class="text-white text-center">Emil Berglund</h1>
@@ -46,12 +44,14 @@
 
 <script>
 import FooterSection from 'src/components/FooterSection.vue';
+import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 export default {
   name: 'ContactPage',
   components: {
     ShootingStars,
     FooterSection,
+    NavSection,
   },
   methods: {
     openLink(url) {

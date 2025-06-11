@@ -12,6 +12,15 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+@mixin mkcolor($name, $color) {
+  .text-#{$name} {
+    color: $color !important;
+  }
+  .bg-#{$name} {
+    background: $color !important;
+  }
+}
+
 $background: #010626;
 $primary: #fff;
 $secondary: #26a69a;
@@ -28,3 +37,12 @@ $warning: #f2c037;
 // measurements
 $max-width: 1280px;
 
+// Buttons
+$e-button-main-color: #f1376e;
+$e-button-text-color: #000;
+$e-button-font-size: 1rem;
+$e-button-border-radius: 16px;
+$e-button-padding: 10px 20px;
+
+$button-bg: #f1376e;
+@include mkcolor('emil', $button-bg);

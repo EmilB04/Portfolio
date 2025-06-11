@@ -1,7 +1,7 @@
 <template>
   <q-page class="columm">
     <div id="bg-app">
-      <header id="top" class="text-white q-py-md">
+      <header id="top" class="text-white">
         <NavSection />
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
@@ -42,8 +42,29 @@
         </section>
         <section class="timeline-section" data-aos="fade-up">
           <div class="timeline-container">
-            <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id">
-              <h3>{{ semester.semester }}</h3>
+            <!-- Landingsslide som eget article -->
+            <transition name="fade">
+              <article v-if="showLanding" class="timeline-landing-article">
+                <ul class="row full-height">
+                  <li class="col column landing-timeline-slide">
+                    <div class="col-12 column items-center justify-center">
+                      <h2>Tidslinje</h2>
+                      <p>
+                        Her kan du følge min reise gjennom informatikkstudiet ved HiØ.<br>
+                        Tidslinjen gir deg en oversikt over emner, prosjekter og ferdigheter.<br>
+                        Trykk gjerne på tidslinje-elementene for å utforske mer om hvert emne.<br>
+                        For å komme i gang trykker du på knappen under.
+                      </p>
+                      <q-btn class="q-mt-xl" color="accent" label="Se tidslinje" @click="showLanding = false" />
+                    </div>
+                  </li>
+                </ul>
+              </article>
+            </transition>
+
+            <!-- Tidslinjeartikler, kun synlig når showLanding er false -->
+            <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id" v-show="!showLanding">
+              <h2>{{ semester.semester }}</h2>
               <div class="timeline-line"></div>
               <ul class="row full-height">
                 <li class="col column" v-for="(course, index) in semester.courses" :key="index"
@@ -53,15 +74,14 @@
                       {{ course.name }}
                     </a>
                     <span style="height: 40px; width: 2px; background-color: white" />
-                    <!-- Connecting line-->
                   </div>
                 </li>
               </ul>
             </article>
           </div>
-          <div class="navigation-buttons">
-            <button @click="prevSemester">Forrige</button>
-            <button @click="nextSemester">Neste</button>
+          <div v-if="!showLanding" class="navigation-buttons">
+            <q-btn flat icon="chevron_left" @click="prevSemester" aria-label="Forrige" />
+            <q-btn flat icon="chevron_right" @click="nextSemester" aria-label="Neste" />
           </div>
         </section>
 
@@ -76,7 +96,7 @@
             <section class="projects-container">
               <ProjectCard :course="PageProbe" />
               <!-- Other projects here-->
-                <q-btn class="q-mt-md" to="/projects" router style="font-size: 1rem;">Gå til prosjekter</q-btn>
+              <q-btn class="q-mt-md" to="/projects" router style="font-size: 1rem;">Gå til prosjekter</q-btn>
             </section>
           </div>
         </section>
@@ -249,6 +269,7 @@ export default {
     return {
       QuasarLogo,
       ProfilePicture,
+      showLanding: true,
     };
   },
   mounted() {
@@ -261,21 +282,28 @@ export default {
     window.removeEventListener('scroll', this.ChangeButtonLabel);
     clearInterval(this.commentInterval);
   },
-  nextSlide() {
-    const totalSlides = this.repositories.length;
-    this.currentSlide = (this.currentSlide + 1) % totalSlides;
-    this.updateCarousel();
-  },
-  prevSlide() {
-    const totalSlides = this.repositories.length;
-    this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
-    this.updateCarousel();
-  },
-  updateCarousel() {
-    const carousel = this.$refs.carousel;
-    const slideWidth = carousel.clientWidth;
-    carousel.scrollLeft = this.currentSlide * slideWidth;
-  },
+  methods: {
+    hideLanding() {
+      this.showLanding = false;
+    },
+    nextSlide() {
+      const totalSlides = this.repositories.length;
+      this.currentSlide = (this.currentSlide + 1) % totalSlides;
+      this.hideLanding();
+      this.updateCarousel();
+    },
+    prevSlide() {
+      const totalSlides = this.repositories.length;
+      this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
+      this.hideLanding();
+      this.updateCarousel();
+    },
+    updateCarousel() {
+      const carousel = this.$refs.carousel;
+      const slideWidth = carousel.clientWidth;
+      carousel.scrollLeft = this.currentSlide * slideWidth;
+    },
+  }
 };
 
 </script>

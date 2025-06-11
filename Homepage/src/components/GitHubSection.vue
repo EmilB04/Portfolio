@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>Mine GitHub Repositories</h2>
+    <h2>Se utvalgte repositories</h2>
     <div class="repo-container" v-if="repositories.length">
       <div v-for="repo in repositories" :key="repo.id" class="repo-card">
         <h3>{{ repo.name }}</h3>
@@ -11,7 +11,7 @@
     <div v-else>
       <p class="text-white">Laster repositories...</p>
     </div>
-    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub profil" no-caps target="_blank" />
+    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub" no-caps target="_blank" />
   </div>
 </template>
 

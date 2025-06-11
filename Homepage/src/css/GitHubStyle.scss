@@ -49,17 +49,10 @@
 
   #goToGithub {
     background-color: $accent;
-    color: white;
-    border: none;
     margin-block: 1rem;
-    padding: 10px 20px;
+    padding: $e-button-padding;
     font-size: 1.2rem;
     cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+    border-radius: $e-button-border-radius;
   }
 }
