@@ -68,6 +68,8 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+  cursor: grabbing;
+  user-select: none;
   button {
     background-color: $accent;
     font-size: 1rem;

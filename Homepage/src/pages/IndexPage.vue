@@ -62,7 +62,9 @@
               </article>
             </transition>
             <!-- Tidslinjeartikler, kun synlig når showLanding er false -->
-            <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id" v-show="!showLanding">
+            <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id" v-show="!showLanding"
+              @mousedown="startDrag" @mousemove="onDrag" @mouseup="endDrag" @mouseleave="endDrag"
+              @touchstart="startDrag" @touchmove="onDrag" @touchend="endDrag" tabindex="0">
               <h2>{{ semester.semester }}</h2>
               <div class="timeline-line"></div>
               <ul class="row full-height">
@@ -277,6 +279,9 @@ export default {
       QuasarLogo,
       ProfilePicture,
       showLanding: true,
+      isDragging: false,
+      dragStartX: 0,
+      dragDeltaX: 0,
     };
   },
   mounted() {
@@ -290,6 +295,31 @@ export default {
     clearInterval(this.commentInterval);
   },
   methods: {
+    startDrag(e) {
+      this.isDragging = true;
+      this.dragStartX = e.type.startsWith('touch')
+        ? e.touches[0].clientX
+        : e.clientX;
+      this.dragDeltaX = 0;
+    },
+    onDrag(e) {
+      if (!this.isDragging) return;
+      const clientX = e.type.startsWith('touch')
+        ? e.touches[0].clientX
+        : e.clientX;
+      this.dragDeltaX = clientX - this.dragStartX;
+    },
+    endDrag() {
+      if (!this.isDragging) return;
+      // Snap threshold (px)
+      if (this.dragDeltaX > 50) {
+        this.prevSemester && this.prevSemester();
+      } else if (this.dragDeltaX < -50) {
+        this.nextSemester && this.nextSemester();
+      }
+      this.isDragging = false;
+      this.dragDeltaX = 0;
+    },
     hideLanding() {
       this.showLanding = false;
     },
