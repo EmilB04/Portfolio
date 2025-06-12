@@ -12,6 +12,20 @@ const ProjectsList = [
       'csv', 'json', 'xml', 'markdown', 'text', 'metadata', 'images', 'links',
       'multimedia', 'extensible', 'testable', 'automation', 'data-mining', 'library'
     ],
+  },
+  {
+    id: 1,
+    title: 'VarsEL',
+    description: 'VarsEL er et åpen kildekode prosjekt som tilbyr en enkel og effektiv måte å se og hente ut strømpriser i Norge.',
+    details: 'VarsEL er et Java bibliotek som gir tilgang til strømpriser i Norge. Det hentes fra hvakosterstrømmen.no og tilbyr en enkel API for å hente ut strømpriser for ulike tidspunkter. Prosjektet er designet for å være lett å bruke og integrere i andre applikasjoner, og støtter både sanntidsdata og historiske priser.',
+    localPath: 'varsel',
+    url: 'https://github.com/EmilB04/VarsEL',
+    tags: [
+      'Java', 'open-source', 'electricity-prices', 'Norway', 'API',
+      'real-time-data', 'historical-prices', 'hvakosterstrømmen.no',
+      'data-access', 'library', 'integration'
+    ],
+
   }
 ];
 
