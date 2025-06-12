@@ -63,10 +63,10 @@ nav {
       padding: 0.8rem;
     }
 
-    div {
+    #hamburger {
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: end;
       align-items: center;
     }
     .arrow-animate {

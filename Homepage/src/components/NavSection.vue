@@ -1,6 +1,6 @@
 <template>
-  <nav class="flex justify-between q-py-md">
-    <div class="justify-start nav-links flex" :class="{ open: menuOpen }">
+  <nav :class="['flex q-py-md', ($route.path === '/' ? 'justify-between' : 'justify-start')]">
+    <div class="nav-links flex" :class="{ open: menuOpen }">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
         <q-btn text-color="white" flat label="Om" @click="navigate('.about-section')" />
         <q-btn text-color="white" flat label="Tidslinje" @click="navigate('.timeline-section')" />
@@ -9,16 +9,17 @@
         <q-btn text-color="white" flat label="GitHub" @click="navigate('.gitHub-section')" />
         <q-btn text-color="white" flat label="Tilbakemeldinger" @click="navigate('.comments-section')" />
       </template>
-      <template v-else>
-        <q-btn text-color="white" flat icon="arrow_back" label="Tilbake" @click="$router.back()" />
-      </template>
     </div>
-    <div>
+    <div id="hamburger">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
         <q-icon name="east" class="q-mx-md arrow-animate" />
         <q-btn class="justify-end bg-accent" flat rounded label="Kontakt meg" @click="$router.push('/contact')" />
+        <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
       </template>
-      <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
+    </div>
+
+    <div v-if="$route.name !== 'IndexPage' && $route.path !== '/'">
+      <q-btn text-color="white" label="Gå tilbake" flat icon="arrow_back" @click="$router.back" class="justify-start" />
     </div>
   </nav>
 </template>
