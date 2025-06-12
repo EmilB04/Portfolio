@@ -2,7 +2,7 @@
   <q-card class="project-card">
     <q-card-section class="project-card-header">
       <h3 class="project-title">{{ course.title }}</h3>
-      <p class="project-description">{{ course.description }}</p>
+      <p class="text-black project-description">{{ course.description }}</p>
       <q-btn text-color="accent" flat icon="launch" :href="'projects/' + course.localPath" class="project-link-btn">Les
         mer</q-btn>
     </q-card-section>

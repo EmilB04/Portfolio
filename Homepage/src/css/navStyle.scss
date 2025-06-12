@@ -5,7 +5,6 @@ nav {
   gap: 5px;
   margin: 0 auto;
   max-width: $max-width;
-  font-size: 0.8rem;
 
   .hamburger {
     display: none;
@@ -35,7 +34,6 @@ nav {
 @media screen and (max-width: 710px) {
   nav {
     gap: 0px;
-    padding: 0;
     flex-direction: column;
     justify-content: center;
 
@@ -55,7 +53,7 @@ nav {
       z-index: 100;
       position: absolute;
       left: 0;
-      top: 56px;
+      top: 70px;
       > * {
         padding: 0.8rem;
       }

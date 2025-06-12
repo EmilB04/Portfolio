@@ -3,9 +3,9 @@
     <h2>Se utvalgte repositories</h2>
     <div class="repo-container" v-if="repositories.length">
       <div v-for="repo in repositories" :key="repo.id" class="repo-card">
-        <h3>{{ repo.name }}</h3>
-        <p>{{ repo.description }}</p>
-        <a :href="repo.html_url" target="_blank">Se repository</a>
+        <h3 class="text-black">{{ repo.name }}</h3>
+        <p class="text-black">{{ repo.description }}</p>
+        <a class="text-accent" :href="repo.html_url" target="_blank">Se repository</a>
       </div>
     </div>
     <div v-else>

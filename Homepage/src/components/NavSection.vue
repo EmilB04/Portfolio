@@ -16,7 +16,7 @@
     <div>
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
         <q-icon name="east" class="q-mx-md arrow-animate" />
-        <q-btn class="justify-end bg-accent" flat rounded label="Emil Berglund" @click="$router.push('/contact')" />
+        <q-btn class="justify-end bg-accent" flat rounded label="Kontakt meg" @click="$router.push('/contact')" />
       </template>
       <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
     </div>
