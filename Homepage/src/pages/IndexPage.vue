@@ -61,7 +61,6 @@
                 </ul>
               </article>
             </transition>
-
             <!-- Tidslinjeartikler, kun synlig når showLanding er false -->
             <article v-for="(semester, index) in CourseList" :key="index" :id="semester.id" v-show="!showLanding">
               <h2>{{ semester.semester }}</h2>
@@ -95,8 +94,9 @@
             </p>
             <section class="projects-container">
               <ProjectCard :course="PageProbe" />
+              <ProjectCard :course="VarsEL" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md" to="/projects" router style="font-size: 1rem;">Gå til prosjekter</q-btn>
+              <q-btn class="q-mt-md" to="/projects" router>Gå til prosjekter</q-btn>
             </section>
           </div>
         </section>
@@ -227,12 +227,14 @@
           </div>
         </section>
 
+        <SvgSeparator />
         <q-btn flat :icon="isAtBottom ? 'arrow_upward' : 'arrow_downward'" @click="scrollToNextSection"
           class="scroll-btn" />
       </main>
       <footer>
         <FooterSection />
       </footer>
+
     </div>
     <ShootingStars style="z-index: -99 !important;" />
   </q-page>
@@ -242,6 +244,7 @@
 import ScrollScript from 'src/scripts/ScrollScript';
 import IndexScript from 'src/scripts/IndexScript.js';
 import ProjectsList from 'src/scripts/ProjectsList.js';
+import SvgSeparator from 'src/components/SvgSeparator.vue';
 import FooterSection from 'src/components/FooterSection.vue';
 import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
@@ -258,12 +261,16 @@ export default {
     FooterSection,
     ShootingStars,
     ProjectCard,
+    SvgSeparator,
   },
   mixins: [IndexScript, ScrollScript, ProjectsList],
   computed: {
     PageProbe() {
       return ProjectsList[0];
-    }
+    },
+    VarsEL() {
+      return ProjectsList[1];
+    },
   },
   data() {
     return {
