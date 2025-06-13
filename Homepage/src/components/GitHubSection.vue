@@ -34,13 +34,15 @@ export default {
         const response = await axios.get(
           'https://api.github.com/users/EmilB04/repos'
         );
-        this.repositories = response.data.filter(
-          (repo) => repo.stargazers_count > 0
-        );
+        // Sort by updated_at (descending), then take the top 8
+        this.repositories = response.data
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+          .sort((a, b) => b.stargazers_count - a.stargazers_count)
+          .slice(0, 8);
       } catch (error) {
         console.error('Error fetching repositories:', error);
       }
-    },
+    }
   }
 };
 </script>
