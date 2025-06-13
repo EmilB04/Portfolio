@@ -133,7 +133,7 @@
                 </div>
                 <div class="skill">
                   <i class="fab fa-microsoft"></i>
-                  <p>.NET & C#</p>
+                  <p>.NET</p>
                 </div>
               </section>
 
@@ -168,30 +168,24 @@
                   <p>Java</p>
                 </div>
                 <div class="skill">
-                  <i class="fas fa-database"></i>
-                  <p>MYSQL</p>
+                  <i class="fab fa-microsoft"></i>
+                  <p>C#</p>
                 </div>
-                <div class="skill">
-                  <i class="fas fa-terminal"></i>
-                  <p>C/Shell</p>
-                </div>
+              </section>
+
+              <h3>Andre:</h3>
+              <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-git-alt"></i>
                   <p>Git</p>
                 </div>
-              </section>
-
-              <h3>Verktøy:</h3>
-              <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-github"></i>
                   <p>GitHub</p>
                 </div>
                 <div class="skill">
-                  <div class="skill">
-                    <i class="fab fa-microsoft"></i>
-                    <p>Azure</p>
-                  </div>
+                  <i class="fab fa-microsoft"></i>
+                  <p>Azure</p>
                 </div>
                 <div class="skill">
                   <i class="fab fa-figma"></i>
@@ -200,6 +194,14 @@
                 <div class="skill">
                   <i class="fab fa-trello"></i>
                   <p>Trello</p>
+                </div>
+                <div class="skill">
+                  <i class="fas fa-database"></i>
+                  <p>MYSQL</p>
+                </div>
+                <div class="skill">
+                  <i class="fas fa-terminal"></i>
+                  <p>C/Shell</p>
                 </div>
               </section>
             </section>
