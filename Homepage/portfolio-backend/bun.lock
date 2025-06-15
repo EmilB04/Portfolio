@@ -5,6 +5,7 @@
       "name": "portfolio-backend",
       "dependencies": {
         "@sanity/vision": "^3.92.0",
+        "caniuse-lite": "^1.0.30001723",
         "react": "^19.1",
         "react-dom": "^19.1",
         "sanity": "^3.92.0",
