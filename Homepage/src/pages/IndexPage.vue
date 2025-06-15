@@ -221,12 +221,17 @@
               samarbeidspartnere jeg har hatt.
             </p>
             <section id="work-comments">
-              <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
-                <p>{{ WorkComments[currentIndex].comment }}</p>
-                <i class="author">-{{ WorkComments[currentIndex].author }}</i>
-              </div>
-            </section>
-            <section>
+              <q-btn flat text-color="accent" icon="chevron_left"
+                @click="changeComment(-1)"
+                aria-label="Forrige kommentar" class="comment-button" />
+              <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
+                <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
+                  <p>{{ WorkComments[currentIndex].comment }}</p>
+                  <i class="author">-{{ WorkComments[currentIndex].author }}</i>
+                </div>
+              </transition>
+              <q-btn flat text-color="accent" icon="chevron_right"
+                @click="changeComment(1)" aria-label="Neste kommentar" class="comment-button" />
             </section>
           </div>
         </section>
@@ -284,6 +289,7 @@ export default {
       isDragging: false,
       dragStartX: 0,
       dragDeltaX: 0,
+      commentDirection: 1,
     };
   },
   mounted() {
@@ -341,6 +347,11 @@ export default {
       const carousel = this.$refs.carousel;
       const slideWidth = carousel.clientWidth;
       carousel.scrollLeft = this.currentSlide * slideWidth;
+    },
+    changeComment(dir) {
+      this.commentDirection = dir;
+      const len = this.WorkComments.length;
+      this.currentIndex = (this.currentIndex + dir + len) % len;
     },
   }
 };
