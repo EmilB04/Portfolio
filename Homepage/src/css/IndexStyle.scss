@@ -264,6 +264,13 @@ body {
   }
 
   #work-comments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    button {
+      background-color: transparent;
+    }
     p {
       margin-top: 3rem;
       font-size: 1rem;
@@ -274,6 +281,38 @@ body {
       font-size: 0.8rem;
     }
   }
+}
+
+
+  .comment-fade-right-enter-active,
+  .comment-fade-right-leave-active,
+  .comment-fade-left-enter-active,
+  .comment-fade-left-leave-active {
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .comment-fade-right-enter-from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  .comment-fade-right-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .comment-fade-left-enter-from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  .comment-fade-left-leave-to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+.slide-left {
+  animation: slideLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-right {
+  animation: slideRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (max-width: 710px) {

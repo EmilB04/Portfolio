@@ -49,7 +49,8 @@ export default {
     startCommentRotation() {
       this.commentInterval = setInterval(() => {
         this.currentIndex = (this.currentIndex + 1) % this.WorkComments.length;
-      }, 8000); // Bytter kommentar hvert 8. sekund
+      }, 15000); // Bytter kommentar hvert 15. sekund
+
     },
   },
 };

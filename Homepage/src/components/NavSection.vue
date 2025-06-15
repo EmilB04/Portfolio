@@ -90,25 +90,28 @@ nav {
 
     .nav-links {
       flex-direction: column;
-      width: 100%;
+      max-width: 100%;
       max-height: 0;
       overflow: hidden;
       background: #222;
-      border-radius: 0 0 12px 12px;
-      transition: max-height 0.3s;
+      border-radius: 12px 0px 0px 12px;
+      transition: max-height 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
       z-index: 100;
       position: absolute;
-      left: 0;
+      right: 0;
       top: 70px;
-
-      >* {
-        padding: 0.8rem;
-      }
+      transform: translateX(100%);
+      pointer-events: none;
+      opacity: 0;
     }
 
     .nav-links.open {
-      max-height: 500px;
+      max-height: max-content;
       padding: 0.8rem;
+      transform: translateX(0);
+      box-shadow: -4px 0 16px rgba(0,0,0,0.2);
+      pointer-events: auto;
+      opacity: 1;
     }
 
     #hamburger {
