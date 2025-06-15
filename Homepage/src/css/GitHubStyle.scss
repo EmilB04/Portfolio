@@ -1,0 +1,58 @@
+.gitHub-section {
+  h2 {
+    color: white;
+    text-align: center;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .repo-container {
+    max-width: 90vw;
+    width: 100%;
+    overflow: hidden;
+    color: black;
+
+    .repo-card {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #000000;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      background-color: rgb(216, 216, 216);
+
+      h3 {
+        margin: 0;
+        white-space: wrap;
+        line-height: normal;
+        white-space: wrap;
+      }
+
+      p {
+        margin: 0.5rem 0;
+        white-space: wrap;
+        color: black;
+      }
+
+      a {
+        color: $accent;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  #goToGithub {
+    background-color: $accent;
+    margin-block: 1rem;
+    padding: $e-button-padding;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: $e-button-border-radius;
+  }
+}
