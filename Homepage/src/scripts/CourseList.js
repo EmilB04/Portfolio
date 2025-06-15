@@ -64,12 +64,14 @@ const courseList = [
       {
         name: 'Diskret matematikk',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2024/host/itf10705.html',
+        code: 'ITF10705',
         description:
           'Kurset gir en innføring i diskret matematikk og matematiske bevis.',
       },
       {
         name: 'Software Engineering og testing',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2024/host/itf20319.html',
+        code: 'ITF20319',
         description:
           'Kurset gir en innføring i software engineering, utvikling, testing og arbeidsmetodikk.',
       },
@@ -81,23 +83,27 @@ const courseList = [
       {
         name: 'Rammeverk og .NET',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/var/itf20123.html',
+        code: 'ITF20123',
         description:
           'Kurset gir en innføring i rammeverk og .NET med programmeringsspråket C#.',
       },
       {
         name: 'Algoritmer og datastrukturer',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/var/itf20006.html',
+        code: 'ITF20006',
         description: 'Kurset gir en innføring i algoritmer og datastrukturer.',
       },
       {
         name: 'Innføring i Generativ AI',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/var/itf31824.html',
+        code: 'ITF31824',
         description:
           'Kurset gir en innføring i generativ AI, og innsikt i etiske probleemstillinger knyttet til bruk av KI.',
       },
       {
         name: 'Utvikling av interaktive nettsteder',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/var/itm30617.html',
+        code: 'ITM30617',
         description:
           'Kurset er en videreføring av Webutvikling og bygget videre med rammeverket React og språket JavaScript.',
       },
