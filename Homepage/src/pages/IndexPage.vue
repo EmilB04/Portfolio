@@ -221,17 +221,18 @@
               samarbeidspartnere jeg har hatt.
             </p>
             <section id="work-comments">
-              <q-btn flat text-color="accent" icon="chevron_left"
-                @click="changeComment(-1)"
-                aria-label="Forrige kommentar" class="comment-button" />
               <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
                 <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
                   <p>{{ WorkComments[currentIndex].comment }}</p>
                   <i class="author">-{{ WorkComments[currentIndex].author }}</i>
                 </div>
               </transition>
-              <q-btn flat text-color="accent" icon="chevron_right"
-                @click="changeComment(1)" aria-label="Neste kommentar" class="comment-button" />
+              <div id="comment-buttons" class="row justify-end">
+                <q-btn flat text-color="accent" icon="chevron_left" @click="changeComment(-1)"
+                  aria-label="Forrige kommentar" class="comment-button" />
+                <q-btn flat text-color="accent" icon="chevron_right" @click="changeComment(1)"
+                  aria-label="Neste kommentar" class="comment-button" />
+              </div>
             </section>
           </div>
         </section>
