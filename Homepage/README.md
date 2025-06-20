@@ -4,37 +4,27 @@ A Quasar Project
 
 ## Install the dependencies
 ```bash
-yarn
-# or
-npm install
+bun install
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
-quasar dev
+bun run dev
 ```
-
 
 ### Lint the files
 ```bash
-yarn lint
-# or
-npm run lint
+bun run lint
 ```
-
 
 ### Format the files
 ```bash
-yarn format
-# or
-npm run format
+bun run format
 ```
-
-
 
 ### Build the app for production
 ```bash
-quasar build
+bun run build
 ```
 
 ### Customize the configuration
@@ -77,17 +67,17 @@ homepage/
 ## 📦 Kom i gang
 
 1. **Installer avhengigheter:**
-   ```sh
-   bun install
-   ```
+  ```sh
+  bun install
+  ```
 2. **Start utviklingsserver:**
-   ```sh
-   bun run dev
-   ```
+  ```sh
+  bun run dev
+  ```
 3. **Bygg for produksjon:**
-   ```sh
-   bun run build
-   ```
+  ```sh
+  bun run build
+  ```
 
 ## 📝 Lisens
 
@@ -103,3 +93,4 @@ g7frot5y
 
 ---
 > Laget med ❤️ og Quasar
+

@@ -265,8 +265,9 @@ body {
 
   #work-comments {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    min-height: 15rem;
     gap: 1rem;
     button {
       background-color: transparent;
