@@ -133,11 +133,11 @@ body {
     flex-shrink: 0;
     width: 100vw;
     height: 100vh;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
     .fade-enter-active,
     .fade-leave-active {
-      transition: opacity 0.5s;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .fade-enter-from,
     .fade-leave-to {
