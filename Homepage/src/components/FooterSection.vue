@@ -3,7 +3,7 @@
     class="text-center"
     :class="{ 'fixed-bottom': isShortPage }"
   >
-    &copy; 2025 Emil Berglund
+    Made with ❤️ by Emil Berglund
   </p>
 </template>
 

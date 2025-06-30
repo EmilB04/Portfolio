@@ -2,18 +2,17 @@
   <nav :class="['flex q-py-md', ($route.path === '/' ? 'justify-between' : 'justify-start')]">
     <div class="nav-links flex" :class="{ open: menuOpen }">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-btn text-color="white" flat label="Om" @click="navigate('.about-section')" />
-        <q-btn text-color="white" flat label="Tidslinje" @click="navigate('.timeline-section')" />
-        <q-btn text-color="white" flat label="Prosjekter" @click="navigate('.projects-section')" />
-        <q-btn text-color="white" flat label="Kunnskap" @click="navigate('.skills-section')" />
+        <q-btn text-color="white" flat label="About" @click="navigate('.about-section')" />
+        <q-btn text-color="white" flat label="Timeline" @click="navigate('.timeline-section')" />
+        <q-btn text-color="white" flat label="Projects" @click="navigate('.projects-section')" />
+        <q-btn text-color="white" flat label="Skills" @click="navigate('.skills-section')" />
         <q-btn text-color="white" flat label="GitHub" @click="navigate('.gitHub-section')" />
-        <q-btn text-color="white" flat label="Tilbakemeldinger" @click="navigate('.comments-section')" />
+        <q-btn text-color="white" flat label="Feedback" @click="navigate('.comments-section')" />
       </template>
     </div>
     <div id="hamburger">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-icon name="east" class="q-mx-md arrow-animate" />
-        <q-btn class="justify-end bg-accent" flat rounded label="Kontakt meg" @click="$router.push('/contact')" />
+        <q-btn class="justify-end bg-accent" flat rounded label="Contact me" @click="$router.push('/contact')" />
         <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
       </template>
     </div>
@@ -57,23 +56,6 @@ nav {
 
   .nav-links {
     transition: max-height 0.3s;
-  }
-
-  div:nth-child(2) {
-    .arrow-animate {
-      font-size: 1.5rem;
-      animation: arrowMove 2s infinite alternate;
-    }
-
-    @keyframes arrowMove {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(12px);
-      }
-    }
   }
 }
 
