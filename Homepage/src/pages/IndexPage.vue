@@ -6,36 +6,78 @@
       </header>
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
-        <section class="full-screen about-section">
+        <section class="full-screen landing-section">
           <div class="content">
+            <article class="about-me">
+              <h1>
+                Hey! I'm Emil Berglund <br />
+                A Computer Science Student
+              </h1>
+              <p>
+                I'm a person with a passion for technology and a drive to learn and grow.
+                I believe there are multiple ways to achieve a goal or find a solution, and I enjoy exploring innovative
+                approaches to tackle challenges.
+              </p>
+              <div class="landing-buttons flex row q-mb-md justify-center">
+                <a class="q-mb-md" href="https://github.com/EmilB04" target="_blank" aria-label="GitHub Profile">
+                  <q-btn color="primary" icon="fab fa-github">
+                    <q-tooltip>Visit my GitHub profile</q-tooltip>
+                  </q-btn>
+                </a>
+                <a class="q-mb-md" href="https://www.linkedin.com/in/emil-berglund-336135251/" target="_blank"
+                  aria-label="LinkedIn Profile">
+                  <q-btn color="primary" icon="fab fa-linkedin">
+                    <q-tooltip>Visit my LinkedIn profile</q-tooltip>
+                  </q-btn>
+                </a>
+              </div>
+              <q-btn @click="scrollToNextSection" data-aos="fade-up">
+                <q-icon name="arrow_downward" class="q-mx-md arrow-animate" />
+                <q-btn class="justify-end bg-accent" flat rounded label="Take a look around" />
+              </q-btn>
+            </article>
             <picture>
               <img id="profilePicture" :src="ProfilePicture" alt="Emil Berglund" class="q-mx-auto q-my-md" />
             </picture>
-            <h1 class="q-mx-none text-left">
-              Hei, jeg er Emil Berglund <br />
-              En Informatikk student
-            </h1>
+          </div>
+
+        </section>
+        <section class="full-screen about-section">
+          <div class="content">
+            <h2 class="q-mx-none text-center">Who am I?</h2>
+
+            <h3>As a Student</h3>
             <article>
               <p>
-                Jeg går studiet, "informatikk - design og utvikling av
-                IT-systemer" ved HiØ i Halden. Mitt studieløp startet høsten
-                2023 og jeg ferdigeksaminert våren 2026. Jeg har spesielisert meg
-                innen Programmering, og driver på smått med selvlæring av Vue og
-                Quasar på fritiden.
+                I am studying Computer Science - Design and Development of IT Systems at HiØ in Halden. My academic
+                journey started in the fall of 2023, and I will graduate in the spring of 2026. I have specialized in
+                programming and am self-learning Vue and Quasar in my spare time.
               </p>
               <p>
-                Ved siden av studie jobber jeg hyppig på Elkjøp som
-                salgsrådgiver. Jeg har generelt en stor interesse for teknologi
-                og elektronikk og liker å holde meg oppdatert på det nyeste. På
-                fritiden liker jeg å spille videospill, se på film og serier, og
-                være sosial, enten dette er digitalt eller fysisk.
+                As a student, I am eager to learn and enjoy challenging myself. I consider myself easy to collaborate
+                with and good at communication. I am also very focused on delivering quality and being proud of what I
+                deliver. In general, I am very focused on structure and precision in my work, which I believe is essential in
+                programming and software development.
               </p>
               <p>
-                Som person er jeg veldig pliktoppfyllende, strukturert og
-                nøyaktig. Jeg er også veldig lærevillig og liker å utfordre meg
-                selv. Jeg ser på meg selv som en person som er lett å samarbeide
-                med og som er flink til å kommunisere. Jeg er også veldig
-                opptatt av å levere kvalitet og å være stolt av det jeg leverer.
+                Alongside my studies, I frequently work at Elkjøp as a Sales Advisor. I have a general interest in
+                technology and electronics and enjoy staying updated on the latest trends.
+              </p>
+            </article>
+
+            <h3>As a Person</h3>
+            <article>
+              <p>
+                I am {{ new Date().getFullYear() - 2004 }} years old and live in Halden, Norway. I am a person with a passion for technology and a drive to learn
+                and grow. I thrive on discovering creative solutions to problems and enjoy experimenting with different approaches to achieve my goals.
+              </p>
+              <p>
+                As a person, I am very responsible, structured, and precise. In my free time, I like
+                playing video games, watching movies and series, and being social, whether digitally or physically.
+              </p>
+              <p>
+                I enjoy traveling around in the local area, often taking my drone with me to capture the beautiful
+                landscapes. I also have a passion for photography and love to capture moments that tell a story.
               </p>
             </article>
           </div>
@@ -48,14 +90,15 @@
                 <ul class="row full-height">
                   <li class="col column landing-timeline-slide">
                     <div class="col-12 column items-center justify-center">
-                      <h2>Tidslinje</h2>
-                      <p>
-                        Her kan du følge min reise gjennom informatikkstudiet ved HiØ.<br>
-                        Tidslinjen gir deg en oversikt over emner, prosjekter og ferdigheter.<br>
-                        Trykk gjerne på tidslinje-elementene for å utforske mer om hvert emne.<br>
-                        For å komme i gang trykker du på knappen under.
+                      <h2>Timeline</h2>
+                      <p class="q-mx-xl">
+                      Here you can follow my journey through the Computer Science program at HiØ.
+                      The timeline provides an overview of subjects. <br />
+                      Feel free to click on the timeline elements to explore more about each subject.
+                      <br /><br />
+                      To get started, click the button below.
                       </p>
-                      <q-btn class="q-mt-xl" color="accent" label="Se tidslinje" @click="showLanding = false" />
+                      <q-btn class="q-mt-xl" color="accent" label="View Timeline" @click="showLanding = false" />
                     </div>
                   </li>
                 </ul>
@@ -88,28 +131,24 @@
 
         <section class="full-screen projects-section" data-aos="fade-up">
           <div class="content">
-            <h2>Prosjekter</h2>
+            <h2>Projects</h2>
             <p>
-              Under vil du kunne se en oversikt over prosjekter jeg har jobbet
-              med i løpet av studietiden. Dette inkluderer både skoleprosjekter
-              og personlige prosjekter.
+              Below, you can see an overview of projects I have worked on during my studies. This includes both school projects and personal projects.
             </p>
             <section class="projects-container">
               <ProjectCard :course="PageProbe" />
               <ProjectCard :course="VarsEL" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md" to="/projects" router>Gå til prosjekter</q-btn>
+              <q-btn class="q-mt-md" to="/projects" router>Go to projects</q-btn>
             </section>
           </div>
         </section>
 
         <section class="full-screen skills-section" data-aos="fade-up">
           <div class="content">
-            <h2>Kunnskap</h2>
+            <h2>Knowledge</h2>
             <p>
-              Som en Informatikk-student tilegner man seg et bredt spekter av
-              kunnskap innenfor informasjonsteknologi. Under vil du kunne se en
-              oversikt.
+              As a Computer Science student, one acquires a broad range of knowledge within information technology. Below, you can see an overview.
             </p>
             <section class="skills-container">
               <h3>Rammeverk:</h3>
@@ -214,24 +253,23 @@
 
         <section class="full-screen comments-section" data-aos="fade-up">
           <div class="content">
-            <h2>Tilbakemeldinger</h2>
+            <h2>Feedback</h2>
             <p>
-              Vil du få et inntrykk av meg som person? Under vil du kunne se
-              tilbakemeldinger på mitt arbeid fra tidligere arbeidsgivere og
-              samarbeidspartnere jeg har hatt.
+              Below, you can see
+              feedback on my work from previous employers and collaborators I have worked with.
             </p>
             <section id="work-comments">
               <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
-                <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
-                  <p>{{ WorkComments[currentIndex].comment }}</p>
-                  <i class="author">-{{ WorkComments[currentIndex].author }}</i>
-                </div>
+          <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
+            <p>{{ WorkComments[currentIndex].comment }}</p>
+            <i class="author">-{{ WorkComments[currentIndex].author }}</i>
+          </div>
               </transition>
               <div id="comment-buttons" class="row justify-end">
-                <q-btn flat text-color="accent" icon="chevron_left" @click="changeComment(-1)"
-                  aria-label="Forrige kommentar" class="comment-button" />
-                <q-btn flat text-color="accent" icon="chevron_right" @click="changeComment(1)"
-                  aria-label="Neste kommentar" class="comment-button" />
+          <q-btn flat text-color="accent" icon="chevron_left" @click="changeComment(-1)"
+            aria-label="Previous comment" class="comment-button" />
+          <q-btn flat text-color="accent" icon="chevron_right" @click="changeComment(1)"
+            aria-label="Next comment" class="comment-button" />
               </div>
             </section>
           </div>
@@ -260,8 +298,7 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
-// import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
-import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
+import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 import ProjectCard from 'src/components/ProjectCard.vue';
 
 export default {

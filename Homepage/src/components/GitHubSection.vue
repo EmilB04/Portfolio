@@ -1,17 +1,17 @@
 <template>
   <div class="content">
-    <h2>Se utvalgte repositories</h2>
+    <h2>View Selected Repositories</h2>
     <div class="repo-container" v-if="repositories.length">
       <div v-for="repo in repositories" :key="repo.id" class="repo-card">
         <h3 class="text-black">{{ repo.name }}</h3>
         <p class="text-black">{{ repo.description }}</p>
-        <a class="text-accent" :href="repo.html_url" target="_blank">Se repository</a>
+        <a class="text-accent" :href="repo.html_url" target="_blank">View Repository</a>
       </div>
     </div>
     <div v-else>
-      <p class="text-white">Laster repositories...</p>
+      <p class="text-white">Loading repositories...</p>
     </div>
-    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Gå til GitHub" no-caps target="_blank" />
+    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Go to GitHub" no-caps target="_blank" />
   </div>
 </template>
 
