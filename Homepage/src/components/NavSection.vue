@@ -12,7 +12,7 @@
     </div>
     <div id="hamburger">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-btn class="justify-end bg-accent" flat rounded label="Contact me" @click="$router.push('/contact')" />
+        <q-btn class="justify-end bg-accent q-mr-md" flat rounded label="Contact me" @click="$router.push('/contact')" />
         <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
       </template>
     </div>
