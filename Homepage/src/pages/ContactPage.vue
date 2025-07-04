@@ -6,6 +6,9 @@
       <section data-aos="fade-left">
         <h1 class="text-white text-center">Emil Berglund</h1>
       </section>
+      <section class="profile-picture-section text-center" data-aos="fade-left">
+        <img :src="ProfilePicture" alt="Emil Berglund" class="profile-picture" />
+      </section>
     </header>
 
     <main class="q-pa-md" data-aos="fade-left">
@@ -46,6 +49,7 @@
 import FooterSection from 'src/components/FooterSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
+import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 export default {
   name: 'ContactPage',
   components: {
@@ -57,6 +61,11 @@ export default {
     openLink(url) {
       window.open(url, '_blank');
     },
+  },
+  data() {
+    return {
+      ProfilePicture,
+    };
   },
 };
 </script>
