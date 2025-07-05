@@ -8,6 +8,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 onMounted(() => {
-  AOS.init();
+  AOS.init({
+    delay: 200,
+    duration: 400,
+    once: true,
+  });
 });
 </script>
