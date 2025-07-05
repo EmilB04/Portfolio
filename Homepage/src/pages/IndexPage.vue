@@ -56,7 +56,8 @@
               <p>
                 As a student, I am eager to learn and enjoy challenging myself. I consider myself easy to collaborate
                 with and good at communication. I am also very focused on delivering quality and being proud of what I
-                deliver. In general, I am very focused on structure and precision in my work, which I believe is essential in
+                deliver. In general, I am very focused on structure and precision in my work, which I believe is
+                essential in
                 programming and software development.
               </p>
               <p>
@@ -68,8 +69,10 @@
             <h3>As a Person</h3>
             <article>
               <p>
-                I am {{ new Date().getFullYear() - 2004 }} years old and live in Halden, Norway. I am a person with a passion for technology and a drive to learn
-                and grow. I thrive on discovering creative solutions to problems and enjoy experimenting with different approaches to achieve my goals.
+                I am {{ new Date().getFullYear() - 2004 }} years old and live in Halden, Norway. I am a person with a
+                passion for technology and a drive to learn
+                and grow. I thrive on discovering creative solutions to problems and enjoy experimenting with different
+                approaches to achieve my goals.
               </p>
               <p>
                 As a person, I am very responsible, structured, and precise. In my free time, I like
@@ -92,11 +95,11 @@
                     <div class="col-12 column items-center justify-center">
                       <h2>Timeline</h2>
                       <p class="q-mx-xl">
-                      Here you can follow my journey through the Computer Science program at HiØ.
-                      The timeline provides an overview of subjects. <br />
-                      Feel free to click on the timeline elements to explore more about each subject.
-                      <br /><br />
-                      To get started, click the button below.
+                        Here you can follow my journey through the Computer Science program at HiØ.
+                        The timeline provides an overview of subjects. <br />
+                        Feel free to click on the timeline elements to explore more about each subject.
+                        <br /><br />
+                        To get started, click the button below.
                       </p>
                       <q-btn class="q-mt-xl" color="accent" label="View Timeline" @click="showLanding = false" />
                     </div>
@@ -133,7 +136,8 @@
           <div class="content">
             <h2>Projects</h2>
             <p>
-              Below, you can see an overview of projects I have worked on during my studies. This includes both school projects and personal projects.
+              Below, you can see an overview of projects I have worked on during my studies. This includes both school
+              projects and personal projects.
             </p>
             <section class="projects-container">
               <ProjectCard :course="PageProbe" />
@@ -148,7 +152,8 @@
           <div class="content">
             <h2>Knowledge</h2>
             <p>
-              As a Computer Science student, one acquires a broad range of knowledge within information technology. Below, you can see an overview.
+              As a Computer Science student, one acquires a broad range of knowledge within information technology.
+              Below, you can see an overview.
             </p>
             <section class="skills-container">
               <h3>Rammeverk:</h3>
@@ -260,16 +265,20 @@
             </p>
             <section id="work-comments">
               <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
-          <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
-            <p>{{ WorkComments[currentIndex].comment }}</p>
-            <i class="author">-{{ WorkComments[currentIndex].author }}</i>
-          </div>
+                <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
+                  <p>
+                    <i class="fas fa-quote-left quote"></i>
+                    {{ WorkComments[currentIndex].comment }}
+                    <i class="fas fa-quote-right quote"></i>
+                  </p>
+                  <i class="author">-{{ WorkComments[currentIndex].author }}</i>
+                </div>
               </transition>
               <div id="comment-buttons" class="row justify-end">
-          <q-btn flat text-color="accent" icon="chevron_left" @click="changeComment(-1)"
-            aria-label="Previous comment" class="comment-button" />
-          <q-btn flat text-color="accent" icon="chevron_right" @click="changeComment(1)"
-            aria-label="Next comment" class="comment-button" />
+                <q-btn flat text-color="accent" icon="chevron_left" @click="changeComment(-1)"
+                  aria-label="Previous comment" class="comment-button" />
+                <q-btn flat text-color="accent" icon="chevron_right" @click="changeComment(1)" aria-label="Next comment"
+                  class="comment-button" />
               </div>
             </section>
           </div>
@@ -298,7 +307,8 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
-import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
+// import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
+import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
 import ProjectCard from 'src/components/ProjectCard.vue';
 
 export default {
