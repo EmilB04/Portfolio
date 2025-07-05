@@ -31,7 +31,7 @@
                   </q-btn>
                 </a>
               </div>
-              <q-btn @click="scrollToNextSection" data-aos="fade-up" data-aos-delay="200" data-aos-duration="2000">
+              <q-btn @click="scrollToNextSection" data-aos="zoom-in-up" data-aos-delay="200" data-aos-duration="1500">
                 <q-icon name="arrow_downward" class="q-mx-md arrow-animate" />
                 <q-btn class="justify-end bg-accent" flat rounded label="Take a look around" />
               </q-btn>
