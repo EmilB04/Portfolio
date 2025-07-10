@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="columm q-px-md">
     <div v-if="project">
       <header>
         <NavSection />

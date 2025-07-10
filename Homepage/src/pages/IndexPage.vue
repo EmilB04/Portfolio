@@ -1,5 +1,5 @@
 <template>
-  <q-page class="columm">
+  <q-page class="columm q-px-md ">
     <div id="bg-app">
       <header id="top" class="text-white">
         <NavSection />
@@ -293,8 +293,8 @@
       </footer>
 
     </div>
-    <ShootingStars style="z-index: -99 !important;" />
   </q-page>
+  <ShootingStars style="z-index: -99 !important;" />
 </template>
 
 <script scoped>

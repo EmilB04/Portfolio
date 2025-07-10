@@ -1,5 +1,5 @@
 <template>
-  <q-page class="columm">
+  <q-page class="columm q-px-md">
     <header>
       <NavSection />
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
