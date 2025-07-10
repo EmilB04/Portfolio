@@ -58,6 +58,7 @@ function copyToClipboard(tag) {
 
 <style setup scoped lang="scss">
 @import 'src/css/app.scss';
+@import 'src/css/quasar.variables.scss';
 
 h1 {
   font-size: 3rem;
@@ -68,5 +69,9 @@ h1 {
 p {
   font-size: 1rem;
   margin-bottom: 2rem;
+}
+
+a {
+  padding: $e-button-padding;
 }
 </style>
