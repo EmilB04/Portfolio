@@ -1,5 +1,5 @@
 <template>
-  <q-page class="columm">
+  <q-page class="columm q-px-md ">
     <div id="bg-app">
       <header id="top" class="text-white">
         <NavSection />
@@ -31,7 +31,7 @@
                   </q-btn>
                 </a>
               </div>
-              <q-btn @click="scrollToNextSection" data-aos="fade-up">
+              <q-btn @click="scrollToNextSection" data-aos="zoom-in-up" data-aos-delay="200" data-aos-duration="1500">
                 <q-icon name="arrow_downward" class="q-mx-md arrow-animate" />
                 <q-btn class="justify-end bg-accent" flat rounded label="Take a look around" />
               </q-btn>
@@ -293,8 +293,8 @@
       </footer>
 
     </div>
-    <ShootingStars style="z-index: -99 !important;" />
   </q-page>
+  <ShootingStars style="z-index: -99 !important;" />
 </template>
 
 <script scoped>

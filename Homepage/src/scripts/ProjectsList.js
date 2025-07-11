@@ -2,31 +2,62 @@ const ProjectsList = [
   {
     id: 0,
     title: 'PageProbe',
-    description: 'PageProbe er et .NET 8-basert, åpen kildekode web-crawler bibliotek for C# som muliggjør automatisert innhenting og overvåking av innhold fra statisk genererte nettsteder.',
-    details: 'PageProbe er et enkelt og utvidbart .NET 8-bibliotek for web-crawling og innholdsekstraksjon. Det støtter parsing av HTML, håndtering av robots.txt, og kan trekke ut data som tekst, metadata, bilder, lenker og multimedia. Resultater kan eksporteres til CSV, JSON, XML eller Markdown. Biblioteket er designet for å være testbart og enkelt å utvide, og egner seg for automatisering, data-mining og innholdsovervåking på nettsteder uten API.',
+    description:
+      'PageProbe is a .NET 8-based open-source web crawler library for C# that enables automated retrieval and monitoring of content from statically generated websites.',
+    details:
+      'PageProbe is a simple and extensible .NET 8 library for web crawling and content extraction. It supports HTML parsing, handling of robots.txt, and can extract data such as text, metadata, images, links, and multimedia. Results can be exported to CSV, JSON, XML, or Markdown. The library is designed to be testable and easy to extend, making it suitable for automation, data mining, and content monitoring on websites without APIs.',
     localPath: 'pageprobe',
-    url: 'https://www.nuget.org/packages/PageProbe/',
+    url: 'https://github.com/EmilB04/Rammeverk-og-.NET/tree/main/Project/PageProbe',
     tags: [
-      '.NET', 'dotnet8', 'C#', 'open-source', 'web-crawler', 'site-crawler',
-      'html-parsing', 'robots.txt', 'data-extraction', 'content-extraction',
-      'csv', 'json', 'xml', 'markdown', 'text', 'metadata', 'images', 'links',
-      'multimedia', 'extensible', 'testable', 'automation', 'data-mining', 'library'
+      '.NET',
+      'dotnet8',
+      'C#',
+      'open-source',
+      'web-crawler',
+      'site-crawler',
+      'html-parsing',
+      'robots.txt',
+      'data-extraction',
+      'content-extraction',
+      'csv',
+      'json',
+      'xml',
+      'markdown',
+      'text',
+      'metadata',
+      'images',
+      'links',
+      'multimedia',
+      'extensible',
+      'testable',
+      'automation',
+      'data-mining',
+      'library',
     ],
   },
   {
     id: 1,
     title: 'VarsEL',
-    description: 'VarsEL er et åpen kildekode prosjekt som tilbyr en enkel og effektiv måte å se og hente ut strømpriser i Norge.',
-    details: 'VarsEL er et Java bibliotek som gir tilgang til strømpriser i Norge. Det hentes fra hvakosterstrømmen.no og tilbyr en enkel API for å hente ut strømpriser for ulike tidspunkter. Prosjektet er designet for å være lett å bruke og integrere i andre applikasjoner, og støtter både sanntidsdata og historiske priser.',
+    description:
+      'VarsEL is an open-source project that offers a simple and efficient way to view and retrieve electricity prices in Norway.',
+    details:
+      'VarsEL is a Java library that provides access to electricity prices in Norway. It fetches data from hvakosterstrømmen.no and offers a simple API for retrieving electricity prices for different time periods. The project is designed to be easy to use and integrate into other applications, supporting both real-time data and historical prices.',
     localPath: 'varsel',
     url: 'https://github.com/EmilB04/VarsEL',
     tags: [
-      'Java', 'open-source', 'electricity-prices', 'Norway', 'API',
-      'real-time-data', 'historical-prices', 'hvakosterstrømmen.no',
-      'data-access', 'library', 'integration'
+      'Java',
+      'open-source',
+      'electricity-prices',
+      'Norway',
+      'API',
+      'real-time-data',
+      'historical-prices',
+      'hvakosterstrømmen.no',
+      'data-access',
+      'library',
+      'integration',
     ],
-
-  }
+  },
 ];
 
 export default ProjectsList;
