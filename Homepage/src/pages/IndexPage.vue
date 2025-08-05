@@ -156,7 +156,7 @@
               Below, you can see an overview.
             </p>
             <section class="skills-container">
-              <h3>Rammeverk:</h3>
+              <h3>Frameworks:</h3>
               <section class="skills" data-aos="fade-right">
                 <div class="skill">
                   <i class="fab fa-vuejs"></i>
@@ -217,7 +217,7 @@
                 </div>
               </section>
 
-              <h3>Andre:</h3>
+              <h3>Other:</h3>
               <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-git-alt"></i>
