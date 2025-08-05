@@ -41,11 +41,14 @@ const ProjectsList = [
     description:
       'VarsEL is an open-source project that offers a simple and efficient way to view and retrieve electricity prices in Norway.',
     details:
-      'VarsEL is a Java library that provides access to electricity prices in Norway. It fetches data from hvakosterstrømmen.no and offers a simple API for retrieving electricity prices for different time periods. The project is designed to be easy to use and integrate into other applications, supporting both real-time data and historical prices.',
+      'VarsEL is a Java library with Vue and Quasar front-end that provides access to electricity prices in Norway. It fetches data from hvakosterstrømmen.no and offers a simple API for retrieving electricity prices for different time periods. The project is designed to be easy to use and integrate into other applications, supporting both real-time data and historical prices.',
     localPath: 'varsel',
     url: 'https://github.com/EmilB04/VarsEL',
     tags: [
       'Java',
+      'Vue',
+      'Quasar',
+      'npm',
       'open-source',
       'electricity-prices',
       'Norway',
