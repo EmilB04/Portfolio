@@ -109,6 +109,30 @@ const courseList = [
       },
     ],
   },
+  {
+    semester: 'Høst 2025',
+    courses: [
+      {
+        name: 'Mobilprogrammering',
+        link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itf21019.html',
+        code: 'ITF21019',
+        description:
+          'Kurset gir en innføring i mobilprogrammering med fokus på plattformene Android og iOS.'
+      },
+      {
+        name: 'Webapplikasjoner',
+        link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itf31619.html',
+        code: 'ITF31619',
+        description: 'Kurset gir en innføring i webapplikasjoner med fokus på moderne rammeverk og teknologier.'
+      },
+      {
+        name: 'Kommunikasjonsdesign',
+        link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itm30719.html',
+        code: 'ITM30719',
+        description: 'Kurset gir en innføring i kommunikasjonsdesign, brukeropplevelse og designmetodikk.'
+      }
+    ]
+  }
 ];
 
 export default courseList;
