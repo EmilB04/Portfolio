@@ -307,7 +307,6 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
-// import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
 import ProjectCard from 'src/components/ProjectCard.vue';
 
@@ -338,7 +337,7 @@ export default {
       isDragging: false,
       dragStartX: 0,
       dragDeltaX: 0,
-      commentDirection: 1,
+      commentDirection: 1, // 1 for right, -1 for left
     };
   },
   mounted() {

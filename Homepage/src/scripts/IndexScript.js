@@ -14,7 +14,7 @@ export default {
       CourseList,
       WorkComments,
       // ----------------- Variables -------------------
-      semesters: ['semester-1', 'semester-2', 'semester-3', 'semester-4'],
+      semesters: CourseList.map((_, index) => `semester-${index + 1}`), // Generates an array of semester identifiers
       currentSemester: 0,
       // ----------------- Methods ---------------------
       currentIndex: randomIndex(),
