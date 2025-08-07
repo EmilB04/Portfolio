@@ -97,7 +97,7 @@
                       <h2>Timeline</h2>
                       <p class="q-mx-xl">
                         Here you can follow my journey through the Computer Science program at HiØ.
-                        The timeline provides an overview of subjects. <br />
+                        The timeline provides an overview of subjects.
                         Feel free to click on the timeline elements to explore more about each subject.
                         <br /><br />
                         To get started, click the button below.
@@ -267,7 +267,7 @@
             <section id="work-comments">
               <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
                 <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
-                  <p>
+                  <p id="comment-text">
                     <i class="fas fa-quote-left quote"></i>
                     {{ WorkComments[currentIndex].comment }}
                     <i class="fas fa-quote-right quote"></i>
