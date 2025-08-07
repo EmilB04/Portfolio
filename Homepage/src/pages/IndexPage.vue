@@ -31,7 +31,8 @@
                   </q-btn>
                 </a>
               </div>
-              <q-btn @click="scrollToNextSection" data-aos="zoom-in-up" data-aos-delay="200" data-aos-duration="1500">
+              <q-btn @click="scrollToNextSection" :data-aos="shouldUseAOS ? 'zoom-in-up' : ''"
+                :data-aos-delay="shouldUseAOS ? '0' : '0'" :data-aos-duration="shouldUseAOS ? '1500' : '0'">
                 <q-icon name="arrow_downward" class="q-mx-md arrow-animate" />
                 <q-btn class="justify-end bg-accent" flat rounded label="Take a look around" />
               </q-btn>
@@ -328,6 +329,10 @@ export default {
     VarsEL() {
       return ProjectsList[1];
     },
+    shouldUseAOS() {
+      // Disable AOS animations on mobile devices (710px and below)
+      return this.windowWidth > 710;
+    },
   },
   data() {
     return {
@@ -338,19 +343,25 @@ export default {
       dragStartX: 0,
       dragDeltaX: 0,
       commentDirection: 1, // 1 for right, -1 for left
+      windowWidth: typeof window !== 'undefined' ? window.innerWidth : 1024,
     };
   },
   mounted() {
     window.addEventListener('scroll', this.ChangeButtonLabel);
+    window.addEventListener('resize', this.handleResize);
     this.scrollToSemester();
     this.startCommentRotation();
     this.ChangeButtonLabel();
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.ChangeButtonLabel);
+    window.removeEventListener('resize', this.handleResize);
     clearInterval(this.commentInterval);
   },
   methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+    },
     startDrag(e) {
       this.isDragging = true;
       this.dragStartX = e.type.startsWith('touch')
