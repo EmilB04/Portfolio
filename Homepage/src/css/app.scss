@@ -25,6 +25,15 @@ body {
   margin: 0 auto;
 }
 
+.e-button {
+  padding: 1rem 2rem !important;
+  font-size: $e-button-font-size !important;
+
+  @media screen and (max-width: 710px) {
+    font-size: calc(#{$e-button-font-size} * 0.9) !important;
+  }
+}
+
 button {
   border-radius: $e-button-border-radius;
   padding: $e-button-padding;

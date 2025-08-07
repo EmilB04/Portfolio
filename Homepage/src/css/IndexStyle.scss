@@ -363,19 +363,22 @@ body {
       overflow: hidden;
     }
 
-    .quote {
-      font-size: 2rem;
-      color: $accent;
-      position: absolute;
-      pointer-events: none;
+    #comment-text {
+      position: relative;
+      .quote {
+        font-size: 1.8em;
+        color: $accent;
+        position: absolute;
+        pointer-events: none;
 
-      &:first-child {
-        left: 1rem;
-        top: 0.5rem;
-      }
-      &:last-child {
-        right: 1rem;
-        bottom: 0.5rem;
+        &:first-child {
+          left: 0.5rem;
+          top: 0.5rem;
+        }
+        &:last-child {
+          right: 0.5rem;
+          bottom: -0.5rem;
+        }
       }
     }
 

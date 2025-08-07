@@ -31,7 +31,8 @@
                   </q-btn>
                 </a>
               </div>
-              <q-btn @click="scrollToNextSection" data-aos="zoom-in-up" data-aos-delay="200" data-aos-duration="1500">
+              <q-btn @click="scrollToNextSection" :data-aos="shouldUseAOS ? 'zoom-in-up' : ''"
+                :data-aos-delay="shouldUseAOS ? '0' : '0'" :data-aos-duration="shouldUseAOS ? '1500' : '0'">
                 <q-icon name="arrow_downward" class="q-mx-md arrow-animate" />
                 <q-btn class="justify-end bg-accent" flat rounded label="Take a look around" />
               </q-btn>
@@ -96,12 +97,13 @@
                       <h2>Timeline</h2>
                       <p class="q-mx-xl">
                         Here you can follow my journey through the Computer Science program at HiØ.
-                        The timeline provides an overview of subjects. <br />
+                        The timeline provides an overview of subjects.
                         Feel free to click on the timeline elements to explore more about each subject.
                         <br /><br />
                         To get started, click the button below.
                       </p>
-                      <q-btn class="q-mt-xl" color="accent" label="View Timeline" @click="showLanding = false" />
+                      <q-btn class="q-mt-xl e-button" color="accent" label="View Timeline"
+                        @click="showLanding = false" />
                     </div>
                   </li>
                 </ul>
@@ -143,7 +145,7 @@
               <ProjectCard :course="PageProbe" />
               <ProjectCard :course="VarsEL" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md" to="/projects" router>Go to projects</q-btn>
+              <q-btn class="q-mt-md e-button" to="/projects" router>Go to projects</q-btn>
             </section>
           </div>
         </section>
@@ -156,7 +158,7 @@
               Below, you can see an overview.
             </p>
             <section class="skills-container">
-              <h3>Rammeverk:</h3>
+              <h3>Frameworks:</h3>
               <section class="skills" data-aos="fade-right">
                 <div class="skill">
                   <i class="fab fa-vuejs"></i>
@@ -217,7 +219,7 @@
                 </div>
               </section>
 
-              <h3>Andre:</h3>
+              <h3>Other:</h3>
               <section class="skills" data-aos="fade-left">
                 <div class="skill">
                   <i class="fab fa-git-alt"></i>
@@ -266,7 +268,7 @@
             <section id="work-comments">
               <transition :name="commentDirection === 1 ? 'comment-fade-right' : 'comment-fade-left'" mode="out-in">
                 <div v-if="WorkComments.length > 0" :key="currentIndex" class="comment">
-                  <p>
+                  <p id="comment-text">
                     <i class="fas fa-quote-left quote"></i>
                     {{ WorkComments[currentIndex].comment }}
                     <i class="fas fa-quote-right quote"></i>
@@ -307,7 +309,6 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
-// import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
 import ProjectCard from 'src/components/ProjectCard.vue';
 
@@ -329,6 +330,10 @@ export default {
     VarsEL() {
       return ProjectsList[1];
     },
+    shouldUseAOS() {
+      // Disable AOS animations on mobile devices (710px and below)
+      return this.windowWidth > 710;
+    },
   },
   data() {
     return {
@@ -338,20 +343,26 @@ export default {
       isDragging: false,
       dragStartX: 0,
       dragDeltaX: 0,
-      commentDirection: 1,
+      commentDirection: 1, // 1 for right, -1 for left
+      windowWidth: typeof window !== 'undefined' ? window.innerWidth : 1024,
     };
   },
   mounted() {
     window.addEventListener('scroll', this.ChangeButtonLabel);
+    window.addEventListener('resize', this.handleResize);
     this.scrollToSemester();
     this.startCommentRotation();
     this.ChangeButtonLabel();
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.ChangeButtonLabel);
+    window.removeEventListener('resize', this.handleResize);
     clearInterval(this.commentInterval);
   },
   methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+    },
     startDrag(e) {
       this.isDragging = true;
       this.dragStartX = e.type.startsWith('touch')
@@ -409,4 +420,5 @@ export default {
 
 <style scoped lang="scss">
 @import 'src/css/IndexStyle.scss';
+@import 'src/css/quasar.variables.scss';
 </style>

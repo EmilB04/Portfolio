@@ -12,13 +12,14 @@
     </div>
     <div id="hamburger">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-btn class="justify-end bg-accent q-mr-md" flat rounded label="Contact me" @click="$router.push('/contact')" />
+        <q-btn class="justify-end bg-accent q-mr-md" flat rounded label="Contact me"
+          @click="$router.push('/contact')" />
         <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
       </template>
     </div>
 
     <div v-if="$route.name !== 'IndexPage' && $route.path !== '/'">
-      <q-btn text-color="white" label="Gå tilbake" flat icon="arrow_back" @click="$router.back" class="justify-start" />
+      <q-btn text-color="white" label="Go Back" flat icon="arrow_back" @click="$router.back" class="justify-start" />
     </div>
   </nav>
 </template>
@@ -77,7 +78,7 @@ nav {
       overflow: hidden;
       background: #222;
       border-radius: 12px 0px 0px 12px;
-      transition: max-height 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      transition: max-height 0.3s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 100;
       position: absolute;
       right: 0;
@@ -91,7 +92,7 @@ nav {
       max-height: max-content;
       padding: 0.8rem;
       transform: translateX(0);
-      box-shadow: -4px 0 16px rgba(0,0,0,0.2);
+      box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
       pointer-events: auto;
       opacity: 1;
     }

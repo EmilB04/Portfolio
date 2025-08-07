@@ -11,7 +11,7 @@
     <div v-else>
       <p class="text-white">Loading repositories...</p>
     </div>
-    <q-btn id="goToGithub" unelevated :href="githubProfileUrl" label="Go to GitHub" no-caps target="_blank" />
+    <q-btn class="e-button" id="goToGithub" unelevated :href="githubProfileUrl" label="Go to GitHub" target="_blank" />
   </div>
 </template>
 
