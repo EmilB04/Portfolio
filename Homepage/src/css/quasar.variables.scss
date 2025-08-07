@@ -43,6 +43,7 @@ $e-button-text-color: #000;
 $e-button-font-size: 1rem;
 $e-button-border-radius: 16px;
 $e-button-padding: 10px 20px;
+$e-custom-button-padding: 1rem 2rem;
 
 $button-bg: #f1376e;
 @include mkcolor('emil', $button-bg);

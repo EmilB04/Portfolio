@@ -16,7 +16,7 @@
               {{ tag }}
             </q-chip>
           </div>
-          <q-btn class="bg-accent text-white q-mt-xl" flat rounded label="Gå til prosjekt" :href="project.url"
+          <q-btn class="bg-accent text-white q-mt-xl e-button" flat rounded label="Go to project" :href="project.url"
             target="_blank" />
         </div>
       </main>

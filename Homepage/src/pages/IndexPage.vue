@@ -102,7 +102,8 @@
                         <br /><br />
                         To get started, click the button below.
                       </p>
-                      <q-btn class="q-mt-xl" color="accent" label="View Timeline" @click="showLanding = false" />
+                      <q-btn class="q-mt-xl e-button" color="accent" label="View Timeline"
+                        @click="showLanding = false" />
                     </div>
                   </li>
                 </ul>
@@ -144,7 +145,7 @@
               <ProjectCard :course="PageProbe" />
               <ProjectCard :course="VarsEL" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md" to="/projects" router>Go to projects</q-btn>
+              <q-btn class="q-mt-md e-button" to="/projects" router>Go to projects</q-btn>
             </section>
           </div>
         </section>
@@ -419,4 +420,5 @@ export default {
 
 <style scoped lang="scss">
 @import 'src/css/IndexStyle.scss';
+@import 'src/css/quasar.variables.scss';
 </style>
