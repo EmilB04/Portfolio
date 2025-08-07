@@ -7,8 +7,7 @@
     <main>
       <div class="content">
         <section data-aos="fade-left">
-          <h1 class="text-white text-center q-ma-none">Mine prosjekter</h1>
-          <p class="text-white text-center q-mb-lg">Under utvikling!</p>
+          <h1 class="text-white text-center">My projects</h1>
           <div class="row justify-center q-gutter-lg">
             <ProjectCard v-for="project in ProjectsList" :key="project.id" :course="project" @click="
               $router.push({ path: `/projects/${project.localPath}` })

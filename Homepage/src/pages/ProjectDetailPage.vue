@@ -9,10 +9,13 @@
         <div class="content">
           <h1 class="text-white">{{ project.title }}</h1>
           <p class="text-white">{{ project.details }}</p>
-          <q-chip v-for="tag in project.tags" :key="tag" clickable @click="copyToClipboard(tag)">
-            {{ tag }}
-          </q-chip>
-          <br>
+          <q-img v-if="project.image" :src="project.image" :alt="project.title" class="q-mb-md"
+            style="max-width: 600px; border-radius: 8px" />
+          <div class="flex flex-wrap q-gutter-sm q-mb-md">
+            <q-chip v-for="tag in project.tags" :key="tag" clickable @click="copyToClipboard(tag)">
+              {{ tag }}
+            </q-chip>
+          </div>
           <q-btn class="bg-accent text-white q-mt-xl" flat rounded label="Gå til prosjekt" :href="project.url"
             target="_blank" />
         </div>
@@ -25,7 +28,7 @@
     <div v-else>
       <ErrorNotFound />
     </div>
-    <ShootingStars style="z-index: -99 !important;" />
+    <ShootingStars style="z-index: -99 !important" />
   </q-page>
 </template>
 
@@ -49,7 +52,7 @@ function copyToClipboard(tag) {
       type: 'positive',
       position: 'top',
       classes: 'text-white',
-      message: `"${tag}" kopiert til utklippstavlen!`,
+      message: `"${tag}" copied to clipboard!`,
       timeout: 1200,
     });
   });

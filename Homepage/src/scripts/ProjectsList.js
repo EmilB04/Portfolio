@@ -8,6 +8,7 @@ const ProjectsList = [
       'PageProbe is a simple and extensible .NET 8 library for web crawling and content extraction. It supports HTML parsing, handling of robots.txt, and can extract data such as text, metadata, images, links, and multimedia. Results can be exported to CSV, JSON, XML, or Markdown. The library is designed to be testable and easy to extend, making it suitable for automation, data mining, and content monitoring on websites without APIs.',
     localPath: 'pageprobe',
     url: 'https://github.com/EmilB04/Rammeverk-og-.NET/tree/main/Project/PageProbe',
+    image: 'https://placehold.co/600x400',
     tags: [
       '.NET',
       'dotnet8',
@@ -44,6 +45,7 @@ const ProjectsList = [
       'VarsEL is a Java library with Vue and Quasar front-end that provides access to electricity prices in Norway. It fetches data from hvakosterstrømmen.no and offers a simple API for retrieving electricity prices for different time periods. The project is designed to be easy to use and integrate into other applications, supporting both real-time data and historical prices.',
     localPath: 'varsel',
     url: 'https://github.com/EmilB04/VarsEL',
+    image: 'https://placehold.co/600x400',
     tags: [
       'Java',
       'Vue',
