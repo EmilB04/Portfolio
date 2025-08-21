@@ -4,6 +4,7 @@
       <header id="top" class="text-white">
         <NavSection />
       </header>
+      <!--
       <h1>TODO!</h1>
       <p>
         1. Fix Quasar Icon on Mobile
@@ -14,6 +15,8 @@
         6. Remove padding on background on mobile - does not go 100% width
         7. Remove white "aura" from base background
       </p>
+
+      -->
       <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
       <main class="flex column">
         <section class="full-screen landing-section">
