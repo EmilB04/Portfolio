@@ -7,13 +7,10 @@
       <!--
       <h1>TODO!</h1>
       <p>
-        1. Fix Quasar Icon on Mobile      - DONE ✅
-        2. Make intro to timeline have less padding on mobile.
-        3. Add icon to illustrate grabbing on timeline when loading it
-        4. Less margin/padding on feedback on mobile    - DONE ✅
-        5. Setup Sanity for backend information
-        6. Remove padding on background on mobile - does not go 100% width
-        7. Remove white "aura" from base background
+        1. Add icon to illustrate grabbing on timeline when loading it
+        2. Setup Sanity for backend information
+        3. Remove padding on background on mobile - does not go 100% width
+        4. Remove white "aura" from base background
       </p>
 
       -->
