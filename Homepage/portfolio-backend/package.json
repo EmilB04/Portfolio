@@ -20,11 +20,11 @@
     "@sanity/client": "^7.6.0",
     "@sanity/core": "^2.36.2",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.92.0",
+    "@sanity/vision": "^4.6.1",
     "caniuse-lite": "^1.0.30001723",
     "react": "^19.1",
     "react-dom": "^19.1",
-    "sanity": "^3.92.0",
+    "sanity": "^4.6.1",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
