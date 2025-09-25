@@ -1,7 +1,7 @@
 <template>
   <p
     class="text-center"
-    :class="{ 'fixed-bottom': isShortPage }"
+    :class="isShortPage ? 'fixed-bottom' : 'regular-bottom'"
   >
     Made with ❤️ by Emil Berglund
   </p>
@@ -38,6 +38,14 @@ p {
   position: fixed;
   left: 0;
   bottom: 0;
+  width: 100vw;
+  background: inherit;
+  z-index: 100;
+}
+
+.regular-bottom{
+  margin-top: 5rem;
+  position: relative;
   width: 100vw;
   background: inherit;
   z-index: 100;

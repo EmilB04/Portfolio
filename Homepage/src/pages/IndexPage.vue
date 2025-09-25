@@ -152,10 +152,10 @@
               projects and personal projects.
             </p>
             <section class="projects-container">
-              <ProjectCard :course="PageProbe" />
+              <ProjectCard :course="ChoreChamp" />
               <ProjectCard :course="VarsEL" />
               <!-- Other projects here-->
-              <q-btn class="q-mt-md e-button" to="/projects" router>Go to projects</q-btn>
+              <q-btn class="q-mt-md e-button" to="/projects" router>See all projects</q-btn>
             </section>
           </div>
         </section>
@@ -206,6 +206,11 @@
                 <div class="skill">
                   <i class="fab fa-js"></i>
                   <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                  <img :src="TypeScriptLogo" alt="" class="q-ma-none q-pa-none self-center"
+                    style="width: 21px; height: 24px; color: #007ACC;" />
+                  <p>TypeScript</p>
                 </div>
                 <div class="skill">
                   <i class="fab fa-sass"></i>
@@ -319,6 +324,7 @@ import GitHubSection from 'src/components/GitHubSection.vue';
 import NavSection from 'src/components/NavSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import QuasarLogo from 'src/assets/icons/logo-quasar.svg';
+import TypeScriptLogo from 'src/assets/icons/logo-ts.svg';
 import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
 import ProjectCard from 'src/components/ProjectCard.vue';
 
@@ -334,8 +340,8 @@ export default {
   },
   mixins: [IndexScript, ScrollScript, ProjectsList],
   computed: {
-    PageProbe() {
-      return ProjectsList[0];
+    ChoreChamp() {
+      return ProjectsList[2];
     },
     VarsEL() {
       return ProjectsList[1];
@@ -348,6 +354,7 @@ export default {
   data() {
     return {
       QuasarLogo,
+      TypeScriptLogo,
       ProfilePicture,
       showLanding: true,
       isDragging: false,

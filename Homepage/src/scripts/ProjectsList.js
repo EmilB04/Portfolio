@@ -63,6 +63,88 @@ const ProjectsList = [
       'integration',
     ],
   },
+  {
+    id: 2,
+    title: 'ChoreChamp',
+    description:
+      'ChoreChamp is a mobile app that helps families manage and organize household chores in a fun and engaging way.',
+    details:
+      'ChoreChamp is a mobile application designed to make household chore management easier and more enjoyable for families. The app allows users to create and assign chores, set deadlines, and track progress. It features a reward system to motivate users, making chore completion a fun activity. ChoreChamp is available on both iOS and Android platforms, providing a user-friendly interface for all family members.',
+    localPath: 'chorechamp',
+    url: 'https://github.com/EmilB04/ChoreChamp',
+    image: 'https://placehold.co/600x400',
+    tags: [
+      'mobile-app',
+      'iOS',
+      'Android',
+      'expo',
+      'react-native',
+      'household-chores',
+      'task-management',
+      'family-organization',
+      'reward-system',
+      'user-friendly',
+      'cross-platform',
+      'productivity',
+    ],
+  },
+  {
+    id: 3,
+    title: 'SkillSwap',
+    description:
+      'SkillSwap is a web application that enables users to exchange skills and services through a secure platform, supporting both bartering and paid transactions.',
+    details:
+      'SkillSwap is a comprehensive web application designed to connect people who want to exchange skills and services. Users can create detailed profiles, post advertisements for services they offer or need, and engage in either skill swapping or paid transactions. The platform features advanced filtering by categories, search functionality, secure messaging system, and a review system that builds trust within the community. Services range from gardening and home maintenance to web design and professional consulting, creating a diverse marketplace for skill exchange.',
+    localPath: 'skillswap',
+    url: 'https://github.com/EmilB04/SkillSwap',
+    image: 'https://placehold.co/600x400',
+    tags: [
+      'web-application',
+      'skill-exchange',
+      'service-marketplace',
+      'user-profiles',
+      'advertisement-system',
+      'filtering',
+      'search-functionality',
+      'secure-messaging',
+      'review-system',
+      'swap',
+      'paid-transactions',
+      'community-platform',
+      'trust-building',
+      'diverse-services',
+      'professional-services',
+    ],
+  },
+  {
+    id: 4,
+    title: 'Portfolio Website',
+    description:
+      'A personal portfolio website to showcase my projects, skills, and experience as a developer.',
+    details:
+      'This portfolio website is built using Vue.js and Quasar Framework, providing a modern and responsive design. It features sections for my projects, skills, experience, and contact information. The website is optimized for multiple devices and accessibility, ensuring a great user experience across all devices. It serves as a platform to highlight my work and connect with potential clients or employers.',
+    localPath: 'portfolio-website',
+    url: 'https://github.com/EmilB04/Portfolio',
+    image: 'https://placehold.co/600x400',
+    tags: [
+      'Vue.js',
+      'Quasar',
+      'JavaScript',
+      'TypeScript',
+      'HTML',
+      'CSS',
+      'portfolio',
+      'responsive-design',
+      'web-development',
+      'personal-website',
+      'projects-showcase',
+      'skills',
+      'experience',
+      'contact-information',
+      'accessibility',
+      'modern-design',
+    ],
+  }
 ];
 
 export default ProjectsList;

@@ -27,6 +27,7 @@ export default {
 
 .project-card {
   width: 100%;
+  padding-block: 2rem;
   border-radius: 16px;
   background-color: #f0f0f0;
 
