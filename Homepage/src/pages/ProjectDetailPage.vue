@@ -187,15 +187,13 @@ function getLanguageIcon(language) {
 
 // Project image styling
 .project-image {
-  max-width: 60vw;
-  max-height: 60vh;
+  max-height: 80vh;
   border-radius: 8px;
 }
 
 // Project video styling
 .project-video {
-  max-width: 60vw;
-  max-height: 60vh;
+  max-height: 80vh;
   border-radius: 8px;
 }
 
@@ -297,7 +295,6 @@ a {
 
         &.q-btn--active {
           transform: scale(1.2);
-          background: lighten($accent, 10%);
         }
 
         .q-icon {
@@ -316,7 +313,6 @@ a {
 
         &:hover {
           transform: scale(1.1);
-          background: lighten($accent, 10%);
         }
       }
     }
@@ -331,8 +327,8 @@ a {
   }
 
   .carousel-video {
-    max-width: 60vw;
-    max-height: 60vh;
+    max-width: 80vw;
+    max-height: 90vh;
     border-radius: 8px;
     cursor: pointer;
   }
