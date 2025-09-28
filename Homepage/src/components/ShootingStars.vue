@@ -88,7 +88,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: -99;
   background: radial-gradient(circle at bottom, #020111 0%, #000 100%);
 }
 </style>

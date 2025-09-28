@@ -482,7 +482,7 @@ body {
 
   .skills {
     .skill {
-      font-size: 1rem;
+      font-size: 1em; // Not root em
     }
   }
 
@@ -511,6 +511,10 @@ body {
           width: 98%;
           height: auto !important;
           gap: 2%;
+
+          p {
+            margin: 0;
+          }
 
           a {
             justify-content: center !important;
@@ -573,6 +577,7 @@ body {
       height: 16rem; // Slightly shorter for mobile
       max-width: 100%; // Use full available width on mobile
       margin: 0; // Remove auto centering on mobile
+      padding: 0;
 
       p {
         font-size: 0.8rem;
