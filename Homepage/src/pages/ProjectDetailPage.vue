@@ -1,23 +1,56 @@
 <template>
-  <q-page class="columm q-px-md">
+  <q-page class="column q-px-md">
     <div v-if="project">
       <header>
         <NavSection />
       </header>
-      <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
-      <main class="flex-col items-center text-center q-pa-md">
+      <q-separator class="bg-white q-mx-auto page-separator" />
+      <main class="flex-col items-center">
         <div class="content">
-          <h1 class="text-white">{{ project.title }}</h1>
+          <div class="title-section q-mb-md">
+            <h1 class="text-white">{{ project.title }}</h1>
+            <div v-if="project.languages && project.languages.length > 0" class="languages-overview">
+              <div v-for="language in project.languages" :key="language" class="language-icon" :title="language">
+                <div v-if="getLanguageIcon(language).startsWith('<svg')" class="icon-svg"
+                  v-html="getLanguageIcon(language)"></div>
+                <i v-else :class="getLanguageIcon(language)"></i>
+              </div>
+            </div>
+          </div>
           <p class="text-white">{{ project.details }}</p>
-          <q-img v-if="project.image" :src="project.image" :alt="project.title" class="q-mb-md"
-            style="max-width: 600px; border-radius: 8px" />
+          <div v-if="mediaItems.length > 0" class="images-container q-mb-md">
+            <div class="carousel-wrapper">
+              <div class="swipe-hint text-white text-center q-mb-sm" v-if="mediaItems.length > 1">
+                <q-icon name="swipe" size="sm" class="q-mr-xs" />
+                Swipe or use arrows to navigate ({{ slide + 1 }}/{{ mediaItems.length }})
+              </div>
+              <q-carousel v-model="slide" transition-prev="slide-right" transition-next="slide-left" swipeable animated
+                control-color="white" control-type="flat" control-text-color="white" navigation
+                navigation-position="bottom" navigation-icon="radio_button_unchecked"
+                navigation-active-icon="radio_button_checked" padding arrows height="auto"
+                class="bg-transparent rounded-borders carousel-enhanced">
+                <q-carousel-slide v-for="(media, index) in mediaItems" :key="index" :name="index"
+                  class="column no-wrap flex-center">
+                  <q-img v-if="media.type === 'image'" :src="media.src" :alt="`${project.title} - Image ${index + 1}`"
+                    fit="contain" class="carousel-image project-image" />
+                  <video v-else-if="media.type === 'video'" :src="media.src" autoplay muted loop
+                    class="carousel-video project-video">
+                    Your browser does not support the video tag.
+                  </video>
+                </q-carousel-slide>
+              </q-carousel>
+            </div>
+          </div>
+          <q-img v-else-if="project.image" :src="project.image" :alt="project.title" class="q-mb-md project-image" />
           <div class="flex flex-wrap q-gutter-sm q-mb-md">
             <q-chip v-for="tag in project.tags" :key="tag" clickable @click="copyToClipboard(tag)">
               {{ tag }}
             </q-chip>
           </div>
-          <q-btn class="bg-accent text-white q-mt-xl e-button" flat rounded label="Go to project" :href="project.url"
-            target="_blank" />
+          <div class="flex justify-center">
+            <q-btn class="bg-accent q-mt-xl e-button" flat rounded label="Go to project" :href="project.url"
+              target="_blank" />
+          </div>
         </div>
       </main>
       <footer>
@@ -28,11 +61,12 @@
     <div v-else>
       <ErrorNotFound />
     </div>
-    <ShootingStars style="z-index: -99 !important" />
+    <ShootingStars class="shooting-stars-bg" />
   </q-page>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import ProjectsList from 'src/scripts/ProjectsList.js';
 import ErrorNotFound from './ErrorNotFound.vue';
@@ -46,6 +80,37 @@ const route = useRoute();
 const slug = route.params.project;
 const project = ProjectsList.find((p) => p.localPath === slug);
 
+// Carousel slide state
+const slide = ref(0);
+
+// Combine images and videos into a single media array
+const mediaItems = computed(() => {
+  if (!project) return [];
+
+  const items = [];
+
+  // Add images
+  if (project.images && project.images.length > 0) {
+    project.images.forEach(image => {
+      items.push({ type: 'image', src: image });
+    });
+  }
+
+  // Add videos
+  if (project.videos && project.videos.length > 0) {
+    project.videos.forEach(video => {
+      items.push({ type: 'video', src: video });
+    });
+  }
+
+  // Fallback to single image if exists
+  if (items.length === 0 && project.image) {
+    items.push({ type: 'image', src: project.image });
+  }
+
+  return items;
+});
+
 function copyToClipboard(tag) {
   navigator.clipboard.writeText(tag).then(() => {
     $q.notify({
@@ -57,11 +122,82 @@ function copyToClipboard(tag) {
     });
   });
 }
+
+function getLanguageIcon(language) {
+  const iconMap = {
+    'React Native': 'fab fa-react',
+    'JavaScript': 'fab fa-js-square',
+    'TypeScript': 'fab fa-js-square', // TypeScript doesn't have a specific icon, using JS
+    'Figma': 'fab fa-figma',
+    'Vue': 'fab fa-vuejs',
+    'Vue.js': 'fab fa-vuejs',
+    'React': 'fab fa-react',
+    'HTML': 'fab fa-html5',
+    'CSS': 'fab fa-css3-alt',
+    'SCSS': 'fab fa-sass',
+    'Java': 'fab fa-java',
+    'C#': 'fab fa-microsoft',
+    '.NET': 'fab fa-microsoft',
+    'Python': 'fab fa-python',
+    'Node.js': 'fab fa-node-js',
+    'Quasar': `<svg width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M586.2 512a74.2 74.2 0 01-148.4 0 74.2 74.2 0 11148.4 0z"/>
+      <path d="M841.3 321.8a378.5 378.5 0 00-58.3-76.2l-85.7 49.5a286 286 0 00-89.6-51.9 348.6 348.6 0 00-69.3 98.9c95.5-6.5 194.1 28 285.6 99.6l53.9-31.1c-8.3-31-20.7-60.9-36.6-88.8z"/>
+      <path d="M512 892.3c32.1-.1 64-4.2 95.2-12.4v-99a284 284 0 0089.7-51.6 352.3 352.3 0 00-51-109.5c-42.1 86-121.3 154-229 197.6v62.3a382 382 0 0095.1 12.6z"/>
+      <path d="M182.7 321.9a373.6 373.6 0 00-36.8 88.6l85.7 49.5a285.2 285.2 0 00-.2 103.4A350 350 0 00351.7 574c-53.4-79.4-72.8-182.1-56.6-297.1l-53.9-31.1a376.9 376.9 0 00-58.5 76.1z"/>
+      <path d="M841.3 702.1c16-27.8 28.4-57.6 36.8-88.6L792.5 564c6.4-34.5 6.4-69.6.2-103.4-40.3-10.6-80.6-14.1-120.3-10.6 53.4 79.4 72.8 182.1 56.6 297.1l53.9 31.1a375.6 375.6 0 0058.4-76.1z"/>
+      <path d="M182.7 702.1a378.5 378.5 0 0058.3 76.2l85.7-49.5a286 286 0 0089.6 51.9 348.6 348.6 0 0069.3-98.9c-95.5 6.5-194.1-28-285.6-99.6l-54 31.1c8.4 31.1 20.8 61 36.7 88.8z"/>
+      <path d="M512 131.7c-32.1.1-64 4.2-95.2 12.4v99a284 284 0 00-89.7 51.6c11 40.2 28.2 76.9 51 109.5 42.1-86 121.3-154 229-197.6v-62.3c-30.9-8.2-63-12.4-95.1-12.6z"/>
+      <path d="M512 66.4c245.7 0 445.6 199.9 445.6 445.6S757.7 957.6 512 957.6 66.4 757.7 66.4 512 266.3 66.4 512 66.4M512 1a511 511 0 100 1022A511 511 0 00512 1z"/>
+    </svg>`,
+    'Android': 'fab fa-android',
+    'iOS': 'fab fa-apple',
+    'Git': 'fab fa-git-alt',
+    'GitHub': 'fab fa-github',
+    'npm': 'fab fa-npm',
+    'dotnet8': 'fab fa-microsoft', // Using Microsoft icon for .NET
+    'C++': 'fas fa-code', // Generic code icon for C++
+    'C': 'fas fa-code', // Generic code icon for C
+    'Ruby': 'fas fa-gem', // Using gem icon for Ruby
+    'PHP': 'fab fa-php',
+    'Swift': 'fas fa-swift', // Using Swift icon
+    'Kotlin': 'fas fa-code', // Generic code icon for Kotlin
+    'Dart': 'fas fa-code', // Generic code icon for Dart
+    'Flutter': 'fas fa-code', // Generic code icon for Flutter
+    'SQL': 'fas fa-database', // Using database icon for SQL
+    'MySQL': 'fas fa-database',
+    'PostgreSQL': 'fas fa-database',
+    'MongoDB': 'fas fa-database',
+    'Firebase': 'fas fa-fire', // Using fire icon for Firebase
+    'Expo': 'fas fa-code', // Generic code icon for Expo
+  };
+
+  return iconMap[language] || 'fas fa-code'; // Default to generic code icon
+}
 </script>
 
 <style setup scoped lang="scss">
 @import 'src/css/app.scss';
 @import 'src/css/quasar.variables.scss';
+
+// Page separator styling
+.page-separator {
+  max-width: 1280px;
+}
+
+// Project image styling
+.project-image {
+  max-width: 60vw;
+  max-height: 60vh;
+  border-radius: 8px;
+}
+
+// Project video styling
+.project-video {
+  max-width: 60vw;
+  max-height: 60vh;
+  border-radius: 8px;
+}
 
 h1 {
   font-size: 3rem;
@@ -76,5 +212,150 @@ p {
 
 a {
   padding: $e-button-padding;
+}
+
+// Title and languages section
+.title-section {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.languages-overview {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: baseline;
+
+  .language-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid $accent;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+      color: $accent;
+      display: block;
+    }
+
+    .icon-svg {
+      width: 24px;
+      height: 24px;
+      color: $accent;
+      display: block;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+      }
+    }
+
+    &:hover {
+      background: rgba(241, 55, 110, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(241, 55, 110, 0.3);
+    }
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+
+  .swipe-hint {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    .q-icon {
+      vertical-align: middle;
+    }
+  }
+
+  .carousel-enhanced {
+
+    // Enhanced navigation dots
+    :deep(.q-carousel__navigation) {
+      .q-btn {
+        color: white;
+        background: $accent;
+        margin: 0 4px;
+        min-width: 12px;
+        min-height: 12px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &.q-btn--active {
+          transform: scale(1.2);
+          background: lighten($accent, 10%);
+        }
+
+        .q-icon {
+          font-size: 12px;
+        }
+      }
+    }
+
+    // Enhanced arrow buttons
+    :deep(.q-carousel__control) {
+      .q-btn {
+        background: $accent;
+        color: white;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          background: lighten($accent, 10%);
+        }
+      }
+    }
+  }
+
+  .carousel-image {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .carousel-video {
+    max-width: 60vw;
+    max-height: 60vh;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .swipe-hint {
+    font-size: 0.8rem;
+  }
+
+  .carousel-enhanced {
+    :deep(.q-carousel__navigation) {
+      .q-btn {
+        min-width: 10px;
+        min-height: 10px;
+        margin: 0 3px;
+
+        .q-icon {
+          font-size: 10px;
+        }
+      }
+    }
+  }
 }
 </style>
