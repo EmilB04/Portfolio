@@ -1,8 +1,8 @@
 {
   "name": "homepage",
   "version": "0.0.1",
-  "description": "Emil Berglund's portfolio website",
-  "productName": "Emil Berglund - Portfolio",
+  "description": "Emil Berglund - Computer Science Student & Full-Stack Developer specializing in Programming. Explore innovative projects including mobile apps, web crawlers, and responsive websites.",
+  "productName": "Emil Berglund - Full-Stack Developer Portfolio",
   "author": "Emil Berglund <emil.berglund@live.no>",
   "private": true,
   "scripts": {
