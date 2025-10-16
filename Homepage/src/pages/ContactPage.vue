@@ -15,7 +15,7 @@
             <q-icon name="fab fa-linkedin" size="3rem" class="text-accent" />
             <h2>LinkedIn</h2>
             <q-btn flat label="Contact" color="accent"
-              @click="openLink('https://www.linkedin.com/in/emil-berglund-336135251/')" />
+              @click="openLink('https://www.linkedin.com/in/emilber')" />
           </q-card-section>
         </q-card>
         <q-card class="contact-card q-ma-md">

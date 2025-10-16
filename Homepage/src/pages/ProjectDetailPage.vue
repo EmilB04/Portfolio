@@ -14,6 +14,7 @@
                 <div v-if="getLanguageIcon(language).startsWith('<svg')" class="icon-svg"
                   v-html="getLanguageIcon(language)"></div>
                 <i v-else :class="getLanguageIcon(language)"></i>
+                <span class="language-label">{{ language }}</span>
               </div>
             </div>
           </div>
@@ -229,6 +230,7 @@ a {
   justify-content: baseline;
 
   .language-icon {
+    position: relative;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid $accent;
     border-radius: 8px;
@@ -255,10 +257,56 @@ a {
       }
     }
 
+    .language-label {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: $accent;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid $accent;
+      }
+    }
+
     &:hover {
       background: rgba(241, 55, 110, 0.1);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(241, 55, 110, 0.3);
+
+      .language-label {
+        opacity: 1;
+        bottom: -40px;
+      }
+    }
+
+    &:active {
+      transform: translateY(0px) scale(0.95);
+
+      .language-label {
+        opacity: 1;
+        bottom: -40px;
+      }
     }
   }
 }
