@@ -34,7 +34,7 @@
                     <q-tooltip>Visit my GitHub profile</q-tooltip>
                   </q-btn>
                 </a>
-                <a class="q-mb-md" href="https://www.linkedin.com/in/emil-berglund-336135251/" target="_blank"
+                <a class="q-mb-md" href="https://www.linkedin.com/in/emilber/" target="_blank"
                   aria-label="LinkedIn Profile">
                   <q-btn color="primary" icon="fab fa-linkedin">
                     <q-tooltip>Visit my LinkedIn profile</q-tooltip>
