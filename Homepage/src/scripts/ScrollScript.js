@@ -2,7 +2,6 @@
 Purpose:
 This script is responsible for the scrolling functionality of the website.
 It contains methods to scroll to a specific section of the website and to scroll to the next section.
-It also contains a method to change the label of the scroll button when the user reaches the bottom of the page.
 */
 
 export default {
@@ -16,10 +15,10 @@ export default {
         '.projects-section',
         '.skills-section',
         '.gitHub-section',
-        '.comments-section',
       ],
       // ----------------- Methods ---------------------
       isAtBottom: false,
+      showScrollToTop: false,
       scrollOffset: -5, // Adjusted to acommodate for AOS animation
     };
   },
@@ -30,6 +29,9 @@ export default {
         const offsetPosition = section.offsetTop - this.scrollOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     scrollToNextSection() {
       if (this.isAtBottom) {
@@ -60,6 +62,8 @@ export default {
       const viewportHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const isAtBottom = currentScrollPos + viewportHeight >= documentHeight;
+
+      this.showScrollToTop = currentScrollPos > 1200;
 
       if (
         isAtBottom ||

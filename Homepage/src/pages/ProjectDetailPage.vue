@@ -23,7 +23,7 @@
             <div class="carousel-wrapper">
               <div class="swipe-hint text-white text-center q-mb-sm" v-if="mediaItems.length > 1">
                 <q-icon name="swipe" size="sm" class="q-mr-xs" />
-                Swipe or use arrows to navigate ({{ slide + 1 }}/{{ mediaItems.length }})
+                Sveip eller bruk piler for å navigere ({{ slide + 1 }}/{{ mediaItems.length }})
               </div>
               <q-carousel v-model="slide" transition-prev="slide-right" transition-next="slide-left" swipeable animated
                 control-color="white" control-type="flat" control-text-color="white" navigation
@@ -49,7 +49,7 @@
             </q-chip>
           </div>
           <div class="flex justify-center">
-            <q-btn class="bg-accent q-mt-xl e-button" flat rounded label="Go to project" :href="project.url"
+            <q-btn class="bg-accent q-mt-xl e-button" flat rounded label="Gå til prosjektet" :href="project.url"
               target="_blank" />
           </div>
         </div>

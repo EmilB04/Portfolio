@@ -2,24 +2,23 @@
   <nav :class="['flex q-py-md', ($route.path === '/' ? 'justify-between' : 'justify-start')]">
     <div class="nav-links flex" :class="{ open: menuOpen }">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-btn text-color="white" flat label="About" @click="navigate('.about-section')" />
-        <q-btn text-color="white" flat label="Timeline" @click="navigate('.timeline-section')" />
-        <q-btn text-color="white" flat label="Projects" @click="navigate('.projects-section')" />
-        <q-btn text-color="white" flat label="Skills" @click="navigate('.skills-section')" />
+        <q-btn text-color="white" flat label="Om meg" @click="navigate('.about-section')" />
+        <q-btn text-color="white" flat label="Tidslinje" @click="navigate('.timeline-section')" />
+        <q-btn text-color="white" flat label="Prosjekter" @click="navigate('.projects-section')" />
+        <q-btn text-color="white" flat label="Kunnskap" @click="navigate('.skills-section')" />
         <q-btn text-color="white" flat label="GitHub" @click="navigate('.gitHub-section')" />
-        <q-btn text-color="white" flat label="Feedback" @click="navigate('.comments-section')" />
       </template>
     </div>
     <div id="hamburger">
       <template v-if="$route.name === 'IndexPage' || $route.path === '/'">
-        <q-btn class="justify-end bg-accent q-mr-md" flat rounded label="Contact me"
+        <q-btn class="justify-end bg-accent q-mr-md" flat rounded label="Kontakt meg"
           @click="$router.push('/contact')" />
         <q-btn text-color="white" flat dense round icon="menu" class="hamburger" @click="menuOpen = !menuOpen" />
       </template>
     </div>
 
     <div v-if="$route.name !== 'IndexPage' && $route.path !== '/'">
-      <q-btn text-color="white" label="Go Back" flat icon="arrow_back" @click="$router.back" class="justify-start" />
+      <q-btn text-color="white" label="Gå tilbake" flat icon="arrow_back" @click="$router.back" class="justify-start" />
     </div>
   </nav>
 </template>

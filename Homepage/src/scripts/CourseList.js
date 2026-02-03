@@ -117,22 +117,42 @@ const courseList = [
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itf21019.html',
         code: 'ITF21019',
         description:
-          'Kurset gir en innføring i mobilprogrammering med fokus på plattformene Android og iOS.'
+          'Kurset gir en innføring i mobilprogrammering med fokus på plattformene Android og iOS.',
       },
       {
         name: 'Webapplikasjoner',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itf31619.html',
         code: 'ITF31619',
-        description: 'Kurset gir en innføring i webapplikasjoner med fokus på moderne rammeverk og teknologier.'
+        description:
+          'Kurset gir en innføring i webapplikasjoner med fokus på moderne rammeverk og teknologier.',
       },
       {
         name: 'Kommunikasjonsdesign',
         link: 'https://www.hiof.no/studier/emner/iio/itk/2025/host/itm30719.html',
         code: 'ITM30719',
-        description: 'Kurset gir en innføring i kommunikasjonsdesign, brukeropplevelse og designmetodikk.'
-      }
-    ]
-  }
+        description:
+          'Kurset gir en innføring i kommunikasjonsdesign, brukeropplevelse og designmetodikk.',
+      },
+    ],
+  },
+  {
+    semester: 'Vår 2026',
+    courses: [
+      {
+        name: 'Bacheloroppgave',
+        link: 'https://www.hiof.no/studier/emner/iio/itk/2026/var/itf32012.html',
+        code: 'ITF32012',
+        description: 'Kurset er en bacheloroppgave som avslutter studiet.',
+      },
+      {
+        name: 'Parallel og distribuert programmering',
+        link: 'https://www.hiof.no/studier/emner/iio/itk/2026/var/itf23019.html',
+        code: 'ITF23019',
+        description:
+          'Kurset gir en innføring i parallel og distribuert programmering.',
+      },
+    ],
+  },
 ];
 
 export default courseList;

@@ -1,6 +1,6 @@
 <template>
   <p class="text-center footer-text">
-    Made with ❤️ by Emil Berglund
+    Laget med ❤️ av Emil Berglund
   </p>
 </template>
 
