@@ -7,7 +7,6 @@
       <!--
       <h1>TODO!</h1>
       <p>
-        1. Add icon to illustrate grabbing on timeline when loading it
         2. Setup Sanity for backend information
         3. Remove padding on background on mobile - does not go 100% width
         4. Remove white "aura" from base background
