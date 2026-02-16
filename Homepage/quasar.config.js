@@ -8,10 +8,14 @@
 // Configuration for your app
 // https://legacy-app.quasar.dev/quasar-cli-vite-v1/quasar-config-file
 
-const { configure } = require('quasar/wrappers');
-const path = require('path');
+import { configure } from 'quasar/wrappers';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = configure(function (/* ctx */) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default configure(function (/* ctx */) {
   return {
     // https://legacy-app.quasar.dev/quasar-cli-vite-v1/prefetch-feature
     // preFetch: true,
