@@ -1,4 +1,15 @@
-const courseList = [
+
+interface CourseTypes {
+  semester: string;
+  courses: {
+    name: string;
+    link: string;
+    code: string;
+    description: string;
+  }[];
+}
+
+const courseList : CourseTypes[] = [
   {
     semester: 'Høst 2023',
     courses: [

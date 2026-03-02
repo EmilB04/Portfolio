@@ -4,6 +4,22 @@ This script is responsible for the scrolling functionality of the website.
 It contains methods to scroll to a specific section of the website and to scroll to the next section.
 */
 
+interface ScrollScriptData {
+  sections: string[];
+  isAtBottom: boolean;
+  showScrollToTop: boolean;
+  scrollOffset: number;
+}
+
+interface ScrollScriptMethods {
+  scrollToSection: (sectionId: string) => void;
+  scrollToTop: () => void;
+  scrollToNextSection: () => void;
+  ChangeButtonLabel: () => void;
+}
+
+type ScrollScriptContext = ScrollScriptData & ScrollScriptMethods;
+
 export default {
   name: 'ScrollScript',
   data() {
@@ -23,8 +39,8 @@ export default {
     };
   },
   methods: {
-    scrollToSection(sectionId) {
-      const section = document.querySelector(sectionId);
+    scrollToSection(this: ScrollScriptContext, sectionId: string) {
+      const section = document.querySelector<HTMLElement>(sectionId);
       if (section) {
         const offsetPosition = section.offsetTop - this.scrollOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -33,7 +49,7 @@ export default {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
-    scrollToNextSection() {
+    scrollToNextSection(this: ScrollScriptContext) {
       if (this.isAtBottom) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
@@ -41,15 +57,15 @@ export default {
         const viewportHeight = window.innerHeight;
 
         for (let i = 0; i < this.sections.length; i++) {
-          const section = document.querySelector(this.sections[i]);
-          if (section.offsetTop > currentScrollPos + viewportHeight / 2) {
+          const section = document.querySelector<HTMLElement>(this.sections[i]);
+          if (section && section.offsetTop > currentScrollPos + viewportHeight / 2) {
             const offsetPosition = section.offsetTop - this.scrollOffset;
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             this.ChangeButtonLabel();
             return;
           }
         }
-        const firstSection = document.querySelector('.about-section');
+        const firstSection = document.querySelector<HTMLElement>('.about-section');
         if (firstSection) {
           const offsetPosition = firstSection.offsetTop - this.scrollOffset;
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -57,7 +73,7 @@ export default {
         this.ChangeButtonLabel();
       }
     },
-    ChangeButtonLabel() {
+    ChangeButtonLabel(this: ScrollScriptContext) {
       const currentScrollPos = window.scrollY;
       const viewportHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
