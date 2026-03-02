@@ -12,6 +12,7 @@
           v-for="(project, index) in featuredProjects"
           :key="project?.id ?? index"
           :course="project"
+          :to="`/projects/${project.localPath}`"
         />
         <q-btn class="q-mt-md e-button" to="/projects" router
           >Se alle prosjekter</q-btn
