@@ -1,4 +1,19 @@
-const ProjectsList = [
+
+interface ProjectTypes {
+  id: number;
+  title: string;
+  languages?: string[];
+  description: string;
+  details: string;
+  localPath: string;
+  url: string;
+  images?: string[];
+  videos?: string[];
+  tags?: string[];
+}
+
+
+const ProjectsList: ProjectTypes[] = [
   {
     id: 0,
     title: 'PageProbe',
