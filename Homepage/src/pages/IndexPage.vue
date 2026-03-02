@@ -1,50 +1,48 @@
 <template>
-  <q-page class="columm q-px-md">
-    <div id="bg-app">
-      <header id="top" class="text-white">
-        <NavSection />
-      </header>
-      <!--
-      <h1>TODO!</h1>
-      <p>
-        2. Setup Sanity for backend information
-        3. Remove padding on background on mobile - does not go 100% width
-        4. Remove white "aura" from base background
-      </p>
+  <q-page class="columm">
+    <header id="top" class="text-white">
+      <NavSection />
+    </header>
+    <!--
+    <h1>TODO!</h1>
+    <p>
+      2. Setup Sanity for backend information
+      3. Remove padding on background on mobile - does not go 100% width
+      4. Remove white "aura" from base background
+    </p>
 
-      -->
-      <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
-      <main class="flex column">
-        <LandingSection
-          :should-use-aos="shouldUseAOS"
-          :profile-picture="ProfilePicture"
-          @scroll-next-section="scrollToNextSection"
-        />
+    -->
+    <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
+    <main class="flex column">
+      <LandingSection
+        :should-use-aos="shouldUseAOS"
+        :profile-picture="ProfilePicture"
+        @scroll-next-section="scrollToNextSection"
+      />
 
-        <AboutSection />
-        <TimelineSection />
+      <AboutSection />
+      <TimelineSection />
 
-        <ProjectsSection :projects="[ChoreChamp, VarsEL]" />
+      <ProjectsSection :projects="[ChoreChamp, VarsEL]" />
 
-        <SkillsSection />
+      <SkillsSection />
 
-        <GitHubSection />
+      <GitHubSection />
 
-        <SvgSeparator />
+      <SvgSeparator />
 
-        <q-btn
-          v-show="showScrollToTop"
-          flat
-          icon="arrow_upward"
-          @click="scrollToTop"
-          class="scroll-btn"
-        />
+      <q-btn
+        v-show="showScrollToTop"
+        flat
+        icon="arrow_upward"
+        @click="scrollToTop"
+        class="scroll-btn"
+      />
 
-      </main>
-      <footer>
-        <FooterSection />
-      </footer>
-    </div>
+    </main>
+    <footer>
+      <FooterSection />
+    </footer>
   </q-page>
   <ShootingStars style="z-index: -99 !important" />
 </template>

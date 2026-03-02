@@ -82,14 +82,16 @@ export default {
   }
 
   .course-item {
-    background-color: rgba(1, 6, 38, 0.24);
+    background-color: rgba(1, 6, 38, 0.6);
     padding: 1rem;
     border-radius: 8px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba($accent, 0.2);
+      border-color: rgba($accent, 0.5);
     }
 
     .course-link {

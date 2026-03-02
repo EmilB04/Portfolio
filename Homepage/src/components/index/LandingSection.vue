@@ -31,9 +31,9 @@
           <q-btn class="justify-end bg-accent" flat rounded label="Ta en titt" />
         </q-btn>
       </article>
-      <picture>
-        <img id="profilePicture" :src="profilePicture" alt="Emil Berglund" class="q-mx-auto q-my-md" />
-      </picture>
+      <div class="rotating-text-container">
+        <p class="rotating-text">{{ currentRole }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -46,15 +46,85 @@ export default {
       type: Boolean,
       required: true,
     },
-    profilePicture: {
-      type: String,
-      required: true,
-    },
   },
   emits: ['scroll-next-section'],
+  data() {
+    return {
+      roles: ['Frontend', 'Backend', 'Fullstack'],
+      currentRoleIndex: 0,
+      rotationInterval: null,
+    };
+  },
+  computed: {
+    currentRole() {
+      return this.roles[this.currentRoleIndex];
+    },
+  },
+  mounted() {
+    this.startRotation();
+  },
+  beforeUnmount() {
+    if (this.rotationInterval) {
+      clearInterval(this.rotationInterval);
+    }
+  },
+  methods: {
+    startRotation() {
+      this.rotationInterval = setInterval(() => {
+        this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
+      }, 2000);
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 @import 'src/css/IndexStyle.scss';
+
+.rotating-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin-bottom: 5rem;
+
+  .rotating-text {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    color: $accent;
+    animation: fadeInOut 2s ease-in-out infinite;
+    margin: 0;
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(-25deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) rotate(-25deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0) rotate(-25deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-25deg);
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .rotating-text-container {
+    min-height: 150px;
+
+    .rotating-text {
+      font-size: 2.5rem;
+    }
+  }
+}
 </style>
