@@ -69,6 +69,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useMeta } from 'quasar';
 import ProjectsList from 'src/scripts/ProjectsList.js';
 import ErrorNotFound from './ErrorNotFound.vue';
 import FooterSection from 'src/components/FooterSection.vue';
@@ -80,6 +81,34 @@ const $q = useQuasar();
 const route = useRoute();
 const slug = route.params.project;
 const project = ProjectsList.find((p) => p.localPath === slug);
+
+useMeta(() => {
+  const title = project
+    ? `${project.title} – Emil Berglund`
+    : 'Prosjekt – Emil Berglund';
+  const description = project
+    ? project.description
+    : 'Prosjektdetaljer fra Emil Berglunds portfolio.';
+  const url = `https://emilb.pages.dev/projects/${slug}`;
+  const image = project?.images?.[0] && project.images[0].startsWith('http')
+    ? project.images[0]
+    : 'https://emilb.pages.dev/images/og-image.jpg';
+  return {
+    title,
+    meta: {
+      description: { name: 'description', content: description },
+      ogTitle: { property: 'og:title', content: title },
+      ogDescription: { property: 'og:description', content: description },
+      ogUrl: { property: 'og:url', content: url },
+      ogImage: { property: 'og:image', content: image },
+      twitterTitle: { name: 'twitter:title', content: title },
+      twitterDescription: { name: 'twitter:description', content: description },
+    },
+    link: {
+      canonical: { rel: 'canonical', href: url },
+    },
+  };
+});
 
 // Carousel slide state
 const slide = ref(0);

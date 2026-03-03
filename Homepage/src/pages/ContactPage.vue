@@ -68,6 +68,25 @@ import ShootingStars from 'src/components/ShootingStars.vue';
 import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 export default {
   name: 'ContactPage',
+  meta() {
+    return {
+      title: 'Kontakt - Emil Berglund',
+      meta: {
+        description: {
+          name: 'description',
+          content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post. Full-stack utvikler og informatikkstudent fra Halden, Norge.',
+        },
+        ogTitle: { property: 'og:title', content: 'Kontakt Emil Berglund - Full-Stack Developer' },
+        ogDescription: { property: 'og:description', content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post.' },
+        ogUrl: { property: 'og:url', content: 'https://emilb.no/contact' },
+        twitterTitle: { name: 'twitter:title', content: 'Kontakt Emil Berglund' },
+        twitterDescription: { name: 'twitter:description', content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post.' },
+      },
+      link: {
+        canonical: { rel: 'canonical', href: 'https://emilb.no/contact' },
+      },
+    };
+  },
   components: {
     ShootingStars,
     FooterSection,
