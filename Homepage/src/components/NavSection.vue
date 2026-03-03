@@ -2,6 +2,13 @@
   <nav :class="['site-nav', { scrolled: isScrolled }]">
     <div class="nav-inner">
 
+      <!-- Back button (non-index pages, left side) -->
+      <template v-if="!isIndex">
+        <button class="back-btn" @click="$router.back()">
+          <span class="back-arrow">←</span> Gå tilbake
+        </button>
+      </template>
+
       <!-- Desktop links (index only) -->
       <div v-if="isIndex" class="nav-links">
         <button v-for="item in navItems" :key="item.section" class="nav-link"
@@ -12,16 +19,12 @@
 
       <!-- Right side -->
       <div class="nav-right">
+        <ThemeToggle />
         <template v-if="isIndex">
           <button class="nav-cta hide-on-mobile" @click="$router.push('/contact')">Kontakt meg</button>
           <button v-if="menuOpen" class="close-btn" @click="menuOpen = false" aria-label="Lukk meny">✕</button>
           <button v-else class="hamburger-btn" @click="menuOpen = true" aria-label="Åpne meny">
             <span /><span /><span />
-          </button>
-        </template>
-        <template v-else>
-          <button class="back-btn" @click="$router.back()">
-            <span class="back-arrow">←</span> Gå tilbake
           </button>
         </template>
       </div>
@@ -48,9 +51,11 @@
 
 <script>
 import ScrollScript from 'src/scripts/ScrollScript.js';
+import ThemeToggle from 'src/components/ThemeToggle.vue';
 
 export default {
   name: 'NavSection',
+  components: { ThemeToggle },
   mixins: [ScrollScript],
   data() {
     return {
@@ -110,10 +115,10 @@ export default {
   transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 
   &.scrolled {
-    background: rgba($background, 0.75);
+    background: var(--c-nav-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 1px 0 rgba($primary, 0.06);
+    box-shadow: 0 1px 0 var(--c-border);
   }
 }
 
@@ -131,14 +136,14 @@ export default {
 .nav-logo {
   font-size: 1.15rem;
   font-weight: 700;
-  color: $primary;
+  color: var(--c-text);
   text-decoration: none;
   letter-spacing: 0.01em;
   white-space: nowrap;
   flex-shrink: 0;
 
   .accent {
-    color: $accent;
+    color: var(--c-accent);
   }
 
   &:hover {
@@ -157,7 +162,7 @@ export default {
   position: relative;
   background: none;
   border: none;
-  color: rgba($primary, 0.75);
+  color: var(--c-text-muted);
   font-size: $e-button-font-size * 0.9;
   font-weight: 500;
   padding: 0.45rem 0.75rem;
@@ -174,18 +179,18 @@ export default {
     transform: translateX(-50%) scaleX(0);
     width: 70%;
     height: 2px;
-    background: $accent;
+    background: var(--c-accent);
     border-radius: 2px;
     transition: transform 0.25s ease;
   }
 
   &:hover {
-    color: $primary;
-    background: rgba($primary, 0.06);
+    color: var(--c-text);
+    background: var(--c-border);
   }
 
   &.active {
-    color: $primary;
+    color: var(--c-text);
 
     &::after {
       transform: translateX(-50%) scaleX(1);
@@ -203,8 +208,8 @@ export default {
 }
 
 .nav-cta {
-  background: $accent;
-  color: $primary;
+  background: var(--c-accent);
+  color: #fff;
   border: none;
   border-radius: $e-button-border-radius;
   padding: $e-button-padding;
@@ -226,8 +231,8 @@ export default {
 
 .back-btn {
   background: none;
-  border: 1px solid rgba($primary, 0.2);
-  color: rgba($primary, 0.85);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-muted);
   border-radius: $e-button-border-radius;
   padding: $e-button-padding;
   font-size: $e-button-font-size * 0.875;
@@ -238,8 +243,8 @@ export default {
   gap: 0.4rem;
 
   &:hover {
-    border-color: $accent;
-    color: $primary;
+    border-color: var(--c-accent);
+    color: var(--c-text);
   }
 
   .back-arrow {
@@ -265,7 +270,7 @@ export default {
     display: block;
     width: 22px;
     height: 2px;
-    background: $primary;
+    background: var(--c-text);
     border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform-origin: center;
@@ -278,10 +283,10 @@ export default {
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: rgba($primary, 0.08);
-  border: 1px solid rgba($primary, 0.15);
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
   border-radius: 50%;
-  color: $primary;
+  color: var(--c-text);
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
@@ -290,8 +295,8 @@ export default {
 
   &:hover {
     background: rgba($accent, 0.15);
-    border-color: $accent;
-    color: $accent;
+    border-color: var(--c-accent);
+    color: var(--c-accent);
   }
 }
 
@@ -299,7 +304,7 @@ export default {
 .mobile-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba($dark-page, 0.6);
+  background: var(--c-backdrop);
   z-index: 198;
 }
 
@@ -313,10 +318,10 @@ export default {
   flex-direction: column;
   padding: 5rem 1.5rem 2rem;
   gap: 0.25rem;
-  background: rgba($background, 0.98);
+  background: var(--c-mobile-menu-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-left: 1px solid rgba($primary, 0.07);
+  border-left: 1px solid var(--c-border);
   z-index: 199;
   overflow-y: auto;
 }
@@ -324,13 +329,13 @@ export default {
 .mobile-link {
   background: none;
   border: none;
-  color: rgba($primary, 0.8);
+  color: var(--c-text-muted);
   font-size: $e-button-font-size;
   font-weight: 500;
   padding: 0.75rem 0.5rem;
   text-align: left;
   cursor: pointer;
-  border-bottom: 1px solid rgba($primary, 0.05);
+  border-bottom: 1px solid var(--c-border);
   transition: color 0.2s, padding-left 0.2s;
 
   &:last-of-type {
@@ -338,7 +343,7 @@ export default {
   }
 
   &:hover {
-    color: $primary;
+    color: var(--c-text);
     padding-left: 1rem;
   }
 }

@@ -42,7 +42,9 @@ body {
   height: 50px;
   align-self: auto;
   color: black;
-  transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    opacity 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
@@ -96,7 +98,7 @@ body {
 }
 
 .about-section {
-  color: white;
+  color: var(--c-text);
   position: relative;
   overflow: hidden;
 
@@ -140,7 +142,7 @@ body {
 }
 
 .skills-section {
-  color: white;
+  color: var(--c-text);
 
   h2 {
     color: $accent;
@@ -173,7 +175,7 @@ body {
 }
 
 .comments-section {
-  color: white;
+  color: var(--c-text);
   width: 100%;
 
   .content {
@@ -193,7 +195,9 @@ body {
   .comment-fade-right-leave-active,
   .comment-fade-left-enter-active,
   .comment-fade-left-leave-active {
-    transition: opacity 0.4s, transform 0.4s;
+    transition:
+      opacity 0.4s,
+      transform 0.4s;
   }
   .comment-fade-right-enter-from,
   .comment-fade-left-leave-to {
@@ -215,7 +219,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    background-color: rgba(1, 6, 38, 0.24);
+    background-color: var(--c-surface-card);
     gap: 1rem;
     border-radius: 16px;
     padding: 1rem;
@@ -258,7 +262,7 @@ body {
 
     button {
       background-color: transparent;
-      color: white;
+      color: var(--c-text);
       font-size: 1rem;
       transition: color 0.3s ease-in-out;
       padding: 0.5rem 1rem;
@@ -276,7 +280,7 @@ body {
     p {
       font-size: 1.2rem;
       font-weight: 500;
-      color: white;
+      color: var(--c-text);
       position: relative;
       padding: 2rem 3rem 1rem 3rem; // Adjusted padding for quotes
       margin: 0; // Remove default margin

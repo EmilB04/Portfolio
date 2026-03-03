@@ -1,6 +1,6 @@
 <template>
   <q-page class="columm">
-    <header id="top" class="text-white">
+    <header id="top">
       <NavSection />
     </header>
     <!--
@@ -26,7 +26,7 @@
 
       <GitHubSection />
 
-      <SvgSeparator />
+      <SvgSeparator style="margin-top: 5rem;" />
 
       <q-btn v-show="showScrollToTop" flat icon="arrow_upward" @click="scrollToTop" class="scroll-btn" />
 

@@ -2,7 +2,7 @@
 @import 'src/css/app.scss';
 
 body {
-  color: $primary;
+  color: var(--c-text);
 
   h1 {
     background: $accent;
@@ -45,9 +45,9 @@ body {
     .contact-card {
       width: 100%;
       text-align: center;
-      background: rgba($primary, 0.05);
+      background: var(--c-border);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba($primary, 0.1);
+      border: 1px solid var(--c-border);
       border-radius: $e-button-border-radius;
       padding: 2.5rem 1.5rem;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -77,9 +77,11 @@ body {
 
       &:hover {
         transform: translateY(-10px);
-        background: rgba($primary, 0.08);
+        background: var(--c-surface);
         border-color: rgba($accent, 0.3);
-        box-shadow: 0 20px 40px rgba($dark, 0.3), 0 0 30px rgba($accent, 0.2);
+        box-shadow:
+          0 20px 40px rgba($dark, 0.3),
+          0 0 30px rgba($accent, 0.2);
 
         &::before {
           opacity: 1;
@@ -98,7 +100,7 @@ body {
       .card-title {
         font-size: 1.8rem;
         font-weight: 600;
-        color: $primary;
+        color: var(--c-text);
         text-decoration: none;
 
         @media (max-width: $breakpoint-sm-max) {
@@ -110,7 +112,7 @@ body {
         font-size: 1rem;
         opacity: 0.8;
         line-height: 1.5;
-        color: $primary;
+        color: var(--c-text);
 
         @media (max-width: $breakpoint-sm-max) {
           font-size: 0.95rem;

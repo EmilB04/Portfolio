@@ -3,13 +3,12 @@
     <header>
       <NavSection />
     </header>
-    <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
 
-    <main class="full-screen contact-section">
+    <main class="full-screen contact-section justify-start">
       <div class="content">
         <section data-aos="fade-up">
-          <h1 class="text-white text-center q-mb-lg">La oss komme i kontakt</h1>
-          <p class="text-center text-white q-mb-xl intro-text">
+          <h1 class="text-center q-mb-lg">La oss komme i kontakt</h1>
+          <p class="text-center q-mb-xl intro-text">
             Har du spørsmål eller vil du samarbeide? Ta gjerne kontakt!
           </p>
 
