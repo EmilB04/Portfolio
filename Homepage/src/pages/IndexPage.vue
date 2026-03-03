@@ -4,12 +4,7 @@
       <NavSection />
     </header>
     <!--
-    <h1>TODO!</h1>
-    <p>
-      2. Setup Sanity for backend information
-      3. Remove padding on background on mobile - does not go 100% width
-      4. Remove white "aura" from base background
-    </p>
+    TODO: Setup Sanity for backend information
 
     -->
     <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
@@ -21,6 +16,8 @@
       <TimelineSection />
 
       <ProjectsSection :projects="[ChoreChamp, VarsEL]" />
+
+      <LivePagesSection />
 
       <SkillsSection />
 
@@ -54,6 +51,7 @@ import LandingSection from 'src/components/index/LandingSection.vue';
 import AboutSection from 'src/components/index/AboutSection.vue';
 import ProjectsSection from 'src/components/index/ProjectsSection.vue';
 import SkillsSection from 'src/components/index/SkillsSection.vue';
+import LivePagesSection from 'src/components/index/LivePagesSection.vue';
 
 // Assets
 import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
@@ -90,6 +88,7 @@ export default {
     AboutSection,
     ProjectsSection,
     SkillsSection,
+    LivePagesSection,
   },
   mixins: [ScrollScript, ProjectsList],
   computed: {
