@@ -4,7 +4,7 @@
       <article class="about-me">
         <h1>
           Hei! Jeg er Emil Berglund <br />
-          Informatikk student
+          <span class="typewriter">{{ typewriterText }}<span class="cursor">|</span></span>
         </h1>
         <p>
           Jeg er en person med lidenskap for teknologi og et ønske om å lære og vokse.
@@ -18,8 +18,7 @@
               <q-tooltip>Besøk min GitHub-profil</q-tooltip>
             </q-btn>
           </a>
-          <a class="q-mb-md" href="https://www.linkedin.com/in/emilber/" target="_blank"
-            aria-label="LinkedIn-profil">
+          <a class="q-mb-md" href="https://www.linkedin.com/in/emilber/" target="_blank" aria-label="LinkedIn-profil">
             <q-btn color="primary" icon="fab fa-linkedin">
               <q-tooltip>Besøk min LinkedIn-profil</q-tooltip>
             </q-btn>
@@ -31,9 +30,6 @@
           <q-btn class="justify-end bg-accent" flat rounded label="Ta en titt" />
         </q-btn>
       </article>
-      <div class="rotating-text-container">
-        <p class="rotating-text">{{ currentRole }}</p>
-      </div>
     </div>
   </section>
 </template>
@@ -50,29 +46,41 @@ export default {
   emits: ['scroll-next-section'],
   data() {
     return {
-      roles: ['Frontend', 'Backend', 'Fullstack'],
-      currentRoleIndex: 0,
-      rotationInterval: null,
+      lines: ['Informatikk student', 'Full-Stack utvikler', 'Frontend utvikler', 'Backend utvikler'],
+      lineIndex: 0,
+      typewriterText: '',
+      isDeleting: false,
+      typewriterTimer: null,
     };
   },
-  computed: {
-    currentRole() {
-      return this.roles[this.currentRoleIndex];
-    },
-  },
   mounted() {
-    this.startRotation();
+    this.runTypewriter();
   },
   beforeUnmount() {
-    if (this.rotationInterval) {
-      clearInterval(this.rotationInterval);
-    }
+    if (this.typewriterTimer) clearTimeout(this.typewriterTimer);
   },
   methods: {
-    startRotation() {
-      this.rotationInterval = setInterval(() => {
-        this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
-      }, 2000);
+    runTypewriter() {
+      const currentLine = this.lines[this.lineIndex];
+      if (!this.isDeleting) {
+        this.typewriterText = currentLine.substring(0, this.typewriterText.length + 1);
+        if (this.typewriterText === currentLine) {
+          this.typewriterTimer = setTimeout(() => {
+            this.isDeleting = true;
+            this.runTypewriter();
+          }, 1800);
+          return;
+        }
+      } else {
+        this.typewriterText = currentLine.substring(0, this.typewriterText.length - 1);
+        if (this.typewriterText === '') {
+          this.isDeleting = false;
+          this.lineIndex = (this.lineIndex + 1) % this.lines.length;
+          this.typewriterTimer = setTimeout(this.runTypewriter, 400);
+          return;
+        }
+      }
+      this.typewriterTimer = setTimeout(this.runTypewriter, this.isDeleting ? 40 : 80);
     },
   },
 };
@@ -81,50 +89,23 @@ export default {
 <style scoped lang="scss">
 @import 'src/css/IndexStyle.scss';
 
-.rotating-text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-  margin-bottom: 5rem;
-
-  .rotating-text {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    color: $accent;
-    animation: fadeInOut 2s ease-in-out infinite;
-    margin: 0;
-    transform: rotate(-25deg);
-  }
+.cursor {
+  display: inline-block;
+  color: $accent;
+  font-weight: 100;
+  animation: blink 0.7s step-end infinite;
+  margin-left: 2px;
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) rotate(-25deg);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(0) rotate(-25deg);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(0) rotate(-25deg);
-  }
+@keyframes blink {
+
+  0%,
   100% {
-    opacity: 0;
-    transform: translateY(-20px) rotate(-25deg);
+    opacity: 1;
   }
-}
 
-@media screen and (max-width: 710px) {
-  .rotating-text-container {
-    min-height: 150px;
-
-    .rotating-text {
-      font-size: 2.5rem;
-    }
+  50% {
+    opacity: 0;
   }
 }
 </style>
