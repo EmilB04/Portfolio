@@ -119,7 +119,7 @@ export default configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Notify'],
+      plugins: ['Meta', 'Notify'],
     },
 
     // animations: 'all', // --- includes all animations

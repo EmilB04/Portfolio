@@ -1,11 +1,64 @@
 @import 'src/css/quasar.variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
+// ─── CSS Custom Properties ──────────────────────────────────────────────────
+// Dark mode (default)
+:root {
+  --c-bg: #{$background};
+  --c-surface: rgba(1, 6, 38, 0.6);
+  --c-surface-card: rgba(1, 6, 38, 0.24);
+  --c-text: #ffffff;
+  --c-text-muted: rgba(255, 255, 255, 0.75);
+  --c-text-subtle: rgba(255, 255, 255, 0.5);
+  --c-border: rgba(255, 255, 255, 0.1);
+  --c-border-hover: rgba(#{$accent}, 0.4);
+  --c-accent: #{$accent};
+  --c-nav-bg: rgba(1, 6, 38, 0.75);
+  --c-mobile-menu-bg: rgba(1, 6, 38, 0.98);
+  --c-backdrop: rgba(0, 0, 0, 0.55);
+  --c-link: #ffffff;
+  --c-heading-gradient-start: #{$accent};
+  --c-heading-gradient-end: transparent;
+  --c-stars-bg: radial-gradient(circle at bottom, #020111 0%, #000 100%);
+}
+
+// Light mode overrides
+html.light-mode {
+  --c-bg: #f7f4f1;
+  --c-surface: rgba(255, 252, 248, 0.82);
+  --c-surface-card: rgba(255, 252, 248, 0.96);
+  --c-text: #1c1025;
+  --c-text-muted: rgba(28, 16, 37, 0.68);
+  --c-text-subtle: rgba(28, 16, 37, 0.44);
+  --c-border: rgba(28, 16, 37, 0.09);
+  --c-border-hover: rgba(#{$accent}, 0.45);
+  --c-accent: #{$accent};
+  --c-nav-bg: rgba(247, 244, 241, 0.88);
+  --c-mobile-menu-bg: rgba(247, 244, 241, 0.99);
+  --c-backdrop: rgba(28, 16, 37, 0.35);
+  --c-link: #1c1025;
+  --c-heading-gradient-start: #{$accent};
+  --c-heading-gradient-end: rgba(28, 16, 37, 0);
+  --c-stars-bg: radial-gradient(
+    ellipse at bottom,
+    #e8cdd8 0%,
+    #ede4f0 45%,
+    #f7f4f1 100%
+  );
+}
+// ────────────────────────────────────────────────────────────────────────────
+
+body,
+body.body--dark,
+body.body--light {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  background-color: $background;
+  background-color: var(--c-bg) !important;
+  color: var(--c-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 :root {
@@ -38,32 +91,34 @@ button {
 }
 
 h1 {
-  color: white;
+  color: var(--c-text);
   font-size: 3rem;
   font-weight: 500;
   line-height: 1.4;
 }
 
 h2 {
-  color: white;
+  color: var(--c-text);
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.4;
 }
 
 h3 {
-  color: white;
+  color: var(--c-text);
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.4;
 }
+
 p {
-  color: white;
+  color: var(--c-text);
   font-size: 1.2rem;
   line-height: 1.6;
 }
+
 a {
-  color: black;
+  color: var(--c-link);
   text-decoration: none;
   transition: color 0.3s ease;
 }

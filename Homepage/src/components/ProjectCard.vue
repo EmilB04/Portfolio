@@ -1,29 +1,17 @@
 <template>
-  <q-card
-    @click="navigateTo"
-    flat
-    bordered
-    class="project-card bg-transparent text-primary cursor-pointer">
+  <q-card @click="navigateTo" flat bordered class="project-card bg-transparent text-primary cursor-pointer">
     <q-card-section class="column items-center text-center q-pa-lg full-height">
       <q-icon name="folder_open" size="3rem" class="text-accent q-mb-md" />
 
       <div class="col-grow full-width">
         <h3 class="text-h5 text-weight-medium q-mb-md">{{ course.title }}</h3>
-        <p class="project-description text-body1 text-grey-4 q-mb-lg">
+        <p class="project-description text-body1 q-mb-lg" style="color: var(--c-text-muted)">
           {{ course.description }}
         </p>
       </div>
 
-      <q-btn
-        unelevated
-        rounded
-        no-caps
-        color="accent"
-        text-color="black"
-        class="q-px-lg q-py-sm"
-        label="Les mer"
-        icon-right="arrow_forward"
-      />
+      <q-btn unelevated rounded no-caps color="accent" text-color="black" class="q-px-lg q-py-sm" label="Les mer"
+        icon-right="arrow_forward" />
     </q-card-section>
   </q-card>
 </template>
@@ -57,7 +45,7 @@ export default {
 .project-card {
   min-height: 28rem;
   backdrop-filter: blur(10px);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: var(--c-border);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
 }

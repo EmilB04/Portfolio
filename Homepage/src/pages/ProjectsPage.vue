@@ -32,11 +32,30 @@
 </template>
 
 <script setup scoped lang="ts">
+import { useMeta } from 'quasar';
 import ProjectsList from 'src/scripts/ProjectsList.js';
 import ProjectCard from 'src/components/ProjectCard.vue';
 import FooterSection from 'src/components/FooterSection.vue';
 import ShootingStars from 'src/components/ShootingStars.vue';
 import NavSection from 'src/components/NavSection.vue';
+
+useMeta({
+  title: 'Prosjekter - Emil Berglund',
+  meta: {
+    description: {
+      name: 'description',
+      content: 'Utforsk prosjektene til Emil Berglund - blant annet ChoreChamp (React Native), VarsEL (Java/Vue), PageProbe (.NET) og mer.',
+    },
+    ogTitle: { property: 'og:title', content: 'Prosjekter - Emil Berglund' },
+    ogDescription: { property: 'og:description', content: 'Se alle prosjektene til Emil Berglund innen webutvikling, mobilapper og backend.' },
+    ogUrl: { property: 'og:url', content: 'https://emilb.no/projects' },
+    twitterTitle: { name: 'twitter:title', content: 'Prosjekter - Emil Berglund' },
+    twitterDescription: { name: 'twitter:description', content: 'Emil Berglunds prosjekter innen webutvikling, mobilapper og backend.' },
+  },
+  link: {
+    canonical: { rel: 'canonical', href: 'https://emilb.no/projects' },
+  },
+});
 </script>
 
 <style scoped lang="scss">

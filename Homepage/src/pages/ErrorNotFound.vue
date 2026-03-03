@@ -1,5 +1,5 @@
 <template>
-  <div class="fullscreen error-page text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen error-page text-center q-pa-md flex flex-center">
     <div>
       <div class="error-code">
         404

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="nb">
 
 <head>
   <title>
@@ -9,10 +9,11 @@
   <meta charset="utf-8">
   <meta name="google-site-verification" content="LkuHAnz3ky-SOwublXFwOmO6FjRLPBRz_bc6IFUU--s" />
   <meta name="description" content="<%= productDescription %>">
-  <meta name="keywords" content="Emil Berglund, EmilB04, full-stack developer, front-end developer, back-end developer, computer science, Vue.js, React, Quasar, web development, mobile apps, portfolio, Norway, Halden, Moss, Ostfold, hiof, bachelor, student, JavaScript, TypeScript, .NET, C#, Java, Python, html, css, react, vue">
+  <meta name="keywords"
+    content="Emil Berglund, EmilB04, full-stack developer, front-end developer, back-end developer, computer science, Vue.js, React, Quasar, web development, mobile apps, portfolio, Norway, Halden, Moss, Ostfold, hiof, bachelor, student, JavaScript, TypeScript, .NET, C#, Java, Python, html, css, react, vue">
   <meta name="author" content="Emil Berglund">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
+  <meta name="language" content="Norwegian">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport"
@@ -24,7 +25,8 @@
   <meta property="og:description" content="<%= productDescription %>">
   <meta property="og:url" content="https://emilb.pages.dev">
   <meta property="og:site_name" content="Emil Berglund Portfolio">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:image" content="https://emilb.pages.dev/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -45,6 +47,60 @@
   <link rel="canonical" href="https://emilb.pages.dev">
 
   <link rel="icon" type="image/ico" href="src/assets/icons/DALL-e.webp">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://emilb.no/#person",
+        "name": "Emil Berglund",
+        "givenName": "Emil",
+        "familyName": "Berglund",
+        "url": "https://emilb.no",
+        "image": "https://emilb.no/images/og-image.jpg",
+        "jobTitle": "Computer Science Student & Full-Stack Developer",
+        "description": "Emil Berglund er en informatikkstudent ved HiØ i Halden som spesialiserer seg innen webutvikling, Vue.js, React og full-stack utvikling.",
+        "email": "mailto:emil.berglund@live.no",
+        "nationality": "Norwegian",
+        "sameAs": [
+          "https://github.com/EmilB04",
+          "https://www.linkedin.com/in/emilber/"
+        ],
+        "knowsAbout": [
+          "Vue.js", "Quasar", "React", "React Native",
+          "TypeScript", "JavaScript", "HTML", "CSS", "SCSS",
+          "Java", "C#", ".NET", "Python",
+          "Web Development", "Mobile Development", "Full-Stack Development",
+          "Software Engineering", "Computer Science"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Høgskolen i Østfold",
+          "alternateName": "HiØ",
+          "url": "https://www.hiof.no"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Halden",
+          "addressRegion": "Østfold",
+          "addressCountry": "NO"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://emilb.no/#website",
+        "url": "https://emilb.no",
+        "name": "Emil Berglund - Full-Stack Developer Portfolio",
+        "description": "Portefølje til Emil Berglund - informatikkstudent og full-stack utvikler fra Halden, Norge.",
+        "inLanguage": ["nb-NO", "en-US"],
+        "author": { "@id": "https://emilb.no/#person" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

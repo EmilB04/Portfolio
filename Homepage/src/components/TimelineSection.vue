@@ -60,7 +60,7 @@ export default {
 @import 'src/css/quasar.variables.scss';
 
 .timeline-section {
-  color: white;
+  color: var(--c-text);
 
   h2 {
     color: $accent;
@@ -82,7 +82,7 @@ export default {
   }
 
   .course-item {
-    background-color: rgba(1, 6, 38, 0.6);
+    background-color: var(--c-surface);
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -101,7 +101,7 @@ export default {
 
       h4 {
         margin: 0 0 0.25rem 0;
-        color: white;
+        color: var(--c-text);
         font-size: 1.25rem;
         transition: color 0.2s ease-in-out;
       }
@@ -120,7 +120,7 @@ export default {
 
     .course-description {
       margin: 0;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--c-text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
     }

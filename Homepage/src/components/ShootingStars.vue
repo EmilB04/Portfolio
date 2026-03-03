@@ -89,6 +89,7 @@ export default {
   width: 100vw;
   height: 100vh;
   z-index: -99;
-  background: radial-gradient(circle at bottom, #020111 0%, #000 100%);
+  background: var(--c-stars-bg);
+  transition: background 0.3s ease;
 }
 </style>

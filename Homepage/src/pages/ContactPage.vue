@@ -3,13 +3,12 @@
     <header>
       <NavSection />
     </header>
-    <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
 
-    <main class="full-screen contact-section">
+    <main class="full-screen contact-section justify-start">
       <div class="content">
         <section data-aos="fade-up">
-          <h1 class="text-white text-center q-mb-lg">La oss komme i kontakt</h1>
-          <p class="text-center text-white q-mb-xl intro-text">
+          <h1 class="text-center q-mb-lg">La oss komme i kontakt</h1>
+          <p class="text-center q-mb-xl intro-text">
             Har du spørsmål eller vil du samarbeide? Ta gjerne kontakt!
           </p>
 
@@ -68,6 +67,25 @@ import ShootingStars from 'src/components/ShootingStars.vue';
 import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
 export default {
   name: 'ContactPage',
+  meta() {
+    return {
+      title: 'Kontakt - Emil Berglund',
+      meta: {
+        description: {
+          name: 'description',
+          content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post. Full-stack utvikler og informatikkstudent fra Halden, Norge.',
+        },
+        ogTitle: { property: 'og:title', content: 'Kontakt Emil Berglund - Full-Stack Developer' },
+        ogDescription: { property: 'og:description', content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post.' },
+        ogUrl: { property: 'og:url', content: 'https://emilb.no/contact' },
+        twitterTitle: { name: 'twitter:title', content: 'Kontakt Emil Berglund' },
+        twitterDescription: { name: 'twitter:description', content: 'Ta kontakt med Emil Berglund via LinkedIn, GitHub eller e-post.' },
+      },
+      link: {
+        canonical: { rel: 'canonical', href: 'https://emilb.no/contact' },
+      },
+    };
+  },
   components: {
     ShootingStars,
     FooterSection,

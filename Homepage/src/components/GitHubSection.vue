@@ -28,13 +28,8 @@
             <footer class="repo-footer">
               <span v-if="repo.language" class="language">{{
                 repo.language
-              }}</span>
-              <a
-                :href="repo.html_url"
-                target="_blank"
-                @click.stop
-                class="repo-link"
-              >
+                }}</span>
+              <a :href="repo.html_url" target="_blank" @click.stop class="repo-link">
                 Se repository
                 <q-icon name="launch" size="xs" />
               </a>
@@ -46,13 +41,8 @@
         <q-spinner color="accent" size="3rem" />
         <p>Laster repositories...</p>
       </div>
-      <q-btn
-        class="e-button q-mt-lg"
-        unelevated
-        :href="githubProfileUrl"
-        label="Gå til GitHub"
-        target="_blank"
-      />
+      <q-btn class="e-button q-mt-lg" unelevated rounded no-caps color="accent" text-color="black"
+        :href="githubProfileUrl" label="Gå til GitHub" target="_blank" />
     </div>
   </section>
 </template>

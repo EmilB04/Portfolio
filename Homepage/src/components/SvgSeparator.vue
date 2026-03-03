@@ -20,7 +20,7 @@
         <use xlink:href="#gentle-wave" x="50" y="9" fill="#f1376e" />
       </g>
       <g class="parallax4">
-        <use xlink:href="#gentle-wave" x="50" y="6" fill="#020111" />
+        <use xlink:href="#gentle-wave" x="50" y="6" />
       </g>
     </svg>
   </div>
@@ -62,6 +62,7 @@
 
 .parallax4>use {
   animation: move-forever4 4s linear infinite;
+  fill: var(--c-bg);
 }
 
 @keyframes move-forever1 {

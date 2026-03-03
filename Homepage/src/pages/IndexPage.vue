@@ -1,6 +1,6 @@
 <template>
   <q-page class="columm">
-    <header id="top" class="text-white">
+    <header id="top">
       <NavSection />
     </header>
     <!--
@@ -14,11 +14,8 @@
     -->
     <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
     <main class="flex column">
-      <LandingSection
-        :should-use-aos="shouldUseAOS"
-        :profile-picture="ProfilePicture"
-        @scroll-next-section="scrollToNextSection"
-      />
+      <LandingSection :should-use-aos="shouldUseAOS" :profile-picture="ProfilePicture"
+        @scroll-next-section="scrollToNextSection" />
 
       <AboutSection />
       <TimelineSection />
@@ -29,15 +26,9 @@
 
       <GitHubSection />
 
-      <SvgSeparator />
+      <SvgSeparator style="margin-top: 5rem;" />
 
-      <q-btn
-        v-show="showScrollToTop"
-        flat
-        icon="arrow_upward"
-        @click="scrollToTop"
-        class="scroll-btn"
-      />
+      <q-btn v-show="showScrollToTop" flat icon="arrow_upward" @click="scrollToTop" class="scroll-btn" />
 
     </main>
     <footer>
@@ -69,6 +60,25 @@ import ProfilePicture from 'src/assets/images/ProfilePicture_GPT.png';
 
 export default {
   name: 'IndexPage',
+  meta() {
+    return {
+      title: 'Emil Berglund - Full-Stack Developer Portfolio',
+      meta: {
+        description: {
+          name: 'description',
+          content: 'Emil Berglund er en informatikkstudent ved HiØ i Halden og full-stack utvikler. Utforsk prosjekter innen Vue.js, React, Java, C# og mer.',
+        },
+        ogTitle: { property: 'og:title', content: 'Emil Berglund - Full-Stack Developer Portfolio' },
+        ogDescription: { property: 'og:description', content: 'Emil Berglund er en informatikkstudent ved HiØ i Halden og full-stack utvikler. Utforsk prosjekter innen Vue.js, React, Java, C# og mer.' },
+        ogUrl: { property: 'og:url', content: 'https://emilb.no/' },
+        twitterTitle: { name: 'twitter:title', content: 'Emil Berglund - Full-Stack Developer Portfolio' },
+        twitterDescription: { name: 'twitter:description', content: 'Emil Berglund er en informatikkstudent ved HiØ og full-stack utvikler.' },
+      },
+      link: {
+        canonical: { rel: 'canonical', href: 'https://emilb.no/' },
+      },
+    };
+  },
   components: {
     NavSection,
     GitHubSection,

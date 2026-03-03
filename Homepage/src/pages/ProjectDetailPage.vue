@@ -8,7 +8,7 @@
       <main class="flex-col items-center">
         <div class="content">
           <div class="title-section q-mb-md">
-            <h1 class="text-white">{{ project.title }}</h1>
+            <h1>{{ project.title }}</h1>
             <div v-if="project.languages && project.languages.length > 0" class="languages-overview">
               <div v-for="language in project.languages" :key="language" class="language-icon" :title="language">
                 <div v-if="getLanguageIcon(language).startsWith('<svg')" class="icon-svg"
@@ -18,10 +18,10 @@
               </div>
             </div>
           </div>
-          <p class="text-white">{{ project.details }}</p>
+          <p>{{ project.details }}</p>
           <div v-if="mediaItems.length > 0" class="images-container q-mb-md">
             <div class="carousel-wrapper">
-              <div class="swipe-hint text-white text-center q-mb-sm" v-if="mediaItems.length > 1">
+              <div class="swipe-hint text-center q-mb-sm" v-if="mediaItems.length > 1">
                 <q-icon name="swipe" size="sm" class="q-mr-xs" />
                 Sveip eller bruk piler for å navigere ({{ slide + 1 }}/{{ mediaItems.length }})
               </div>
@@ -69,6 +69,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useMeta } from 'quasar';
 import ProjectsList from 'src/scripts/ProjectsList.js';
 import ErrorNotFound from './ErrorNotFound.vue';
 import FooterSection from 'src/components/FooterSection.vue';
@@ -80,6 +81,34 @@ const $q = useQuasar();
 const route = useRoute();
 const slug = route.params.project;
 const project = ProjectsList.find((p) => p.localPath === slug);
+
+useMeta(() => {
+  const title = project
+    ? `${project.title} – Emil Berglund`
+    : 'Prosjekt – Emil Berglund';
+  const description = project
+    ? project.description
+    : 'Prosjektdetaljer fra Emil Berglunds portfolio.';
+  const url = `https://emilb.pages.dev/projects/${slug}`;
+  const image = project?.images?.[0] && project.images[0].startsWith('http')
+    ? project.images[0]
+    : 'https://emilb.pages.dev/images/og-image.jpg';
+  return {
+    title,
+    meta: {
+      description: { name: 'description', content: description },
+      ogTitle: { property: 'og:title', content: title },
+      ogDescription: { property: 'og:description', content: description },
+      ogUrl: { property: 'og:url', content: url },
+      ogImage: { property: 'og:image', content: image },
+      twitterTitle: { name: 'twitter:title', content: title },
+      twitterDescription: { name: 'twitter:description', content: description },
+    },
+    link: {
+      canonical: { rel: 'canonical', href: url },
+    },
+  };
+});
 
 // Carousel slide state
 const slide = ref(0);
@@ -231,7 +260,7 @@ a {
 
   .language-icon {
     position: relative;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--c-border);
     border: 1px solid $accent;
     border-radius: 8px;
     padding: 0.75rem;
