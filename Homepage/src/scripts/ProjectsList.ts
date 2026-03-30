@@ -1,4 +1,3 @@
-
 interface ProjectTypes {
   id: number;
   title: string;
@@ -12,7 +11,6 @@ interface ProjectTypes {
   tags?: string[];
 }
 
-
 const ProjectsList: ProjectTypes[] = [
   {
     id: 0,
@@ -24,7 +22,7 @@ const ProjectsList: ProjectTypes[] = [
       'PageProbe is a simple and extensible .NET 8 library for web crawling and content extraction. It supports HTML parsing, handling of robots.txt, and can extract data such as text, metadata, images, links, and multimedia. Results can be exported to CSV, JSON, XML, or Markdown. The library is designed to be testable and easy to extend, making it suitable for automation, data mining, and content monitoring on websites without APIs.',
     localPath: 'pageprobe',
     url: 'https://github.com/EmilB04/Rammeverk-og-.NET/tree/main/Project/PageProbe',
-    images: ['https://placehold.co/600x400', 'https://placehold.co/300x200'],
+    images: [],
     videos: [],
     tags: [
       '.NET',
@@ -135,7 +133,12 @@ const ProjectsList: ProjectTypes[] = [
       'SkillSwap is a comprehensive web application designed to connect people who want to exchange skills and services. Users can create detailed profiles, post advertisements for services they offer or need, and engage in either skill swapping or paid transactions. The platform features advanced filtering by categories, search functionality, secure messaging system, and a review system that builds trust within the community. Services range from gardening and home maintenance to web design and professional consulting, creating a diverse marketplace for skill exchange.',
     localPath: 'skillswap',
     url: 'https://github.com/EmilB04/SkillSwap',
-    images: [],
+    images: [
+      '/images/projects/SkillSwap/dashboard.png',
+      '/images/projects/SkillSwap/ad.png',
+      '/images/projects/SkillSwap/new_ad.png',
+      '/images/projects/SkillSwap/profile.png',
+    ],
     tags: [
       'web-application',
       'skill-exchange',
