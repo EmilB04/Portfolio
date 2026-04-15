@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import ScrollScript from 'src/scripts/ScrollScript.js';
-import ThemeToggle from 'src/components/ThemeToggle.vue';
+import ScrollScript from 'src/scripts/ScrollScript';
+import ThemeToggle from 'src/components/ui/ThemeToggle.vue';
 
 export default {
   name: 'NavSection',

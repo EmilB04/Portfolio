@@ -1,6 +1,5 @@
 import { ref } from 'vue';
-import { client } from 'src/sanity/client';
-import courseListFallback from 'src/scripts/CourseList.js';
+import courseListFallback from 'src/scripts/CourseList';
 
 interface Course {
   name: string;
@@ -18,39 +17,16 @@ export function useCourses() {
   const courses = ref<CourseSemester[]>([]);
   const loading = ref(true);
   const error = ref<string | null>(null);
-  const usingSanity = ref(false);
 
   const fetchCourses = async () => {
     loading.value = true;
     error.value = null;
 
     try {
-      // Try to fetch from Sanity first
-      const query = `*[_type == "courseSemester"] | order(_createdAt asc) {
-        "semester": title,
-        "courses": courses[]-> {
-          "name": title,
-          "link": url,
-          code,
-          description
-        }
-      }`;
-
-      const sanityData = await client.fetch(query);
-
-      if (sanityData && sanityData.length > 0) {
-        courses.value = sanityData;
-        usingSanity.value = true;
-        console.log('✅ Courses loaded from Sanity');
-      } else {
-        throw new Error('No data from Sanity');
-      }
-    } catch (err) {
-      // Fallback to local scripts
-      console.warn('⚠️ Sanity unavailable, using fallback data for courses:', err);
       courses.value = courseListFallback;
-      usingSanity.value = false;
-      error.value = 'Using local data';
+    } catch (err) {
+      error.value =
+        err instanceof Error ? err.message : 'Failed to load courses';
     } finally {
       loading.value = false;
     }
@@ -60,7 +36,6 @@ export function useCourses() {
     courses,
     loading,
     error,
-    usingSanity,
     fetchCourses,
   };
 }

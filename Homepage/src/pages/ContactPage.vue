@@ -61,10 +61,9 @@
 </template>
 
 <script>
-import FooterSection from 'src/components/FooterSection.vue';
-import NavSection from 'src/components/NavSection.vue';
-import ShootingStars from 'src/components/ShootingStars.vue';
-import ProfilePicture from 'src/assets/images/ProfilePicture.jpg';
+import FooterSection from 'src/components/ui/FooterSection.vue';
+import NavSection from 'src/components/ui/NavSection.vue';
+import ShootingStars from 'src/components/ui/ShootingStars.vue';
 export default {
   name: 'ContactPage',
   meta() {
@@ -95,11 +94,6 @@ export default {
     openLink(url) {
       window.open(url, '_blank');
     },
-  },
-  data() {
-    return {
-      ProfilePicture,
-    };
   },
 };
 </script>

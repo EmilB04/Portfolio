@@ -27,6 +27,15 @@ body {
   }
 
   .contact-section {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: clamp(2rem, 8vh, 6rem);
+    padding-bottom: 2rem;
+
+    @media (max-width: $breakpoint-sm-max) {
+      padding-top: 2rem;
+    }
+
     .intro-text {
       font-size: 1.3rem;
       opacity: 0.9;
@@ -134,6 +143,6 @@ body {
   }
 
   footer {
-    margin-top: 4rem;
+    margin-top: 1.5rem;
   }
 }
