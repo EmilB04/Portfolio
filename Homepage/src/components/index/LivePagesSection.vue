@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import ProjectsList from 'src/scripts/ProjectsList.js';
+import ProjectsList from 'src/scripts/ProjectsList';
 
 const livePages = ProjectsList.filter((project) => project.livePage).map((project) => ({
   title: project.title,

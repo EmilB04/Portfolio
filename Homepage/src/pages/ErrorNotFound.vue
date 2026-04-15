@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import ShootingStars from 'src/components/ShootingStars.vue';
+import ShootingStars from 'src/components/ui/ShootingStars.vue';
 defineOptions({
   name: 'ErrorNotFound'
 });

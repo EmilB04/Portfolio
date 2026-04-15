@@ -33,11 +33,11 @@
 
 <script setup scoped lang="ts">
 import { useMeta } from 'quasar';
-import ProjectsList from 'src/scripts/ProjectsList.js';
+import ProjectsList from 'src/scripts/ProjectsList';
 import ProjectCard from 'src/components/ProjectCard.vue';
-import FooterSection from 'src/components/FooterSection.vue';
-import ShootingStars from 'src/components/ShootingStars.vue';
-import NavSection from 'src/components/NavSection.vue';
+import FooterSection from 'src/components/ui/FooterSection.vue';
+import ShootingStars from 'src/components/ui/ShootingStars.vue';
+import NavSection from 'src/components/ui/NavSection.vue';
 
 useMeta({
   title: 'Prosjekter - Emil Berglund',

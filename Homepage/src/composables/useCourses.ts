@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import courseListFallback from 'src/scripts/CourseList.js';
+import courseListFallback from 'src/scripts/CourseList';
 
 interface Course {
   name: string;

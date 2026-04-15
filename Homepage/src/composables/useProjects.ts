@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import ProjectsListFallback from 'src/scripts/ProjectsList.js';
+import ProjectsListFallback from 'src/scripts/ProjectsList';
 
 interface Project {
   id: number;

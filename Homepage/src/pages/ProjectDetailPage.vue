@@ -70,12 +70,12 @@
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useMeta } from 'quasar';
-import ProjectsList from 'src/scripts/ProjectsList.js';
+import ProjectsList from 'src/scripts/ProjectsList';
 import ErrorNotFound from './ErrorNotFound.vue';
-import FooterSection from 'src/components/FooterSection.vue';
+import FooterSection from 'src/components/ui/FooterSection.vue';
 import { useQuasar } from 'quasar';
-import ShootingStars from 'src/components/ShootingStars.vue';
-import NavSection from 'src/components/NavSection.vue';
+import ShootingStars from 'src/components/ui/ShootingStars.vue';
+import NavSection from 'src/components/ui/NavSection.vue';
 
 const $q = useQuasar();
 const route = useRoute();

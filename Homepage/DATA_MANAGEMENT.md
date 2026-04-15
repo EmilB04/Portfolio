@@ -4,9 +4,9 @@ This project uses local script files as the data source.
 
 ## Data Sources
 
-- `/src/scripts/CourseList.js`
-- `/src/scripts/ProjectsList.js`
-- `/src/scripts/WorkComments.js`
+- `/src/scripts/CourseList.ts`
+- `/src/scripts/ProjectsList.ts`
+- `/src/scripts/WorkComments.ts`
 
 ## Architecture
 

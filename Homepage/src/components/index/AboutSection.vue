@@ -29,7 +29,7 @@
       <h3>Som person</h3>
       <article>
         <p>
-          Jeg er {{ new Date().getFullYear() - 2004 }} år gammel og bor i
+          Jeg er {{ age }} år gammel og bor i
           Halden, Norge. Jeg er en person med lidenskap for teknologi og
           et ønske om å lære og vokse. Jeg trives med å oppdage kreative
           løsninger på problemer og liker å eksperimentere med ulike
@@ -54,6 +54,24 @@
 <script>
 export default {
   name: 'AboutSection',
+  computed: {
+    age() {
+      const today = new Date();
+      const birthDate = new Date(2004, 3, 11);
+      let age = today.getFullYear() - birthDate.getFullYear();
+
+      const hasHadBirthdayThisYear =
+        today.getMonth() > birthDate.getMonth() ||
+        (today.getMonth() === birthDate.getMonth() &&
+          today.getDate() >= birthDate.getDate());
+
+      if (!hasHadBirthdayThisYear) {
+        age -= 1;
+      }
+
+      return age;
+    },
+  },
 };
 </script>
 

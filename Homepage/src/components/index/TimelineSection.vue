@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import CourseList from 'src/scripts/CourseList.js';
+import CourseList from 'src/scripts/CourseList';
 import { useQuasar } from 'quasar';
 import { computed } from 'vue';
 

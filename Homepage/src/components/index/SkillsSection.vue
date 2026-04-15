@@ -3,7 +3,7 @@
     <div class="content">
       <h2>Kunnskap</h2>
       <p>
-        Som datastudent tilegner man seg bred kunnskap innen
+        Som informatikk student tilegner man seg bred kunnskap innen
         informasjonsteknologi. Under kan du se en oversikt.
       </p>
       <section class="skills-container">
@@ -30,12 +30,7 @@
             <p>Node.js</p>
           </div>
           <div class="skill">
-            <img
-              :src="quasarLogo"
-              alt=""
-              class="q-ma-none q-pa-none self-center"
-              style="width: 21px; height: 24px"
-            />
+            <img :src="quasarLogo" alt="" class="q-ma-none q-pa-none self-center" style="width: 21px; height: 24px" />
             <p>Quasar</p>
           </div>
           <div class="skill">
@@ -59,12 +54,8 @@
             <p>JavaScript</p>
           </div>
           <div class="skill">
-            <img
-              :src="typeScriptLogo"
-              alt=""
-              class="q-ma-none q-pa-none self-center"
-              style="width: 21px; height: 24px; color: #007acc"
-            />
+            <img :src="typeScriptLogo" alt="" class="q-ma-none q-pa-none self-center"
+              style="width: 21px; height: 24px; color: #007acc" />
             <p>TypeScript</p>
           </div>
           <div class="skill">
