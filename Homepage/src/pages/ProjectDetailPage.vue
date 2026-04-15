@@ -5,7 +5,7 @@
         <NavSection />
       </header>
       <q-separator class="bg-white q-mx-auto page-separator" />
-      <main class="flex-col items-center">
+      <main class="full-screen project-detail-section items-center">
         <div class="content">
           <div class="title-section q-mb-md">
             <h1>{{ project.title }}</h1>
@@ -213,6 +213,20 @@ function getLanguageIcon(language) {
 // Page separator styling
 .page-separator {
   max-width: 1280px;
+}
+
+.full-screen {
+  backdrop-filter: blur(5px);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 50px;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-sm-max) {
+    padding-inline: 20px;
+  }
 }
 
 // Project image styling

@@ -3,10 +3,6 @@
     <header id="top">
       <NavSection />
     </header>
-    <!--
-    TODO: Setup Sanity for backend information
-
-    -->
     <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
     <main class="flex column">
       <LandingSection :should-use-aos="shouldUseAOS" :profile-picture="ProfilePicture"

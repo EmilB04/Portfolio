@@ -23,9 +23,9 @@
               <p class="page-description">{{ page.description }}</p>
               <footer class="page-footer">
                 <div class="page-tags">
-                  <span v-for="tag in page.tags" :key="tag" class="tag">{{
-                    tag
-                    }}</span>
+                  <span v-for="tag in page.tags" :key="tag" class="tag">
+                    {{ tag }}
+                  </span>
                 </div>
                 <a :href="page.url" target="_blank" rel="noopener noreferrer" @click.stop class="page-link">
                   Besøk siden
@@ -41,20 +41,21 @@
 </template>
 
 <script>
+import ProjectsList from 'src/scripts/ProjectsList.js';
+
+const livePages = ProjectsList.filter((project) => project.livePage).map((project) => ({
+  title: project.title,
+  description: project.description,
+  url: project.livePage,
+  image: project.images?.[0],
+  tags: project.languages ?? project.tags ?? [],
+}));
+
 export default {
   name: 'LivePagesSection',
   data() {
     return {
-      livePages: [
-        {
-          title: 'VarsEL',
-          description:
-            'Et åpent kildekode-prosjekt for enkel visning og henting av strømpriser i Norge. Henter data fra hvakosterstrømmen.no og viser priser per time.',
-          url: 'https://varsel.pages.dev',
-          image: '/images/projects/VarsEL/dashboard.png',
-          tags: ['Vue', 'Quasar', 'Java', 'Strømpriser'],
-        },
-      ],
+      livePages,
     };
   },
   methods: {
