@@ -23,9 +23,9 @@
               <p class="page-description">{{ page.description }}</p>
               <footer class="page-footer">
                 <div class="page-tags">
-                  <span v-for="tag in page.tags" :key="tag" class="tag">
-                    {{ tag }}
-                  </span>
+                  <span v-for="tag in page.tags" :key="tag" class="tag">{{
+                    tag
+                    }}</span>
                 </div>
                 <a :href="page.url" target="_blank" rel="noopener noreferrer" @click.stop class="page-link">
                   Besøk siden
@@ -41,21 +41,36 @@
 </template>
 
 <script>
-import ProjectsList from 'src/scripts/ProjectsList';
-
-const livePages = ProjectsList.filter((project) => project.livePage).map((project) => ({
-  title: project.title,
-  description: project.description,
-  url: project.livePage,
-  image: project.images?.[0],
-  tags: project.languages ?? project.tags ?? [],
-}));
-
 export default {
   name: 'LivePagesSection',
   data() {
     return {
-      livePages,
+      livePages: [
+        {
+          title: 'VarsEL',
+          description:
+            'Et åpent kildekode-prosjekt for enkel visning og henting av strømpriser i Norge. Henter data fra hvakosterstrømmen.no og viser priser per time.',
+          url: 'https://varsel.pages.dev',
+          image: '/images/projects/VarsEL/landing.png',
+          tags: ['Vue', 'Quasar', 'Java', 'Strømpriser'],
+        },
+        {
+          title: 'HangBot',
+          description:
+            'Et React-basert hangman-spill der en bot genererer ordet, og spillerne konkurrerer på en vedvarende leaderboard.',
+          url: 'https://hangbot.pages.dev/',
+          image: '/images/projects/HangBot/landing.png',
+          tags: ['React', 'Vite', 'Tailwind CSS', 'Leaderboard'],
+        },
+        {
+          title: 'FleetBot',
+          description:
+            'Et Battleship-spill der du møter en AI-motstander, med global leaderboard og Cloudflare D1 i bakgrunnen.',
+          url: 'https://fleetbot.pages.dev/',
+          image : '/images/projects/FleetBot/landing.png',
+          tags: ['React', 'Cloudflare Pages', 'D1', 'Battleship'],
+        },
+      ],
     };
   },
   methods: {
