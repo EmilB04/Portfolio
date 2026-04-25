@@ -3,11 +3,13 @@
     <header id="top">
       <NavSection />
     </header>
-    <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
     <main class="flex column">
       <LandingSection :should-use-aos="shouldUseAOS" @scroll-next-section="scrollToNextSection" />
 
       <AboutSection />
+
+      <LiveDomainSection />
+
       <TimelineSection />
 
       <ProjectsSection :projects="[ChoreChamp, VarsEL]" />
@@ -47,6 +49,7 @@ import AboutSection from 'src/components/index/AboutSection.vue';
 import ProjectsSection from 'src/components/index/ProjectsSection.vue';
 import SkillsSection from 'src/components/index/SkillsSection.vue';
 import LivePagesSection from 'src/components/index/LivePagesSection.vue';
+import LiveDomainSection from 'src/components/index/LiveDomainSection.vue';
 
 
 export default {
@@ -82,6 +85,7 @@ export default {
     ProjectsSection,
     SkillsSection,
     LivePagesSection,
+    LiveDomainSection,
   },
   mixins: [ScrollScript, ProjectsList],
   computed: {

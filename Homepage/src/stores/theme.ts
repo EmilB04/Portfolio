@@ -22,9 +22,8 @@ export const useThemeStore = defineStore('theme', {
       if (saved) {
         this.isDark = saved === 'dark';
       } else {
-        // Respect system preference on first visit
-        this.isDark = !window.matchMedia('(prefers-color-scheme: light)')
-          .matches;
+        // Default to dark mode on first visit
+        this.isDark = true;
       }
       this._apply();
     },
