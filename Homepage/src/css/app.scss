@@ -5,6 +5,7 @@
 // Dark mode (default)
 :root {
   --c-bg: #{$background};
+  --c-bg-opacity: #040409;
   --c-surface: rgba(1, 6, 38, 0.6);
   --c-surface-card: rgba(1, 6, 38, 0.24);
   --c-text: #ffffff;
@@ -25,6 +26,7 @@
 // Light mode overrides
 html.light-mode {
   --c-bg: #f7f4f1;
+  --c-bg-opacity: rgb(220, 204, 221);
   --c-surface: rgba(255, 252, 248, 0.82);
   --c-surface-card: rgba(255, 252, 248, 0.96);
   --c-text: #1c1025;

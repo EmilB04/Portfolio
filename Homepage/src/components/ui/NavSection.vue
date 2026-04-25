@@ -64,8 +64,10 @@ export default {
       activeSection: '',
       navItems: [
         { label: 'Om meg', section: '.about-section' },
+        { label: 'Domener', section: '.live-domain-section' },
         { label: 'Tidslinje', section: '.timeline-section' },
         { label: 'Prosjekter', section: '.projects-section' },
+        { label: 'Sider', section: '.live-pages-section' },
         { label: 'Kunnskap', section: '.skills-section' },
         { label: 'GitHub', section: '.gitHub-section' },
       ],
@@ -107,12 +109,15 @@ export default {
 <style lang="scss" scoped>
 @import 'src/css/quasar.variables.scss';
 
+// ── Section shell ─────────────────────────────────────────────────────────────
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
-  width: 100%;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
 
   &.scrolled {
     background: var(--c-nav-bg);
@@ -122,6 +127,7 @@ export default {
   }
 }
 
+// ── Nav inner ─────────────────────────────────────────────────────────────────
 .nav-inner {
   display: flex;
   align-items: center;
@@ -132,7 +138,7 @@ export default {
   gap: 1rem;
 }
 
-// Logo
+// ── Logo ──────────────────────────────────────────────────────────────────────
 .nav-logo {
   font-size: 1.15rem;
   font-weight: 700;
@@ -151,7 +157,7 @@ export default {
   }
 }
 
-// Desktop links
+// ── Desktop links ─────────────────────────────────────────────────────────────
 .nav-links {
   display: flex;
   align-items: center;
@@ -198,7 +204,7 @@ export default {
   }
 }
 
-// Right side
+// ── Right side ────────────────────────────────────────────────────────────────
 .nav-right {
   display: flex;
   align-items: center;
@@ -252,7 +258,7 @@ export default {
   }
 }
 
-// Hamburger
+// ── Hamburger ─────────────────────────────────────────────────────────────────
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -261,19 +267,31 @@ export default {
   gap: 5px;
   width: 36px;
   height: 36px;
-  background: none;
-  border: none;
+  background: var(--c-border);
+  border: 1px solid transparent;
+  border-radius: 50%;
   cursor: pointer;
   padding: 4px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background: rgba($accent, 0.15);
+    border-color: rgba($accent, 0.4);
+    transform: scale(1.08);
+  }
 
   span {
     display: block;
-    width: 22px;
+    width: 16px;
     height: 2px;
     background: var(--c-text);
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
     transform-origin: center;
+
+    &:nth-child(2) {
+      width: 12px; // shorter middle line for style
+    }
   }
 }
 
@@ -284,59 +302,105 @@ export default {
   width: 36px;
   height: 36px;
   background: var(--c-border);
-  border: 1px solid var(--c-border);
+  border: 1px solid transparent;
   border-radius: 50%;
   color: var(--c-text);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-  z-index: 200;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  z-index: 300; // above the drawer
 
   &:hover {
     background: rgba($accent, 0.15);
-    border-color: var(--c-accent);
+    border-color: rgba($accent, 0.4);
     color: var(--c-accent);
+    transform: rotate(90deg) scale(1.08);
   }
 }
 
-// Mobile menu – right-side panel
+// ── Mobile backdrop ───────────────────────────────────────────────────────────
 .mobile-backdrop {
   position: fixed;
   inset: 0;
-  background: var(--c-backdrop);
-  z-index: 198;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 250;
 }
 
+// ── Mobile drawer ─────────────────────────────────────────────────────────────
 .mobile-menu {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(100%, 320px);
+  width: min(80%, 300px);
   display: flex;
   flex-direction: column;
-  padding: 5rem 1.5rem 2rem;
-  gap: 0.25rem;
-  background: var(--c-mobile-menu-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-left: 1px solid var(--c-border);
-  z-index: 199;
+  gap: 0;
+  z-index: 300;
   overflow-y: auto;
+
+  // Frosted glass panel
+  background: var(--c-mobile-menu-bg, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-left: 1px solid var(--c-border);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.18);
+
+  // Header area with close btn spacing
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+
+  .body--dark & {
+    background: rgba(18, 18, 28, 0.9);
+  }
+}
+
+// Drawer header label
+.mobile-menu::before {
+  content: 'Navigasjon';
+  display: block;
+  position: absolute;
+  top: 1.4rem;
+  left: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  opacity: 0.5;
 }
 
 .mobile-link {
   background: none;
   border: none;
   color: var(--c-text-muted);
-  font-size: $e-button-font-size;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.75rem 0.5rem;
+  padding: 1rem 1.5rem;
   text-align: left;
   cursor: pointer;
   border-bottom: 1px solid var(--c-border);
-  transition: color 0.2s, padding-left 0.2s;
+  transition: color 0.2s, background 0.2s, padding-left 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  // Accent left bar on hover
+  &::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 1rem;
+    border-radius: 3px;
+    background: var(--c-accent);
+    opacity: 0;
+    transform: scaleY(0.4);
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
 
   &:last-of-type {
     border-bottom: none;
@@ -344,25 +408,34 @@ export default {
 
   &:hover {
     color: var(--c-text);
-    padding-left: 1rem;
+    background: rgba($accent, 0.06);
+    padding-left: 1.75rem;
+
+    &::before {
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
 }
 
 .mobile-cta {
-  margin-top: 0.75rem;
+  margin: 1rem 1.5rem 0;
   border-radius: $e-button-border-radius;
   text-align: center;
+  padding: 0.75rem 1rem;
 }
 
-// Transitions
+// ── Transitions ───────────────────────────────────────────────────────────────
 .mobile-panel-enter-active,
 .mobile-panel-leave-active {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease;
 }
 
 .mobile-panel-enter-from,
 .mobile-panel-leave-to {
   transform: translateX(100%);
+  opacity: 0;
 }
 
 .backdrop-fade-enter-active,
@@ -375,10 +448,33 @@ export default {
   opacity: 0;
 }
 
-// Mobile breakpoint
+// ── Mobile breakpoint ─────────────────────────────────────────────────────────
 @media screen and (max-width: 710px) {
+  .site-nav {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+
+    &.scrolled {
+      background: var(--c-nav-bg) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      box-shadow: 0 1px 0 var(--c-border) !important;
+    }
+  }
+
+  .nav-inner {
+    justify-content: flex-end;
+    padding: 0.75rem 1rem;
+  }
+
   .nav-links {
     display: none;
+  }
+
+  .back-btn {
+    margin-right: auto;
   }
 
   .hamburger-btn {
@@ -387,6 +483,9 @@ export default {
 
   .close-btn {
     display: flex;
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
   }
 
   .hide-on-mobile {

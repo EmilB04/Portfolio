@@ -62,7 +62,7 @@
 
 .parallax4>use {
   animation: move-forever4 4s linear infinite;
-  fill: var(--c-bg);
+  fill: var(--c-bg-opacity);
 }
 
 @keyframes move-forever1 {
