@@ -6,7 +6,7 @@
     <q-separator class="bg-white q-mx-auto" style="max-width: 1280px" />
 
     <main class="full-screen projects-section">
-      <div class="content">
+      <div class="content q-pt-xl">
         <section data-aos="fade-up">
           <h1 class="text-white text-center q-mb-lg">Mine prosjekter</h1>
           <p class="text-center text-white q-mb-xl intro-text">
