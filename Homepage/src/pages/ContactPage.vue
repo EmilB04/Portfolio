@@ -13,7 +13,7 @@
           </p>
 
           <div class="row justify-center items-stretch q-col-gutter-lg q-mt-md">
-            <article class="col-12 col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <article class="col-12 col-sm-10 col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="contact-card column items-center justify-between full-height">
                 <div class="icon-wrapper q-mb-md">
                   <q-icon name="fab fa-linkedin" size="4rem" class="text-accent" />
@@ -25,7 +25,7 @@
               </div>
             </article>
 
-            <article class="col-12 col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <article class="col-12 col-sm-10 col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="contact-card column items-center justify-between full-height">
                 <div class="icon-wrapper q-mb-md">
                   <q-icon name="fab fa-github" size="4rem" class="text-accent" />
@@ -37,7 +37,7 @@
               </div>
             </article>
 
-            <article class="col-12 col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <article class="col-12 col-sm-10 col-md-6" data-aos="fade-up" data-aos-delay="300">
               <div class="contact-card column items-center justify-between full-height">
                 <div class="icon-wrapper q-mb-md">
                   <q-icon name="fas fa-envelope" size="4rem" class="text-accent" />

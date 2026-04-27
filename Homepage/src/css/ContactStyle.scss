@@ -1,5 +1,4 @@
 @import 'src/css/quasar.variables.scss';
-@import 'src/css/app.scss';
 
 body {
   color: var(--c-text);
@@ -31,6 +30,12 @@ body {
     justify-content: flex-start;
     padding-top: clamp(2rem, 8vh, 6rem);
     padding-bottom: 2rem;
+
+    .content {
+      width: $max-width;
+      max-width: 100%;
+      margin: 0 auto;
+    }
 
     @media (max-width: $breakpoint-sm-max) {
       padding-top: 2rem;

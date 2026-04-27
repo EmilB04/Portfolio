@@ -4,9 +4,8 @@
       <header>
         <NavSection />
       </header>
-      <q-separator class="bg-white q-mx-auto page-separator" />
       <main class="full-screen project-detail-section items-center">
-        <div class="content">
+        <div class="content q-pt-xl">
           <div class="title-section q-mb-md">
             <h1>{{ project.title }}</h1>
             <div v-if="project.languages && project.languages.length > 0" class="languages-overview">
@@ -221,11 +220,19 @@ function getLanguageIcon(language) {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-inline: 50px;
   overflow: hidden;
 
   @media (max-width: $breakpoint-sm-max) {
     padding-inline: 20px;
+  }
+}
+
+.project-detail-section {
+  .content {
+    width: 100%;
   }
 }
 

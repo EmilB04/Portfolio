@@ -1,6 +1,17 @@
-# emilber (homepage)
+# Emil Berglund Portfolio
 
-A Quasar project.
+Personlig portfolio-nettside bygget med Quasar og Vue 3.
+Nettsiden viser prosjekter, ferdigheter, erfaring og kontaktinformasjon i et responsivt oppsett.
+
+## Live Portfolio
+
+[https://emilb.no](https://emilb.no)
+
+## Naviger til mappen
+
+```bash
+cd homepage
+```
 
 ## Install dependencies
 
@@ -36,7 +47,13 @@ bun run build
 
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-## Portfolio nettside
+## Siste oppdateringer
+
+- Footer modernisert med tydeligere visuell struktur og GitHub-ikon/lenke.
+- Footer bruker nå samme maksbredden som resten av siden for konsekvent layout.
+- Forbedret mobiltilpasning i footer (bedre spacing og sentrert CTA).
+
+## Portfolio-nettside
 
 Dette er kildekoden for min personlige portfolio-nettside, bygget med
 [Quasar Framework](https://quasar.dev/) og Vue.js. Nettsiden presenterer
